@@ -1,0 +1,677 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "OpenAQ Platform",
+    "description": "Largest open-source air quality data platform aggregating historical and real-time air quality data globally. The OpenAQ API provides access to air quality measurements from monitoring stations worldwide.",
+    "version": "2.0.0",
+    "contact": {
+      "name": "OpenAQ Support",
+      "url": "https://docs.openaq.org"
+    },
+    "license": {
+      "name": "CC BY 4.0",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    "termsOfService": "https://openaq.org/terms"
+  },
+  "servers": [
+    {
+      "url": "https://api.openaq.org/v2",
+      "description": "Production API server"
+    }
+  ],
+  "paths": {
+    "/locations": {
+      "get": {
+        "summary": "Get air quality monitoring locations",
+        "description": "Retrieves a list of air quality monitoring locations with their metadata including coordinates, parameters measured, and data availability.",
+        "operationId": "getLocations",
+        "tags": [
+          "Locations"
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results to return (max 1000)",
+            "schema": {
+              "type": "integer",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 1000
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "description": "Filter by country code (ISO 3166-1 alpha-2)",
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Z]{2}$"
+            }
+          },
+          {
+            "name": "city",
+            "in": "query",
+            "description": "Filter by city name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "location",
+            "in": "query",
+            "description": "Filter by location name or ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "parameter",
+            "in": "query",
+            "description": "Filter by parameter (e.g., pm25, pm10, o3, no2, so2, co)",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "pm25",
+                "pm10",
+                "o3",
+                "no2",
+                "so2",
+                "co",
+                "bc"
+              ]
+            }
+          },
+          {
+            "name": "coordinates",
+            "in": "query",
+            "description": "Center point for radius search (latitude,longitude)",
+            "schema": {
+              "type": "string",
+              "pattern": "^-?\\d+\\.\\d+,-?\\d+\\.\\d+$"
+            }
+          },
+          {
+            "name": "radius",
+            "in": "query",
+            "description": "Radius in meters for coordinate-based search (used with coordinates parameter)",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100000
+            }
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "description": "Field to order results by",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "city",
+                "country",
+                "location",
+                "firstUpdated",
+                "lastUpdated"
+              ]
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort order",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "asc"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with list of locations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "example": "openaq-api"
+                        },
+                        "license": {
+                          "type": "string",
+                          "example": "CC BY 4.0"
+                        },
+                        "website": {
+                          "type": "string",
+                          "example": "https://docs.openaq.org/"
+                        },
+                        "page": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "limit": {
+                          "type": "integer",
+                          "example": 100
+                        },
+                        "found": {
+                          "type": "integer",
+                          "example": 50000
+                        }
+                      }
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "example": 12345
+                          },
+                          "country": {
+                            "type": "string",
+                            "example": "US"
+                          },
+                          "city": {
+                            "type": "string",
+                            "example": "Los Angeles"
+                          },
+                          "location": {
+                            "type": "string",
+                            "example": "Downtown LA"
+                          },
+                          "coordinates": {
+                            "type": "object",
+                            "properties": {
+                              "latitude": {
+                                "type": "number",
+                                "example": 34.0522
+                              },
+                              "longitude": {
+                                "type": "number",
+                                "example": -118.2437
+                              }
+                            }
+                          },
+                          "isMobile": {
+                            "type": "boolean",
+                            "example": false
+                          },
+                          "isAnalysis": {
+                            "type": "boolean",
+                            "example": false
+                          },
+                          "parameters": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "integer"
+                                },
+                                "parameter": {
+                                  "type": "string",
+                                  "example": "pm25"
+                                },
+                                "displayName": {
+                                  "type": "string",
+                                  "example": "PM2.5"
+                                },
+                                "unit": {
+                                  "type": "string",
+                                  "example": "µg/m³"
+                                },
+                                "count": {
+                                  "type": "integer",
+                                  "example": 50000
+                                },
+                                "lastValue": {
+                                  "type": "number",
+                                  "example": 12.5
+                                },
+                                "firstUpdated": {
+                                  "type": "string",
+                                  "format": "date-time",
+                                  "example": "2020-01-01T00:00:00Z"
+                                },
+                                "lastUpdated": {
+                                  "type": "string",
+                                  "format": "date-time",
+                                  "example": "2024-01-01T12:00:00Z"
+                                }
+                              }
+                            }
+                          },
+                          "sources": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "type": "string"
+                                },
+                                "url": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/measurements": {
+      "get": {
+        "summary": "Get air quality measurements",
+        "description": "Retrieves air quality measurements from monitoring locations. Returns actual measurement values with timestamps.",
+        "operationId": "getMeasurements",
+        "tags": [
+          "Measurements"
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results to return (max 1000)",
+            "schema": {
+              "type": "integer",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 10000
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "description": "Filter by country code (ISO 3166-1 alpha-2)",
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Z]{2}$"
+            }
+          },
+          {
+            "name": "city",
+            "in": "query",
+            "description": "Filter by city name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "location",
+            "in": "query",
+            "description": "Filter by location name or ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "location_id",
+            "in": "query",
+            "description": "Filter by location ID",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "parameter",
+            "in": "query",
+            "description": "Filter by parameter (e.g., pm25, pm10, o3, no2, so2, co)",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "pm25",
+                "pm10",
+                "o3",
+                "no2",
+                "so2",
+                "co",
+                "bc"
+              ]
+            }
+          },
+          {
+            "name": "date_from",
+            "in": "query",
+            "description": "Start date for measurements (ISO 8601 format)",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2024-01-01T00:00:00Z"
+            }
+          },
+          {
+            "name": "date_to",
+            "in": "query",
+            "description": "End date for measurements (ISO 8601 format)",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2024-01-31T23:59:59Z"
+            }
+          },
+          {
+            "name": "coordinates",
+            "in": "query",
+            "description": "Center point for radius search (latitude,longitude)",
+            "schema": {
+              "type": "string",
+              "pattern": "^-?\\d+\\.\\d+,-?\\d+\\.\\d+$"
+            }
+          },
+          {
+            "name": "radius",
+            "in": "query",
+            "description": "Radius in meters for coordinate-based search",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100000
+            }
+          },
+          {
+            "name": "value_from",
+            "in": "query",
+            "description": "Minimum measurement value",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "value_to",
+            "in": "query",
+            "description": "Maximum measurement value",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "description": "Field to order results by",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "city",
+                "country",
+                "location",
+                "datetime"
+              ],
+              "default": "datetime"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort order",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with measurement data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "example": "openaq-api"
+                        },
+                        "license": {
+                          "type": "string",
+                          "example": "CC BY 4.0"
+                        },
+                        "website": {
+                          "type": "string",
+                          "example": "https://docs.openaq.org/"
+                        },
+                        "page": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "limit": {
+                          "type": "integer",
+                          "example": 100
+                        },
+                        "found": {
+                          "type": "integer",
+                          "example": 5000000
+                        }
+                      }
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "locationId": {
+                            "type": "integer",
+                            "example": 12345
+                          },
+                          "location": {
+                            "type": "string",
+                            "example": "Downtown LA"
+                          },
+                          "parameter": {
+                            "type": "string",
+                            "example": "pm25"
+                          },
+                          "value": {
+                            "type": "number",
+                            "example": 12.5
+                          },
+                          "date": {
+                            "type": "object",
+                            "properties": {
+                              "utc": {
+                                "type": "string",
+                                "format": "date-time",
+                                "example": "2024-01-01T12:00:00Z"
+                              },
+                              "local": {
+                                "type": "string",
+                                "format": "date-time",
+                                "example": "2024-01-01T04:00:00-08:00"
+                              }
+                            }
+                          },
+                          "unit": {
+                            "type": "string",
+                            "example": "µg/m³"
+                          },
+                          "coordinates": {
+                            "type": "object",
+                            "properties": {
+                              "latitude": {
+                                "type": "number",
+                                "example": 34.0522
+                              },
+                              "longitude": {
+                                "type": "number",
+                                "example": -118.2437
+                              }
+                            }
+                          },
+                          "country": {
+                            "type": "string",
+                            "example": "US"
+                          },
+                          "city": {
+                            "type": "string",
+                            "example": "Los Angeles"
+                          },
+                          "isMobile": {
+                            "type": "boolean",
+                            "example": false
+                          },
+                          "isAnalysis": {
+                            "type": "boolean",
+                            "example": false
+                          },
+                          "entity": {
+                            "type": "string",
+                            "example": "governmental"
+                          },
+                          "sensorType": {
+                            "type": "string",
+                            "example": "reference grade"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "integer",
+            "example": 400
+          },
+          "error": {
+            "type": "string",
+            "example": "Bad Request"
+          },
+          "message": {
+            "type": "string",
+            "example": "Invalid parameter value"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Locations",
+      "description": "Operations related to air quality monitoring locations"
+    },
+    {
+      "name": "Measurements",
+      "description": "Operations related to air quality measurements"
+    }
+  ],
+  "externalDocs": {
+    "description": "Full OpenAQ API Documentation",
+    "url": "https://docs.openaq.org/docs/introduction"
+  }
+}

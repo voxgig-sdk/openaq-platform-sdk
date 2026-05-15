@@ -1,0 +1,53 @@
+{
+  "existing": {
+    "location": {
+      "LOCATION00": {
+        "city": "s5a",
+        "coordinate": {},
+        "country": "s5c",
+        "id": "LOCATION00",
+        "is_analysi": true,
+        "is_mobile": false,
+        "location": "s60",
+        "parameter": [],
+        "source": []
+      },
+      "LOCATION01": {
+        "city": "sb4",
+        "coordinate": {},
+        "country": "sb6",
+        "id": "LOCATION01",
+        "is_analysi": true,
+        "is_mobile": false,
+        "location": "sba",
+        "parameter": [],
+        "source": []
+      },
+      "LOCATION02": {
+        "city": "s10e",
+        "coordinate": {},
+        "country": "s110",
+        "id": "LOCATION02",
+        "is_analysi": true,
+        "is_mobile": false,
+        "location": "s114",
+        "parameter": [],
+        "source": []
+      }
+    }
+  },
+  "new": {
+    "location": {
+      "location_ref01": {
+        "city": "s168",
+        "coordinate": {},
+        "country": "s16a",
+        "is_analysi": true,
+        "is_mobile": false,
+        "location": "s16e",
+        "parameter": [],
+        "source": []
+      }
+    }
+  }
+}

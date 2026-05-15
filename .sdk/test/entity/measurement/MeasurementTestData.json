@@ -1,0 +1,70 @@
+{
+  "existing": {
+    "measurement": {
+      "MEASUREMENT00": {
+        "city": "s82",
+        "coordinate": {},
+        "country": "s84",
+        "date": {},
+        "entity": "s86",
+        "is_analysi": false,
+        "is_mobile": true,
+        "location": "s89",
+        "location_id": "LOCATION01",
+        "parameter": "s8b",
+        "sensor_type": "s8c",
+        "unit": "s8d",
+        "value": 142
+      },
+      "MEASUREMENT01": {
+        "city": "s104",
+        "coordinate": {},
+        "country": "s106",
+        "date": {},
+        "entity": "s108",
+        "is_analysi": false,
+        "is_mobile": true,
+        "location": "s10b",
+        "location_id": "LOCATION01",
+        "parameter": "s10d",
+        "sensor_type": "s10e",
+        "unit": "s10f",
+        "value": 272
+      },
+      "MEASUREMENT02": {
+        "city": "s186",
+        "coordinate": {},
+        "country": "s188",
+        "date": {},
+        "entity": "s18a",
+        "is_analysi": false,
+        "is_mobile": true,
+        "location": "s18d",
+        "location_id": "LOCATION01",
+        "parameter": "s18f",
+        "sensor_type": "s190",
+        "unit": "s191",
+        "value": 402
+      }
+    }
+  },
+  "new": {
+    "measurement": {
+      "measurement_ref01": {
+        "city": "s208",
+        "coordinate": {},
+        "country": "s20a",
+        "date": {},
+        "entity": "s20c",
+        "is_analysi": false,
+        "is_mobile": true,
+        "location": "s20f",
+        "location_id": "LOCATION01",
+        "parameter": "s211",
+        "sensor_type": "s212",
+        "unit": "s213",
+        "value": 532
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "OpenAQ Support"
+        url: "https://docs.openaq.org"
+      }
+      description: "Largest open-source air quality data platform aggregating historical and real-time air quality data globally. The OpenAQ API provides access to air quality measurements from monitoring stations worldwide."
+      license: {
+        name: "CC BY 4.0"
+        url: "https://creativecommons.org/licenses/by/4.0/"
+      }
+      servers: [
+        {
+          description: "Production API server"
+          url: "https://api.openaq.org/v2"
+        }
+      ]
+      termsOfService: "https://openaq.org/terms"
+      title: "OpenAQ Platform"
+      version: "2.0.0"
+    }
+  }
+}
+
+}
