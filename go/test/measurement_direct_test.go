@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/openaq-platform-sdk"
-	"github.com/voxgig-sdk/openaq-platform-sdk/core"
+	sdk "github.com/voxgig-sdk/openaq-platform-sdk/go"
+	"github.com/voxgig-sdk/openaq-platform-sdk/go/core"
 )
 
 func TestMeasurementDirect(t *testing.T) {

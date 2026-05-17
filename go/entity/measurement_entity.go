@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/openaq-platform-sdk/core"
+	"github.com/voxgig-sdk/openaq-platform-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/openaq-platform-sdk/go/utility/struct"
 )
 
 type MeasurementEntity struct {

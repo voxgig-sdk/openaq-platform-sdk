@@ -1,10 +1,10 @@
 package voxgigopenaqplatformsdk
 
 import (
-	"github.com/voxgig-sdk/openaq-platform-sdk/core"
-	"github.com/voxgig-sdk/openaq-platform-sdk/entity"
-	"github.com/voxgig-sdk/openaq-platform-sdk/feature"
-	_ "github.com/voxgig-sdk/openaq-platform-sdk/utility"
+	"github.com/voxgig-sdk/openaq-platform-sdk/go/core"
+	"github.com/voxgig-sdk/openaq-platform-sdk/go/entity"
+	"github.com/voxgig-sdk/openaq-platform-sdk/go/feature"
+	_ "github.com/voxgig-sdk/openaq-platform-sdk/go/utility"
 )
 
 // Type aliases preserve external API.
