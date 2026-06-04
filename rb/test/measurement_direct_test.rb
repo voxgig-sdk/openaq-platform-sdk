@@ -62,14 +62,12 @@ def measurement_direct_setup(mockres)
   env = Runner.env_override({
     "OPENAQPLATFORM_TEST_MEASUREMENT_ENTID" => {},
     "OPENAQPLATFORM_TEST_LIVE" => "FALSE",
-    "OPENAQPLATFORM_APIKEY" => "NONE",
   })
 
   live = env["OPENAQPLATFORM_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
-      "apikey" => env["OPENAQPLATFORM_APIKEY"],
     }
     client = OpenaqPlatformSDK.new(merged_opts)
     return {

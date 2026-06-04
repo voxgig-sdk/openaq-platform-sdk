@@ -93,14 +93,12 @@ func locationDirectSetup(mockres any) *locationDirectSetupResult {
 	env := envOverride(map[string]any{
 		"OPENAQPLATFORM_TEST_LOCATION_ENTID": map[string]any{},
 		"OPENAQPLATFORM_TEST_LIVE":    "FALSE",
-		"OPENAQPLATFORM_APIKEY":       "NONE",
 	})
 
 	live := env["OPENAQPLATFORM_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["OPENAQPLATFORM_APIKEY"],
 		}
 		client := sdk.NewOpenaqPlatformSDK(mergedOpts)
 

@@ -119,7 +119,6 @@ func locationBasicSetup(extra map[string]any) *entityTestSetup {
 		"OPENAQPLATFORM_TEST_LOCATION_ENTID": idmap,
 		"OPENAQPLATFORM_TEST_LIVE":      "FALSE",
 		"OPENAQPLATFORM_TEST_EXPLAIN":   "FALSE",
-		"OPENAQPLATFORM_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["OPENAQPLATFORM_TEST_LOCATION_ENTID"])
@@ -130,7 +129,6 @@ func locationBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["OPENAQPLATFORM_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["OPENAQPLATFORM_APIKEY"],
 			},
 			extra,
 		})

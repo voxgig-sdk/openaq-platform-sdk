@@ -92,7 +92,6 @@ def _measurement_basic_setup(extra):
         "OPENAQPLATFORM_TEST_MEASUREMENT_ENTID": idmap,
         "OPENAQPLATFORM_TEST_LIVE": "FALSE",
         "OPENAQPLATFORM_TEST_EXPLAIN": "FALSE",
-        "OPENAQPLATFORM_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +102,6 @@ def _measurement_basic_setup(extra):
     if env.get("OPENAQPLATFORM_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("OPENAQPLATFORM_APIKEY"),
             },
             extra or {},
         ])

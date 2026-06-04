@@ -68,14 +68,12 @@ function location_direct_setup($mockres)
     $env = Runner::env_override([
         "OPENAQPLATFORM_TEST_LOCATION_ENTID" => [],
         "OPENAQPLATFORM_TEST_LIVE" => "FALSE",
-        "OPENAQPLATFORM_APIKEY" => "NONE",
     ]);
 
     $live = $env["OPENAQPLATFORM_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["OPENAQPLATFORM_APIKEY"],
         ];
         $client = new OpenaqPlatformSDK($merged_opts);
         return [
