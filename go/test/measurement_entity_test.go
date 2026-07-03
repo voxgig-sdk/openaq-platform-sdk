@@ -119,6 +119,7 @@ func measurementBasicSetup(extra map[string]any) *entityTestSetup {
 		"OPENAQPLATFORM_TEST_MEASUREMENT_ENTID": idmap,
 		"OPENAQPLATFORM_TEST_LIVE":      "FALSE",
 		"OPENAQPLATFORM_TEST_EXPLAIN":   "FALSE",
+		"OPENAQPLATFORM_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["OPENAQPLATFORM_TEST_MEASUREMENT_ENTID"])
@@ -129,6 +130,7 @@ func measurementBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["OPENAQPLATFORM_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["OPENAQPLATFORM_APIKEY"],
 			},
 			extra,
 		})

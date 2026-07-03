@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'OPENAQ_PLATFORM_TEST_LOCATION_ENTID': idmap,
     'OPENAQ_PLATFORM_TEST_LIVE': 'FALSE',
     'OPENAQ_PLATFORM_TEST_EXPLAIN': 'FALSE',
+    'OPENAQ_PLATFORM_APIKEY': 'NONE',
   })
 
   idmap = env['OPENAQ_PLATFORM_TEST_LOCATION_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new OpenaqPlatformSDK(merge([
       {
+        apikey: env.OPENAQ_PLATFORM_APIKEY,
       },
       extra
     ]))

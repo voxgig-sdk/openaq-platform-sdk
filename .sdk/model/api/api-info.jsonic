@@ -22,28 +22,7 @@ main: {
       termsOfService: "https://openaq.org/terms"
       title: "OpenAQ Platform"
       version: "2.0.0"
-      tagline: "Global open-source air quality data aggregated from sensors and reference monitors worldwide"
-      homepage: "https://openaq.org"
-      docs_url: "https://docs.openaq.org/"
-      license_short: "CC BY 4.0 — free to use with attribution to OpenAQ and upstream data providers"
-      license_md: `- Data is published under the Creative Commons Attribution 4.0 International (CC BY 4.0) licence.
-- Attribution to OpenAQ and the original upstream data providers is required when redistributing or visualising the data.
-- Review the [OpenAQ Terms of Use](https://docs.openaq.org/) for rules on allowable use, intellectual property, and third-party data compliance.`
-      about_md: `[OpenAQ](https://openaq.org) is a non-profit organisation that aggregates open air quality measurements from government monitoring networks, research-grade reference monitors, and low-cost sensor networks into a single public dataset. The API surfaces that aggregated dataset so anyone can query air quality by location, pollutant, or time range.
-
-What you get from the API:
-- Monitoring **locations** worldwide, with coordinates, country/city metadata, and the parameters each location reports.
-- **Measurements** of pollutants such as PM2.5, PM10, O3, NO2, SO2, CO, and BC, with their values, units, and timestamps.
-- Filtering by bounding box, radius/coordinates, date range, source, and parameter.
-
-**Important version note:** this SDK targets the \`/v2\` server URL, but OpenAQ retired the v1 and v2 endpoints on 31 January 2025 — requests to \`/v1\` and \`/v2\` now return HTTP 410 Gone. New integrations should use the [v3 API](https://docs.openaq.org/) at \`https://api.openaq.org/v3\`.
-
-Operational notes: the v3 API requires an [API key](https://docs.openaq.org/using-the-api/api-key) passed on every request; unauthorised requests are rejected. Bulk historical data is also available via the [OpenAQ Open Data on AWS S3 bucket](https://docs.openaq.org/).`
-      entity_desc: {
-        location: "A monitoring site reporting air quality data, with coordinates, country, and the list of pollutants it measures — exposed under `/v2/locations` (and `/v2/locations/{id}` for a single site)."
-        measurement: "An individual pollutant reading (value, unit, timestamp, parameter) from a monitoring location — exposed under `/v2/measurements`."
-      }
-      auth: false
     }
   }
 }
+

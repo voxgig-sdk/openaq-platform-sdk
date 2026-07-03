@@ -79,12 +79,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'OPENAQPLATFORM_TEST_LOCATION_ENTID': {},
     'OPENAQPLATFORM_TEST_LIVE': 'FALSE',
+    'OPENAQPLATFORM_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.OPENAQPLATFORM_TEST_LIVE
 
   if (live) {
     const client = new OpenaqPlatformSDK({
+      apikey: env.OPENAQPLATFORM_APIKEY,
     })
 
     let idmap: any = env['OPENAQPLATFORM_TEST_LOCATION_ENTID']

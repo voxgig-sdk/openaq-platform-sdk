@@ -61,12 +61,14 @@ def _location_direct_setup(mockres):
     env = runner.env_override({
         "OPENAQPLATFORM_TEST_LOCATION_ENTID": {},
         "OPENAQPLATFORM_TEST_LIVE": "FALSE",
+        "OPENAQPLATFORM_APIKEY": "NONE",
     })
 
     live = env.get("OPENAQPLATFORM_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("OPENAQPLATFORM_APIKEY"),
         }
         client = OpenaqPlatformSDK(merged_opts)
         return {
