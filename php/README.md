@@ -10,7 +10,7 @@ The PHP SDK for the OpenaqPlatform API — an entity-oriented client using PHP c
 
 ## Install
 ```bash
-composer require voxgig/openaq-platform-sdk
+composer require voxgig-sdk/openaq-platform
 ```
 
 

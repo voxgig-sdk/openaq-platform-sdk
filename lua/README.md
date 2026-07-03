@@ -10,7 +10,7 @@ The Lua SDK for the OpenaqPlatform API — an entity-oriented client using Lua c
 
 ## Install
 ```bash
-luarocks install openaq-platform-sdk
+luarocks install voxgig-sdk-openaq-platform
 ```
 
 If the module is not yet published, add the source directory to

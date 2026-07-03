@@ -10,7 +10,7 @@ The TypeScript SDK for the OpenaqPlatform API — a type-safe, entity-oriented c
 
 ## Install
 ```bash
-npm install openaq-platform
+npm install @voxgig-sdk/openaq-platform
 ```
 ## Tutorial: your first API call
 

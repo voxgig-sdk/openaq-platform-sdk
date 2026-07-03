@@ -10,13 +10,13 @@ The Ruby SDK for the OpenaqPlatform API — an entity-oriented client using idio
 
 ## Install
 ```bash
-gem install openaq-platform-sdk
+gem install voxgig-sdk-openaq-platform
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "openaq-platform-sdk"
+gem "voxgig-sdk-openaq-platform"
 ```
 
 Then run:

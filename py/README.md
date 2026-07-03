@@ -10,7 +10,7 @@ The Python SDK for the OpenaqPlatform API — an entity-oriented client followin
 
 ## Install
 ```bash
-pip install openaq-platform-sdk
+pip install voxgig-sdk-openaq-platform
 ```
 
 Or install from source:
