@@ -121,7 +121,7 @@ Alias for `OpenaqPlatformSDK.test()`.
 ## LocationEntity
 
 ```ts
-const location = client.location
+const location = client.Location()
 ```
 
 ### Fields
@@ -145,7 +145,7 @@ const location = client.location
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.location.list()
+const results = await client.Location().list()
 ```
 
 ### Common Methods
@@ -179,7 +179,7 @@ Return a copy of the entity options.
 ## MeasurementEntity
 
 ```ts
-const measurement = client.measurement
+const measurement = client.Measurement()
 ```
 
 ### Fields
@@ -207,7 +207,7 @@ const measurement = client.measurement
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.measurement.list()
+const results = await client.Measurement().list()
 ```
 
 ### Common Methods

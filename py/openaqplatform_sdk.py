@@ -220,41 +220,21 @@ class OpenaqPlatformSDK:
         }
 
 
-    @property
-    def location(self):
-        """Idiomatic facade: client.location.list() / client.location.load({"id": ...})."""
-        from entity.location_entity import LocationEntity
-        cached = getattr(self, "_location", None)
-        if cached is None:
-            cached = LocationEntity(self, None)
-            self._location = cached
-        return cached
-
-    def Location(self, data=None):
-        # Deprecated: use client.location instead.
+    def Location(self, data=None) -> "LocationEntity":
+        """Entity factory: client.Location().list({}) / client.Location().load({"id": ...})."""
         from entity.location_entity import LocationEntity
         return LocationEntity(self, data)
 
 
-    @property
-    def measurement(self):
-        """Idiomatic facade: client.measurement.list() / client.measurement.load({"id": ...})."""
-        from entity.measurement_entity import MeasurementEntity
-        cached = getattr(self, "_measurement", None)
-        if cached is None:
-            cached = MeasurementEntity(self, None)
-            self._measurement = cached
-        return cached
-
-    def Measurement(self, data=None):
-        # Deprecated: use client.measurement instead.
+    def Measurement(self, data=None) -> "MeasurementEntity":
+        """Entity factory: client.Measurement().list({}) / client.Measurement().load({"id": ...})."""
         from entity.measurement_entity import MeasurementEntity
         return MeasurementEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "OpenaqPlatformSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -274,3 +254,10 @@ class OpenaqPlatformSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.location_entity import LocationEntity
+    from entity.measurement_entity import MeasurementEntity

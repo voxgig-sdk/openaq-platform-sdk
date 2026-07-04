@@ -84,7 +84,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## LocationEntity
 
 ```python
-location = client.location
+location = client.Location()
 ```
 
 ### Fields
@@ -108,7 +108,9 @@ location = client.location
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.location.list({})
+results = client.Location().list({})
+for location in results:
+    print(location)
 ```
 
 ### Common Methods
@@ -143,7 +145,7 @@ Return the entity name.
 ## MeasurementEntity
 
 ```python
-measurement = client.measurement
+measurement = client.Measurement()
 ```
 
 ### Fields
@@ -171,7 +173,9 @@ measurement = client.measurement
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.measurement.list({})
+results = client.Measurement().list({})
+for measurement in results:
+    print(measurement)
 ```
 
 ### Common Methods

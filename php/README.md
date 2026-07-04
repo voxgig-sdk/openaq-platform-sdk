@@ -29,18 +29,16 @@ require_once 'openaqplatform_sdk.php';
 $client = new OpenaqPlatformSDK();
 ```
 
-### 2. List locations
+### 2. List location records
 
 ```php
 try {
-    $result = $client->location()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of Location records — iterate directly.
+    $locations = $client->Location()->list();
+    foreach ($locations as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -86,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = OpenaqPlatformSDK::test();
+$client = OpenaqPlatformSDK::test([
+    "entity" => ["location" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->location()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$location = $client->Location()->load(["id" => "test01"]);
+print_r($location);
 ```
 
 ### Use a custom fetch function
@@ -259,7 +261,7 @@ API path: `/measurements`
 
 ### Location
 
-Create an instance: `const location = client.location`
+Create an instance: `$location = $client->Location();`
 
 #### Operations
 
@@ -283,14 +285,15 @@ Create an instance: `const location = client.location`
 
 #### Example: List
 
-```ts
-const locations = await client.location.list()
+```php
+// list() returns an array of Location records (throws on error).
+$locations = $client->Location()->list();
 ```
 
 
 ### Measurement
 
-Create an instance: `const measurement = client.measurement`
+Create an instance: `$measurement = $client->Measurement();`
 
 #### Operations
 
@@ -318,8 +321,9 @@ Create an instance: `const measurement = client.measurement`
 
 #### Example: List
 
-```ts
-const measurements = await client.measurement.list()
+```php
+// list() returns an array of Measurement records (throws on error).
+$measurements = $client->Measurement()->list();
 ```
 
 
@@ -394,7 +398,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$location = $client->location();
+$location = $client->Location();
 $location->load(["id" => "example_id"]);
 
 // $location->dataGet() now returns the loaded location data

@@ -87,7 +87,7 @@ same parameters as `direct()`.
 ## LocationEntity
 
 ```lua
-local location = client:location(nil)
+local location = client:Location(nil)
 ```
 
 ### Fields
@@ -111,7 +111,7 @@ local location = client:location(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:location():list()
+local results, err = client:Location():list()
 ```
 
 ### Common Methods
@@ -147,7 +147,7 @@ Return the entity name.
 ## MeasurementEntity
 
 ```lua
-local measurement = client:measurement(nil)
+local measurement = client:Measurement(nil)
 ```
 
 ### Fields
@@ -175,7 +175,7 @@ local measurement = client:measurement(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:measurement():list()
+local results, err = client:Measurement():list()
 ```
 
 ### Common Methods

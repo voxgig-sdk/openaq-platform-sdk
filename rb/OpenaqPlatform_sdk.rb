@@ -208,26 +208,14 @@ class OpenaqPlatformSDK
   end
 
 
-  # Idiomatic facade: client.location.list / client.location.load({ "id" => ... })
-  def location
-    require_relative 'entity/location_entity'
-    @location ||= LocationEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.location instead.
+  # Canonical facade: client.Location.list / client.Location.load({ "id" => ... })
   def Location(data = nil)
     require_relative 'entity/location_entity'
     LocationEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.measurement.list / client.measurement.load({ "id" => ... })
-  def measurement
-    require_relative 'entity/measurement_entity'
-    @measurement ||= MeasurementEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.measurement instead.
+  # Canonical facade: client.Measurement.list / client.Measurement.load({ "id" => ... })
   def Measurement(data = nil)
     require_relative 'entity/measurement_entity'
     MeasurementEntity.new(self, data)

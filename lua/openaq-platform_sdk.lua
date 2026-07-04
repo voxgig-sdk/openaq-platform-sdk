@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:location():list() / client:location():load({ id = ... })
-function OpenaqPlatformSDK:location(data)
+-- Idiomatic facade: client:Location():list() / client:Location():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function OpenaqPlatformSDK:Location(data)
   local EntityMod = require("entity.location_entity")
   if data == nil then
     if self._location == nil then
@@ -256,15 +257,10 @@ function OpenaqPlatformSDK:location(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:location() instead.
-function OpenaqPlatformSDK:Location(data)
-  local EntityMod = require("entity.location_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:measurement():list() / client:measurement():load({ id = ... })
-function OpenaqPlatformSDK:measurement(data)
+-- Idiomatic facade: client:Measurement():list() / client:Measurement():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function OpenaqPlatformSDK:Measurement(data)
   local EntityMod = require("entity.measurement_entity")
   if data == nil then
     if self._measurement == nil then
@@ -272,12 +268,6 @@ function OpenaqPlatformSDK:measurement(data)
     end
     return self._measurement
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:measurement() instead.
-function OpenaqPlatformSDK:Measurement(data)
-  local EntityMod = require("entity.measurement_entity")
   return EntityMod.new(self, data)
 end
 

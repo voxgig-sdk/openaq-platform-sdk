@@ -26,9 +26,11 @@ import { OpenaqPlatformSDK } from '@voxgig-sdk/openaq-platform'
 
 const client = new OpenaqPlatformSDK()
 
-// List all locations
-const locations = await client.location.list()
-console.log(locations.data)
+// List all locations (returns Location[])
+const locations = await client.Location().list()
+for (const location of locations) {
+  console.log(location)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,9 +86,10 @@ from openaqplatform_sdk import OpenaqPlatformSDK
 
 client = OpenaqPlatformSDK()
 
-# List all locations
-locations = client.location.list()
-print(locations)
+# List all locations (returns a list, raises on error)
+locations = client.Location().list({})
+for location in locations:
+    print(location)
 ```
 
 ### PHP
@@ -97,8 +100,8 @@ require_once 'openaqplatform_sdk.php';
 
 $client = new OpenaqPlatformSDK();
 
-// List all locations (throws on error)
-$locations = $client->location()->list();
+// List all locations (returns an array; throws on error)
+$locations = $client->Location()->list();
 print_r($locations);
 ```
 
@@ -121,8 +124,8 @@ require_relative "OpenaqPlatform_sdk"
 
 client = OpenaqPlatformSDK.new
 
-# List all locations
-locations = client.location.list
+# List all locations (returns an Array; raises on error)
+locations = client.Location.list
 puts locations
 ```
 
@@ -134,7 +137,7 @@ local sdk = require("openaq-platform_sdk")
 local client = sdk.new()
 
 -- List all locations
-local locations, err = client:location():list()
+local locations, err = client:Location():list()
 print(locations)
 ```
 
@@ -147,22 +150,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = OpenaqPlatformSDK.test()
-const result = await client.location.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const location = await client.Location().load({ id: 1 })
+// location is a bare Location populated with mock data
+console.log(location)
 ```
 
 ### Python
 
 ```python
 client = OpenaqPlatformSDK.test()
-result = client.location.load({"id": "test01"})
+location = client.Location().load({"id": "test01"})
+print(location)
 ```
 
 ### PHP
 
 ```php
-$client = OpenaqPlatformSDK::test();
-$result = $client->location()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = OpenaqPlatformSDK::test([
+    "entity" => ["location" => ["test01" => ["id" => "test01"]]],
+]);
+$location = $client->Location()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -177,15 +185,18 @@ result, err := client.Location(nil).Load(
 ### Ruby
 
 ```ruby
-client = OpenaqPlatformSDK.test
-result = client.location.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = OpenaqPlatformSDK.test({
+  "entity" => { "location" => { "test01" => { "id" => "test01" } } },
+})
+location = client.Location.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:location():load({ id = "test01" })
+local result, err = client:Location():load({ id = "test01" })
 ```
 
 ## How it works
@@ -233,6 +244,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

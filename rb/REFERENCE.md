@@ -90,7 +90,7 @@ same parameters as `direct()`. Raises on error.
 ## LocationEntity
 
 ```ruby
-location = client.location
+location = client.Location
 ```
 
 ### Fields
@@ -114,7 +114,7 @@ location = client.location
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.location.list(nil)
+results = client.Location.list(nil)
 ```
 
 ### Common Methods
@@ -150,7 +150,7 @@ Return the entity name.
 ## MeasurementEntity
 
 ```ruby
-measurement = client.measurement
+measurement = client.Measurement
 ```
 
 ### Fields
@@ -178,7 +178,7 @@ measurement = client.measurement
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.measurement.list(nil)
+results = client.Measurement.list(nil)
 ```
 
 ### Common Methods

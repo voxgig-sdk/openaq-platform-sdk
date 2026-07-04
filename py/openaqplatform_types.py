@@ -4,69 +4,69 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Location:
-    city: Optional[str] = None
-    coordinate: Optional[dict] = None
-    country: Optional[str] = None
-    id: Optional[int] = None
-    is_analysi: Optional[bool] = None
-    is_mobile: Optional[bool] = None
-    location: Optional[str] = None
-    parameter: Optional[list] = None
-    source: Optional[list] = None
+class Location(TypedDict, total=False):
+    city: str
+    coordinate: dict
+    country: str
+    id: int
+    is_analysi: bool
+    is_mobile: bool
+    location: str
+    parameter: list
+    source: list
 
 
-@dataclass
-class LocationListMatch:
-    city: Optional[str] = None
-    coordinate: Optional[dict] = None
-    country: Optional[str] = None
-    id: Optional[int] = None
-    is_analysi: Optional[bool] = None
-    is_mobile: Optional[bool] = None
-    location: Optional[str] = None
-    parameter: Optional[list] = None
-    source: Optional[list] = None
+class LocationListMatch(TypedDict, total=False):
+    city: str
+    coordinate: dict
+    country: str
+    id: int
+    is_analysi: bool
+    is_mobile: bool
+    location: str
+    parameter: list
+    source: list
 
 
-@dataclass
-class Measurement:
-    city: Optional[str] = None
-    coordinate: Optional[dict] = None
-    country: Optional[str] = None
-    date: Optional[dict] = None
-    entity: Optional[str] = None
-    is_analysi: Optional[bool] = None
-    is_mobile: Optional[bool] = None
-    location: Optional[str] = None
-    location_id: Optional[int] = None
-    parameter: Optional[str] = None
-    sensor_type: Optional[str] = None
-    unit: Optional[str] = None
-    value: Optional[float] = None
+class Measurement(TypedDict, total=False):
+    city: str
+    coordinate: dict
+    country: str
+    date: dict
+    entity: str
+    is_analysi: bool
+    is_mobile: bool
+    location: str
+    location_id: int
+    parameter: str
+    sensor_type: str
+    unit: str
+    value: float
 
 
-@dataclass
-class MeasurementListMatch:
-    city: Optional[str] = None
-    coordinate: Optional[dict] = None
-    country: Optional[str] = None
-    date: Optional[dict] = None
-    entity: Optional[str] = None
-    is_analysi: Optional[bool] = None
-    is_mobile: Optional[bool] = None
-    location: Optional[str] = None
-    location_id: Optional[int] = None
-    parameter: Optional[str] = None
-    sensor_type: Optional[str] = None
-    unit: Optional[str] = None
-    value: Optional[float] = None
-
+class MeasurementListMatch(TypedDict, total=False):
+    city: str
+    coordinate: dict
+    country: str
+    date: dict
+    entity: str
+    is_analysi: bool
+    is_mobile: bool
+    location: str
+    location_id: int
+    parameter: str
+    sensor_type: str
+    unit: str
+    value: float

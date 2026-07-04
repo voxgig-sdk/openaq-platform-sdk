@@ -31,14 +31,16 @@ from openaqplatform_sdk import OpenaqPlatformSDK
 client = OpenaqPlatformSDK()
 ```
 
-### 2. List locations
+### 2. List location records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.location.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    locations = client.Location().list({})
+    for location in locations:
+        print(location)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = OpenaqPlatformSDK.test()
 
-result = client.location.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+location = client.Location().load({"id": "test01"})
+# location contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -251,7 +254,7 @@ API path: `/measurements`
 
 ### Location
 
-Create an instance: `const location = client.location`
+Create an instance: `location = client.Location()`
 
 #### Operations
 
@@ -275,14 +278,14 @@ Create an instance: `const location = client.location`
 
 #### Example: List
 
-```ts
-const locations = await client.location.list()
+```python
+locations = client.Location().list({})
 ```
 
 
 ### Measurement
 
-Create an instance: `const measurement = client.measurement`
+Create an instance: `measurement = client.Measurement()`
 
 #### Operations
 
@@ -310,8 +313,8 @@ Create an instance: `const measurement = client.measurement`
 
 #### Example: List
 
-```ts
-const measurements = await client.measurement.list()
+```python
+measurements = client.Measurement().list({})
 ```
 
 
@@ -385,7 +388,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-location = client.location
+location = client.Location()
 location.load({"id": "example_id"})
 
 # location.data_get() now returns the loaded location data
