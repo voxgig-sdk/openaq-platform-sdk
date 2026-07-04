@@ -9,9 +9,12 @@ The TypeScript SDK for the OpenaqPlatform API — a type-safe, entity-oriented c
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/openaq-platform
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/openaq-platform-sdk/releases](https://github.com/voxgig-sdk/openaq-platform-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { OpenaqPlatformSDK } from 'openaq-platform'
+import { OpenaqPlatformSDK } from '@voxgig-sdk/openaq-platform'
 
-const client = new OpenaqPlatformSDK({
-  apikey: process.env.OPENAQ-PLATFORM_APIKEY,
-})
+const client = new OpenaqPlatformSDK()
 ```
 
 ### 2. List locations
 
 ```ts
-const result = await client.Location().list()
+const result = await client.location.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -81,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = OpenaqPlatformSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.location.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -89,7 +90,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new OpenaqPlatformSDK({ apikey: '...' })
+const client = new OpenaqPlatformSDK()
 const testClient = client.tester()
 ```
 
@@ -98,7 +99,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.location
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -125,7 +126,6 @@ const logger = {
 }
 
 const client = new OpenaqPlatformSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -135,8 +135,7 @@ const client = new OpenaqPlatformSDK({
 Create a `.env.local` file at the project root:
 
 ```
-OPENAQ-PLATFORM_TEST_LIVE=TRUE
-OPENAQ-PLATFORM_APIKEY=<your-key>
+OPENAQ_PLATFORM_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -154,7 +153,6 @@ cd ts && npm test
 
 ```ts
 new OpenaqPlatformSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -165,7 +163,6 @@ new OpenaqPlatformSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -299,7 +296,7 @@ API path: `/measurements`
 
 ### Location
 
-Create an instance: `const location = client.Location()`
+Create an instance: `const location = client.location`
 
 #### Operations
 
@@ -324,13 +321,13 @@ Create an instance: `const location = client.Location()`
 #### Example: List
 
 ```ts
-const locations = await client.Location().list()
+const locations = await client.location.list()
 ```
 
 
 ### Measurement
 
-Create an instance: `const measurement = client.Measurement()`
+Create an instance: `const measurement = client.measurement`
 
 #### Operations
 
@@ -359,7 +356,7 @@ Create an instance: `const measurement = client.Measurement()`
 #### Example: List
 
 ```ts
-const measurements = await client.Measurement().list()
+const measurements = await client.measurement.list()
 ```
 
 
@@ -420,7 +417,7 @@ openaq-platform/
 Import the SDK from the package root:
 
 ```ts
-import { OpenaqPlatformSDK } from 'openaq-platform'
+import { OpenaqPlatformSDK } from '@voxgig-sdk/openaq-platform'
 ```
 
 ### Entity state
@@ -430,11 +427,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const location = client.location
+await location.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// location.data() now returns the loaded location data
+// location.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

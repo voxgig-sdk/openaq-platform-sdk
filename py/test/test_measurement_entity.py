@@ -50,8 +50,7 @@ class TestMeasurementEntity:
         measurement_ref01_ent = client.Measurement(None)
         measurement_ref01_match = {}
 
-        measurement_ref01_list_result, err = measurement_ref01_ent.list(measurement_ref01_match, None)
-        assert err is None
+        measurement_ref01_list_result = measurement_ref01_ent.list(measurement_ref01_match, None)
         assert isinstance(measurement_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _measurement_basic_setup(extra):
         "OPENAQPLATFORM_TEST_MEASUREMENT_ENTID": idmap,
         "OPENAQPLATFORM_TEST_LIVE": "FALSE",
         "OPENAQPLATFORM_TEST_EXPLAIN": "FALSE",
-        "OPENAQPLATFORM_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _measurement_basic_setup(extra):
     if env.get("OPENAQPLATFORM_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("OPENAQPLATFORM_APIKEY"),
             },
             extra or {},
         ])

@@ -4,6 +4,7 @@
 main: {
   kit: {
     info: {
+      auth: false
       contact: {
         name: "OpenAQ Support"
         url: "https://docs.openaq.org"

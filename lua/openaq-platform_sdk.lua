@@ -244,12 +244,38 @@ end
 
 
 
+-- Idiomatic facade: client:location():list() / client:location():load({ id = ... })
+function OpenaqPlatformSDK:location(data)
+  local EntityMod = require("entity.location_entity")
+  if data == nil then
+    if self._location == nil then
+      self._location = EntityMod.new(self, nil)
+    end
+    return self._location
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:location() instead.
 function OpenaqPlatformSDK:Location(data)
   local EntityMod = require("entity.location_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:measurement():list() / client:measurement():load({ id = ... })
+function OpenaqPlatformSDK:measurement(data)
+  local EntityMod = require("entity.measurement_entity")
+  if data == nil then
+    if self._measurement == nil then
+      self._measurement = EntityMod.new(self, nil)
+    end
+    return self._measurement
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:measurement() instead.
 function OpenaqPlatformSDK:Measurement(data)
   local EntityMod = require("entity.measurement_entity")
   return EntityMod.new(self, data)

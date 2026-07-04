@@ -93,14 +93,12 @@ func measurementDirectSetup(mockres any) *measurementDirectSetupResult {
 	env := envOverride(map[string]any{
 		"OPENAQPLATFORM_TEST_MEASUREMENT_ENTID": map[string]any{},
 		"OPENAQPLATFORM_TEST_LIVE":    "FALSE",
-		"OPENAQPLATFORM_APIKEY":       "NONE",
 	})
 
 	live := env["OPENAQPLATFORM_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["OPENAQPLATFORM_APIKEY"],
 		}
 		client := sdk.NewOpenaqPlatformSDK(mergedOpts)
 

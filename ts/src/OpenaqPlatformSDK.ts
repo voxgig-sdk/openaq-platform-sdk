@@ -3,6 +3,8 @@
 import { LocationEntity } from './entity/LocationEntity'
 import { MeasurementEntity } from './entity/MeasurementEntity'
 
+export type * from './OpenaqPlatformTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -203,12 +205,28 @@ class OpenaqPlatformSDK {
 
 
 
+  _location?: LocationEntity
+
+  // Idiomatic facade: `client.location.list()` / `client.location.load({ id })`.
+  get location(): LocationEntity {
+    return (this._location ??= new LocationEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.location` instead. */
   Location(data?: any) {
     const self = this
     return new LocationEntity(self,data)
   }
 
 
+  _measurement?: MeasurementEntity
+
+  // Idiomatic facade: `client.measurement.list()` / `client.measurement.load({ id })`.
+  get measurement(): MeasurementEntity {
+    return (this._measurement ??= new MeasurementEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.measurement` instead. */
   Measurement(data?: any) {
     const self = this
     return new MeasurementEntity(self,data)

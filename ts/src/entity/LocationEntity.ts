@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Location,
+  LocationListMatch,
+} from '../OpenaqPlatformTypes'
 
 // TODO: needs Entity superclass
-class LocationEntity extends OpenaqPlatformEntityBase {
+class LocationEntity extends OpenaqPlatformEntityBase<Location> {
 
   constructor(client: OpenaqPlatformSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class LocationEntity extends OpenaqPlatformEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: LocationListMatch, ctrl?: Control): Promise<Location[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class LocationEntity extends OpenaqPlatformEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Location[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

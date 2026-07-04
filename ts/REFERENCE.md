@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -122,7 +121,7 @@ Alias for `OpenaqPlatformSDK.test()`.
 ## LocationEntity
 
 ```ts
-const location = client.Location()
+const location = client.location
 ```
 
 ### Fields
@@ -146,7 +145,7 @@ const location = client.Location()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Location().list()
+const results = await client.location.list()
 ```
 
 ### Common Methods
@@ -180,7 +179,7 @@ Return a copy of the entity options.
 ## MeasurementEntity
 
 ```ts
-const measurement = client.Measurement()
+const measurement = client.measurement
 ```
 
 ### Fields
@@ -208,7 +207,7 @@ const measurement = client.Measurement()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Measurement().list()
+const results = await client.measurement.list()
 ```
 
 ### Common Methods
