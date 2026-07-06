@@ -21,8 +21,7 @@ type Location struct {
 	Source *[]any `json:"source,omitempty"`
 }
 
-// LocationListMatch mirrors the location fields as an all-optional match
-// filter (Go analog of Partial<Location>).
+// LocationListMatch is the typed request payload for Location.ListTyped.
 type LocationListMatch struct {
 	City *string `json:"city,omitempty"`
 	Coordinate *map[string]any `json:"coordinate,omitempty"`
@@ -52,8 +51,7 @@ type Measurement struct {
 	Value *float64 `json:"value,omitempty"`
 }
 
-// MeasurementListMatch mirrors the measurement fields as an all-optional match
-// filter (Go analog of Partial<Measurement>).
+// MeasurementListMatch is the typed request payload for Measurement.ListTyped.
 type MeasurementListMatch struct {
 	City *string `json:"city,omitempty"`
 	Coordinate *map[string]any `json:"coordinate,omitempty"`

@@ -8,7 +8,7 @@ Complete API reference for the OpenaqPlatform Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'openaq-platform_sdk'
+require_relative 'OpenaqPlatform_sdk'
 
 client = OpenaqPlatformSDK.new(options)
 ```
@@ -97,24 +97,24 @@ location = client.Location
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | ``$STRING`` | No |  |
-| `coordinate` | ``$OBJECT`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `is_analysi` | ``$BOOLEAN`` | No |  |
-| `is_mobile` | ``$BOOLEAN`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `parameter` | ``$ARRAY`` | No |  |
-| `source` | ``$ARRAY`` | No |  |
+| `city` | `String` | No |  |
+| `coordinate` | `Hash` | No |  |
+| `country` | `String` | No |  |
+| `id` | `Integer` | No |  |
+| `is_analysi` | `Boolean` | No |  |
+| `is_mobile` | `Boolean` | No |  |
+| `location` | `String` | No |  |
+| `parameter` | `Array` | No |  |
+| `source` | `Array` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Location.list(nil)
+results = client.Location.list
 ```
 
 ### Common Methods
@@ -157,28 +157,28 @@ measurement = client.Measurement
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | ``$STRING`` | No |  |
-| `coordinate` | ``$OBJECT`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `date` | ``$OBJECT`` | No |  |
-| `entity` | ``$STRING`` | No |  |
-| `is_analysi` | ``$BOOLEAN`` | No |  |
-| `is_mobile` | ``$BOOLEAN`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `location_id` | ``$INTEGER`` | No |  |
-| `parameter` | ``$STRING`` | No |  |
-| `sensor_type` | ``$STRING`` | No |  |
-| `unit` | ``$STRING`` | No |  |
-| `value` | ``$NUMBER`` | No |  |
+| `city` | `String` | No |  |
+| `coordinate` | `Hash` | No |  |
+| `country` | `String` | No |  |
+| `date` | `Hash` | No |  |
+| `entity` | `String` | No |  |
+| `is_analysi` | `Boolean` | No |  |
+| `is_mobile` | `Boolean` | No |  |
+| `location` | `String` | No |  |
+| `location_id` | `Integer` | No |  |
+| `parameter` | `String` | No |  |
+| `sensor_type` | `String` | No |  |
+| `unit` | `String` | No |  |
+| `value` | `Float` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Measurement.list(nil)
+results = client.Measurement.list
 ```
 
 ### Common Methods

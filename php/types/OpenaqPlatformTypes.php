@@ -26,7 +26,7 @@ class Location
     public ?array $source = null;
 }
 
-/** Match filter for Location#list (any subset of Location fields). */
+/** Request payload for Location#list. */
 class LocationListMatch
 {
     public ?string $city = null;
@@ -58,7 +58,7 @@ class Measurement
     public ?float $value = null;
 }
 
-/** Match filter for Measurement#list (any subset of Measurement fields). */
+/** Request payload for Measurement#list. */
 class MeasurementListMatch
 {
     public ?string $city = null;

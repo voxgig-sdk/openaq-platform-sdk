@@ -8,7 +8,7 @@ Complete API reference for the OpenaqPlatform PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/openaq-platform_sdk.php';
+require_once __DIR__ . '/openaqplatform_sdk.php';
 
 $client = new OpenaqPlatformSDK($options);
 ```
@@ -49,11 +49,11 @@ Create a new `LocationEntity` instance. Pass `null` for no initial data.
 
 Create a new `MeasurementEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): OpenaqPlatformUtility`
 
 Return a copy of the SDK utility object.
 
@@ -96,41 +96,41 @@ $location = $client->Location();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | ``$STRING`` | No |  |
-| `coordinate` | ``$OBJECT`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `is_analysi` | ``$BOOLEAN`` | No |  |
-| `is_mobile` | ``$BOOLEAN`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `parameter` | ``$ARRAY`` | No |  |
-| `source` | ``$ARRAY`` | No |  |
+| `city` | `string` | No |  |
+| `coordinate` | `array` | No |  |
+| `country` | `string` | No |  |
+| `id` | `int` | No |  |
+| `is_analysi` | `bool` | No |  |
+| `is_mobile` | `bool` | No |  |
+| `location` | `string` | No |  |
+| `parameter` | `array` | No |  |
+| `source` | `array` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Location()->list([]);
+$results = $client->Location()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -139,7 +139,7 @@ Set the entity match criteria.
 Create a new `LocationEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -156,45 +156,45 @@ $measurement = $client->Measurement();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | ``$STRING`` | No |  |
-| `coordinate` | ``$OBJECT`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `date` | ``$OBJECT`` | No |  |
-| `entity` | ``$STRING`` | No |  |
-| `is_analysi` | ``$BOOLEAN`` | No |  |
-| `is_mobile` | ``$BOOLEAN`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `location_id` | ``$INTEGER`` | No |  |
-| `parameter` | ``$STRING`` | No |  |
-| `sensor_type` | ``$STRING`` | No |  |
-| `unit` | ``$STRING`` | No |  |
-| `value` | ``$NUMBER`` | No |  |
+| `city` | `string` | No |  |
+| `coordinate` | `array` | No |  |
+| `country` | `string` | No |  |
+| `date` | `array` | No |  |
+| `entity` | `string` | No |  |
+| `is_analysi` | `bool` | No |  |
+| `is_mobile` | `bool` | No |  |
+| `location` | `string` | No |  |
+| `location_id` | `int` | No |  |
+| `parameter` | `string` | No |  |
+| `sensor_type` | `string` | No |  |
+| `unit` | `string` | No |  |
+| `value` | `float` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Measurement()->list([]);
+$results = $client->Measurement()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -203,7 +203,7 @@ Set the entity match criteria.
 Create a new `MeasurementEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

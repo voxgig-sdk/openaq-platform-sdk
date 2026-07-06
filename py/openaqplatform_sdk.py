@@ -221,13 +221,13 @@ class OpenaqPlatformSDK:
 
 
     def Location(self, data=None) -> "LocationEntity":
-        """Entity factory: client.Location().list({}) / client.Location().load({"id": ...})."""
+        """Entity factory: client.Location().list() / client.Location().load({"id": ...})."""
         from entity.location_entity import LocationEntity
         return LocationEntity(self, data)
 
 
     def Measurement(self, data=None) -> "MeasurementEntity":
-        """Entity factory: client.Measurement().list({}) / client.Measurement().load({"id": ...})."""
+        """Entity factory: client.Measurement().list() / client.Measurement().load({"id": ...})."""
         from entity.measurement_entity import MeasurementEntity
         return MeasurementEntity(self, data)
 

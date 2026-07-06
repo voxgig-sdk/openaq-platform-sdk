@@ -101,15 +101,15 @@ location := client.Location(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | ``$STRING`` | No |  |
-| `coordinate` | ``$OBJECT`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `is_analysi` | ``$BOOLEAN`` | No |  |
-| `is_mobile` | ``$BOOLEAN`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `parameter` | ``$ARRAY`` | No |  |
-| `source` | ``$ARRAY`` | No |  |
+| `city` | `string` | No |  |
+| `coordinate` | `map[string]any` | No |  |
+| `country` | `string` | No |  |
+| `id` | `int` | No |  |
+| `is_analysi` | `bool` | No |  |
+| `is_mobile` | `bool` | No |  |
+| `location` | `string` | No |  |
+| `parameter` | `[]any` | No |  |
+| `source` | `[]any` | No |  |
 
 ### Operations
 
@@ -155,19 +155,19 @@ measurement := client.Measurement(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | ``$STRING`` | No |  |
-| `coordinate` | ``$OBJECT`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `date` | ``$OBJECT`` | No |  |
-| `entity` | ``$STRING`` | No |  |
-| `is_analysi` | ``$BOOLEAN`` | No |  |
-| `is_mobile` | ``$BOOLEAN`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `location_id` | ``$INTEGER`` | No |  |
-| `parameter` | ``$STRING`` | No |  |
-| `sensor_type` | ``$STRING`` | No |  |
-| `unit` | ``$STRING`` | No |  |
-| `value` | ``$NUMBER`` | No |  |
+| `city` | `string` | No |  |
+| `coordinate` | `map[string]any` | No |  |
+| `country` | `string` | No |  |
+| `date` | `map[string]any` | No |  |
+| `entity` | `string` | No |  |
+| `is_analysi` | `bool` | No |  |
+| `is_mobile` | `bool` | No |  |
+| `location` | `string` | No |  |
+| `location_id` | `int` | No |  |
+| `parameter` | `string` | No |  |
+| `sensor_type` | `string` | No |  |
+| `unit` | `string` | No |  |
+| `value` | `float64` | No |  |
 
 ### Operations
 

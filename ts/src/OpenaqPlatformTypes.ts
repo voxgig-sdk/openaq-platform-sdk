@@ -17,7 +17,17 @@ export interface Location {
   source?: any[]
 }
 
-export type LocationListMatch = Partial<Location>
+export interface LocationListMatch {
+  city?: string
+  coordinate?: Record<string, any>
+  country?: string
+  id?: number
+  is_analysi?: boolean
+  is_mobile?: boolean
+  location?: string
+  parameter?: any[]
+  source?: any[]
+}
 
 export interface Measurement {
   city?: string
@@ -35,5 +45,19 @@ export interface Measurement {
   value?: number
 }
 
-export type MeasurementListMatch = Partial<Measurement>
+export interface MeasurementListMatch {
+  city?: string
+  coordinate?: Record<string, any>
+  country?: string
+  date?: Record<string, any>
+  entity?: string
+  is_analysi?: boolean
+  is_mobile?: boolean
+  location?: string
+  location_id?: number
+  parameter?: string
+  sensor_type?: string
+  unit?: string
+  value?: number
+}
 

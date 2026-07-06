@@ -128,15 +128,15 @@ const location = client.Location()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | ``$STRING`` | No |  |
-| `coordinate` | ``$OBJECT`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `is_analysi` | ``$BOOLEAN`` | No |  |
-| `is_mobile` | ``$BOOLEAN`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `parameter` | ``$ARRAY`` | No |  |
-| `source` | ``$ARRAY`` | No |  |
+| `city` | `string` | No |  |
+| `coordinate` | `Record<string, any>` | No |  |
+| `country` | `string` | No |  |
+| `id` | `number` | No |  |
+| `is_analysi` | `boolean` | No |  |
+| `is_mobile` | `boolean` | No |  |
+| `location` | `string` | No |  |
+| `parameter` | `any[]` | No |  |
+| `source` | `any[]` | No |  |
 
 ### Operations
 
@@ -186,19 +186,19 @@ const measurement = client.Measurement()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | ``$STRING`` | No |  |
-| `coordinate` | ``$OBJECT`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `date` | ``$OBJECT`` | No |  |
-| `entity` | ``$STRING`` | No |  |
-| `is_analysi` | ``$BOOLEAN`` | No |  |
-| `is_mobile` | ``$BOOLEAN`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `location_id` | ``$INTEGER`` | No |  |
-| `parameter` | ``$STRING`` | No |  |
-| `sensor_type` | ``$STRING`` | No |  |
-| `unit` | ``$STRING`` | No |  |
-| `value` | ``$NUMBER`` | No |  |
+| `city` | `string` | No |  |
+| `coordinate` | `Record<string, any>` | No |  |
+| `country` | `string` | No |  |
+| `date` | `Record<string, any>` | No |  |
+| `entity` | `string` | No |  |
+| `is_analysi` | `boolean` | No |  |
+| `is_mobile` | `boolean` | No |  |
+| `location` | `string` | No |  |
+| `location_id` | `number` | No |  |
+| `parameter` | `string` | No |  |
+| `sensor_type` | `string` | No |  |
+| `unit` | `string` | No |  |
+| `value` | `number` | No |  |
 
 ### Operations
 

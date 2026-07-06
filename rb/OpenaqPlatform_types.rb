@@ -49,7 +49,7 @@ Location = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Location#list (any subset of Location fields).
+# Request payload for Location#list.
 #
 # @!attribute [rw] city
 #   @return [String, nil]
@@ -147,7 +147,7 @@ Measurement = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Measurement#list (any subset of Measurement fields).
+# Request payload for Measurement#list.
 #
 # @!attribute [rw] city
 #   @return [String, nil]

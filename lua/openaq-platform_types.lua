@@ -18,6 +18,15 @@
 ---@field source? table
 
 ---@class LocationListMatch
+---@field city? string
+---@field coordinate? table
+---@field country? string
+---@field id? number
+---@field is_analysi? boolean
+---@field is_mobile? boolean
+---@field location? string
+---@field parameter? table
+---@field source? table
 
 ---@class Measurement
 ---@field city? string
@@ -35,6 +44,19 @@
 ---@field value? number
 
 ---@class MeasurementListMatch
+---@field city? string
+---@field coordinate? table
+---@field country? string
+---@field date? table
+---@field entity? string
+---@field is_analysi? boolean
+---@field is_mobile? boolean
+---@field location? string
+---@field location_id? number
+---@field parameter? string
+---@field sensor_type? string
+---@field unit? string
+---@field value? number
 
 local M = {}
 

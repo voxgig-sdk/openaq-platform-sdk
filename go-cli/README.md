@@ -17,8 +17,6 @@ go build -o openaq-platform-cli ./...
 ```sh
 # One-shot: arguments form a single AQL expression
 ./openaq-platform-cli list location
-./openaq-platform-cli load 1 location
-./openaq-platform-cli load '{id:1}' location
 
 # REPL
 ./openaq-platform-cli
@@ -29,8 +27,6 @@ go build -o openaq-platform-cli ./...
 | Word     | Signatures                                   | Description                |
 |----------|----------------------------------------------|----------------------------|
 | `list`   | `[entity]` · `[query entity]`                | List records               |
-| `load`   | `[entity]` · `[query entity]`                | Load a single record       |
-| `update` | `[entity]` · `[query entity]`                | Update a record            |
 
 `query` is either a Map (`{id:1}`) or a Scalar (`1`, treated as `{id:1}`).
 `entity` is one of the SDK's entity names (auto-quoted as an atom).

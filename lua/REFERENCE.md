@@ -94,15 +94,15 @@ local location = client:Location(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | ``$STRING`` | No |  |
-| `coordinate` | ``$OBJECT`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `is_analysi` | ``$BOOLEAN`` | No |  |
-| `is_mobile` | ``$BOOLEAN`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `parameter` | ``$ARRAY`` | No |  |
-| `source` | ``$ARRAY`` | No |  |
+| `city` | `string` | No |  |
+| `coordinate` | `table` | No |  |
+| `country` | `string` | No |  |
+| `id` | `number` | No |  |
+| `is_analysi` | `boolean` | No |  |
+| `is_mobile` | `boolean` | No |  |
+| `location` | `string` | No |  |
+| `parameter` | `table` | No |  |
+| `source` | `table` | No |  |
 
 ### Operations
 
@@ -154,19 +154,19 @@ local measurement = client:Measurement(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | ``$STRING`` | No |  |
-| `coordinate` | ``$OBJECT`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `date` | ``$OBJECT`` | No |  |
-| `entity` | ``$STRING`` | No |  |
-| `is_analysi` | ``$BOOLEAN`` | No |  |
-| `is_mobile` | ``$BOOLEAN`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `location_id` | ``$INTEGER`` | No |  |
-| `parameter` | ``$STRING`` | No |  |
-| `sensor_type` | ``$STRING`` | No |  |
-| `unit` | ``$STRING`` | No |  |
-| `value` | ``$NUMBER`` | No |  |
+| `city` | `string` | No |  |
+| `coordinate` | `table` | No |  |
+| `country` | `string` | No |  |
+| `date` | `table` | No |  |
+| `entity` | `string` | No |  |
+| `is_analysi` | `boolean` | No |  |
+| `is_mobile` | `boolean` | No |  |
+| `location` | `string` | No |  |
+| `location_id` | `number` | No |  |
+| `parameter` | `string` | No |  |
+| `sensor_type` | `string` | No |  |
+| `unit` | `string` | No |  |
+| `value` | `number` | No |  |
 
 ### Operations
 

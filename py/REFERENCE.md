@@ -8,7 +8,7 @@ Complete API reference for the OpenaqPlatform Python SDK.
 ### Constructor
 
 ```python
-from openaq-platform_sdk import OpenaqPlatformSDK
+from openaqplatform_sdk import OpenaqPlatformSDK
 
 client = OpenaqPlatformSDK(options)
 ```
@@ -91,24 +91,24 @@ location = client.Location()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | ``$STRING`` | No |  |
-| `coordinate` | ``$OBJECT`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `is_analysi` | ``$BOOLEAN`` | No |  |
-| `is_mobile` | ``$BOOLEAN`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `parameter` | ``$ARRAY`` | No |  |
-| `source` | ``$ARRAY`` | No |  |
+| `city` | `str` | No |  |
+| `coordinate` | `dict` | No |  |
+| `country` | `str` | No |  |
+| `id` | `int` | No |  |
+| `is_analysi` | `bool` | No |  |
+| `is_mobile` | `bool` | No |  |
+| `location` | `str` | No |  |
+| `parameter` | `list` | No |  |
+| `source` | `list` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Location().list({})
+results = client.Location().list()
 for location in results:
     print(location)
 ```
@@ -152,28 +152,28 @@ measurement = client.Measurement()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | ``$STRING`` | No |  |
-| `coordinate` | ``$OBJECT`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `date` | ``$OBJECT`` | No |  |
-| `entity` | ``$STRING`` | No |  |
-| `is_analysi` | ``$BOOLEAN`` | No |  |
-| `is_mobile` | ``$BOOLEAN`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `location_id` | ``$INTEGER`` | No |  |
-| `parameter` | ``$STRING`` | No |  |
-| `sensor_type` | ``$STRING`` | No |  |
-| `unit` | ``$STRING`` | No |  |
-| `value` | ``$NUMBER`` | No |  |
+| `city` | `str` | No |  |
+| `coordinate` | `dict` | No |  |
+| `country` | `str` | No |  |
+| `date` | `dict` | No |  |
+| `entity` | `str` | No |  |
+| `is_analysi` | `bool` | No |  |
+| `is_mobile` | `bool` | No |  |
+| `location` | `str` | No |  |
+| `location_id` | `int` | No |  |
+| `parameter` | `str` | No |  |
+| `sensor_type` | `str` | No |  |
+| `unit` | `str` | No |  |
+| `value` | `float` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Measurement().list({})
+results = client.Measurement().list()
 for measurement in results:
     print(measurement)
 ```
