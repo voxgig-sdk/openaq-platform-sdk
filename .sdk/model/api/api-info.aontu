@@ -20,10 +20,10 @@ main: {
           url: "https://api.openaq.org/v2"
         }
       ]
+      summary: "Largest open-source air quality data platform aggregating historical and real-time air quality data globally."
       termsOfService: "https://openaq.org/terms"
       title: "OpenAQ Platform"
       version: "2.0.0"
+      website: "https://docs.openaq.org/docs/introduction"
     }
   }
-}
-

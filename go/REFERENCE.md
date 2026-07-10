@@ -95,6 +95,7 @@ same parameters as `Direct()`.
 
 ```go
 location := client.Location(nil)
+fmt.Println(location.GetName()) // "location"
 ```
 
 ### Fields
@@ -119,6 +120,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Location(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
@@ -149,6 +154,7 @@ Return the entity name.
 
 ```go
 measurement := client.Measurement(nil)
+fmt.Println(measurement.GetName()) // "measurement"
 ```
 
 ### Fields
@@ -177,6 +183,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Measurement(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods

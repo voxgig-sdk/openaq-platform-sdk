@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -631,15 +628,18 @@
           "name": "CC BY 4.0",
           "url": "https://creativecommons.org/licenses/by/4.0/"
         },
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production API server",
             "url": "https://api.openaq.org/v2"
           }
         ],
+        "summary": "Largest open-source air quality data platform aggregating historical and real-time air quality data globally.",
         "termsOfService": "https://openaq.org/terms",
         "title": "OpenAQ Platform",
-        "version": "2.0.0"
+        "version": "2.0.0",
+        "website": "https://docs.openaq.org/docs/introduction"
       },
       "option": {},
       "target": {
@@ -692,6 +692,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -742,6 +745,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
