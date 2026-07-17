@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- OpenaqPlatform SDK exists test
 
 local sdk = require("openaq-platform_sdk")
 
