@@ -19,11 +19,15 @@ import {
 describe('LocationDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when OPENAQPLATFORM_TEST_LIVE=TRUE.
-  afterEach(liveDelay('OPENAQPLATFORM_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when OPENAQ_PLATFORM_TEST_LIVE=TRUE.
+  afterEach(liveDelay('OPENAQ_PLATFORM_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new OpenaqPlatformSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -77,17 +81,17 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'OPENAQPLATFORM_TEST_LOCATION_ENTID': {},
-    'OPENAQPLATFORM_TEST_LIVE': 'FALSE',
+    'OPENAQ_PLATFORM_TEST_LOCATION_ENTID': {},
+    'OPENAQ_PLATFORM_TEST_LIVE': 'FALSE',
   })
 
-  const live = 'TRUE' === env.OPENAQPLATFORM_TEST_LIVE
+  const live = 'TRUE' === env.OPENAQ_PLATFORM_TEST_LIVE
 
   if (live) {
     const client = new OpenaqPlatformSDK({
     })
 
-    let idmap: any = env['OPENAQPLATFORM_TEST_LOCATION_ENTID']
+    let idmap: any = env['OPENAQ_PLATFORM_TEST_LOCATION_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

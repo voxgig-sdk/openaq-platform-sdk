@@ -3,36 +3,36 @@
     "location": {
       "LOCATION00": {
         "city": "s5a",
-        "coordinate": {},
+        "coordinates": {},
         "country": "s5c",
         "id": "LOCATION00",
-        "is_analysi": true,
-        "is_mobile": false,
+        "isAnalysis": true,
+        "isMobile": false,
         "location": "s60",
-        "parameter": [],
-        "source": []
+        "parameters": [],
+        "sources": []
       },
       "LOCATION01": {
         "city": "sb4",
-        "coordinate": {},
+        "coordinates": {},
         "country": "sb6",
         "id": "LOCATION01",
-        "is_analysi": true,
-        "is_mobile": false,
+        "isAnalysis": true,
+        "isMobile": false,
         "location": "sba",
-        "parameter": [],
-        "source": []
+        "parameters": [],
+        "sources": []
       },
       "LOCATION02": {
         "city": "s10e",
-        "coordinate": {},
+        "coordinates": {},
         "country": "s110",
         "id": "LOCATION02",
-        "is_analysi": true,
-        "is_mobile": false,
+        "isAnalysis": true,
+        "isMobile": false,
         "location": "s114",
-        "parameter": [],
-        "source": []
+        "parameters": [],
+        "sources": []
       }
     }
   },
@@ -40,13 +40,13 @@
     "location": {
       "location_ref01": {
         "city": "s168",
-        "coordinate": {},
+        "coordinates": {},
         "country": "s16a",
-        "is_analysi": true,
-        "is_mobile": false,
+        "isAnalysis": true,
+        "isMobile": false,
         "location": "s16e",
-        "parameter": [],
-        "source": []
+        "parameters": [],
+        "sources": []
       }
     }
   }

@@ -8,53 +8,53 @@
 
 ---@class Location
 ---@field city? string
----@field coordinate? table
+---@field coordinates? table
 ---@field country? string
 ---@field id? number
----@field is_analysi? boolean
----@field is_mobile? boolean
+---@field isAnalysis? boolean
+---@field isMobile? boolean
 ---@field location? string
----@field parameter? table
----@field source? table
+---@field parameters? table
+---@field sources? table
 
 ---@class LocationListMatch
 ---@field city? string
----@field coordinate? table
+---@field coordinates? table
 ---@field country? string
 ---@field id? number
----@field is_analysi? boolean
----@field is_mobile? boolean
+---@field isAnalysis? boolean
+---@field isMobile? boolean
 ---@field location? string
----@field parameter? table
----@field source? table
+---@field parameters? table
+---@field sources? table
 
 ---@class Measurement
 ---@field city? string
----@field coordinate? table
+---@field coordinates? table
 ---@field country? string
 ---@field date? table
 ---@field entity? string
----@field is_analysi? boolean
----@field is_mobile? boolean
+---@field isAnalysis? boolean
+---@field isMobile? boolean
 ---@field location? string
----@field location_id? number
+---@field locationId? number
 ---@field parameter? string
----@field sensor_type? string
+---@field sensorType? string
 ---@field unit? string
 ---@field value? number
 
 ---@class MeasurementListMatch
 ---@field city? string
----@field coordinate? table
+---@field coordinates? table
 ---@field country? string
 ---@field date? table
 ---@field entity? string
----@field is_analysi? boolean
----@field is_mobile? boolean
+---@field isAnalysis? boolean
+---@field isMobile? boolean
 ---@field location? string
----@field location_id? number
+---@field locationId? number
 ---@field parameter? string
----@field sensor_type? string
+---@field sensorType? string
 ---@field unit? string
 ---@field value? number
 

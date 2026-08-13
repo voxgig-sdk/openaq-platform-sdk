@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = OpenaqPlatformSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 location = client.Location.list()
 puts location
 ```
@@ -238,14 +239,14 @@ returns a result `Hash` with these keys:
 | Field | Description |
 | --- | --- |
 | `city` |  |
-| `coordinate` |  |
+| `coordinates` |  |
 | `country` |  |
 | `id` |  |
-| `is_analysi` |  |
-| `is_mobile` |  |
+| `isAnalysis` |  |
+| `isMobile` |  |
 | `location` |  |
-| `parameter` |  |
-| `source` |  |
+| `parameters` |  |
+| `sources` |  |
 
 Operations: List.
 
@@ -256,16 +257,16 @@ API path: `/locations`
 | Field | Description |
 | --- | --- |
 | `city` |  |
-| `coordinate` |  |
+| `coordinates` |  |
 | `country` |  |
 | `date` |  |
 | `entity` |  |
-| `is_analysi` |  |
-| `is_mobile` |  |
+| `isAnalysis` |  |
+| `isMobile` |  |
 | `location` |  |
-| `location_id` |  |
+| `locationId` |  |
 | `parameter` |  |
-| `sensor_type` |  |
+| `sensorType` |  |
 | `unit` |  |
 | `value` |  |
 
@@ -293,14 +294,14 @@ Create an instance: `location = client.Location`
 | Field | Type | Description |
 | --- | --- | --- |
 | `city` | `String` |  |
-| `coordinate` | `Hash` |  |
+| `coordinates` | `Hash` |  |
 | `country` | `String` |  |
 | `id` | `Integer` |  |
-| `is_analysi` | `Boolean` |  |
-| `is_mobile` | `Boolean` |  |
+| `isAnalysis` | `Boolean` |  |
+| `isMobile` | `Boolean` |  |
 | `location` | `String` |  |
-| `parameter` | `Array` |  |
-| `source` | `Array` |  |
+| `parameters` | `Array` |  |
+| `sources` | `Array` |  |
 
 #### Example: List
 
@@ -325,16 +326,16 @@ Create an instance: `measurement = client.Measurement`
 | Field | Type | Description |
 | --- | --- | --- |
 | `city` | `String` |  |
-| `coordinate` | `Hash` |  |
+| `coordinates` | `Hash` |  |
 | `country` | `String` |  |
 | `date` | `Hash` |  |
 | `entity` | `String` |  |
-| `is_analysi` | `Boolean` |  |
-| `is_mobile` | `Boolean` |  |
+| `isAnalysis` | `Boolean` |  |
+| `isMobile` | `Boolean` |  |
 | `location` | `String` |  |
-| `location_id` | `Integer` |  |
+| `locationId` | `Integer` |  |
 | `parameter` | `String` |  |
-| `sensor_type` | `String` |  |
+| `sensorType` | `String` |  |
 | `unit` | `String` |  |
 | `value` | `Float` |  |
 

@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import OpenaqPlatformSDK
-from core.error import OpenaqPlatformError
-from core.result import OpenaqPlatformResult
-from core.response import OpenaqPlatformResponse
-from core.spec import OpenaqPlatformSpec
-from feature.base_feature import OpenaqPlatformBaseFeature
+from projectname_sdk.core.error import OpenaqPlatformError
+from projectname_sdk.core.result import OpenaqPlatformResult
+from projectname_sdk.core.response import OpenaqPlatformResponse
+from projectname_sdk.core.spec import OpenaqPlatformSpec
+from projectname_sdk.feature.base_feature import OpenaqPlatformBaseFeature
 
 
 def _client():

@@ -125,7 +125,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = OpenaqPlatformSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $location = $client->Location()->list();
 print_r($location);
 ```
@@ -225,7 +226,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -248,14 +249,14 @@ On error, `ok` is `false` and `$err` contains the error value.
 | Field | Description |
 | --- | --- |
 | `city` |  |
-| `coordinate` |  |
+| `coordinates` |  |
 | `country` |  |
 | `id` |  |
-| `is_analysi` |  |
-| `is_mobile` |  |
+| `isAnalysis` |  |
+| `isMobile` |  |
 | `location` |  |
-| `parameter` |  |
-| `source` |  |
+| `parameters` |  |
+| `sources` |  |
 
 Operations: List.
 
@@ -266,16 +267,16 @@ API path: `/locations`
 | Field | Description |
 | --- | --- |
 | `city` |  |
-| `coordinate` |  |
+| `coordinates` |  |
 | `country` |  |
 | `date` |  |
 | `entity` |  |
-| `is_analysi` |  |
-| `is_mobile` |  |
+| `isAnalysis` |  |
+| `isMobile` |  |
 | `location` |  |
-| `location_id` |  |
+| `locationId` |  |
 | `parameter` |  |
-| `sensor_type` |  |
+| `sensorType` |  |
 | `unit` |  |
 | `value` |  |
 
@@ -303,14 +304,14 @@ Create an instance: `$location = $client->Location();`
 | Field | Type | Description |
 | --- | --- | --- |
 | `city` | `string` |  |
-| `coordinate` | `array` |  |
+| `coordinates` | `array` |  |
 | `country` | `string` |  |
 | `id` | `int` |  |
-| `is_analysi` | `bool` |  |
-| `is_mobile` | `bool` |  |
+| `isAnalysis` | `bool` |  |
+| `isMobile` | `bool` |  |
 | `location` | `string` |  |
-| `parameter` | `array` |  |
-| `source` | `array` |  |
+| `parameters` | `array` |  |
+| `sources` | `array` |  |
 
 #### Example: List
 
@@ -335,16 +336,16 @@ Create an instance: `$measurement = $client->Measurement();`
 | Field | Type | Description |
 | --- | --- | --- |
 | `city` | `string` |  |
-| `coordinate` | `array` |  |
+| `coordinates` | `array` |  |
 | `country` | `string` |  |
 | `date` | `array` |  |
 | `entity` | `string` |  |
-| `is_analysi` | `bool` |  |
-| `is_mobile` | `bool` |  |
+| `isAnalysis` | `bool` |  |
+| `isMobile` | `bool` |  |
 | `location` | `string` |  |
-| `location_id` | `int` |  |
+| `locationId` | `int` |  |
 | `parameter` | `string` |  |
-| `sensor_type` | `string` |  |
+| `sensorType` | `string` |  |
 | `unit` | `string` |  |
 | `value` | `float` |  |
 

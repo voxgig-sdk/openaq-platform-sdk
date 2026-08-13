@@ -7,56 +7,56 @@
 
 export interface Location {
   city?: string
-  coordinate?: Record<string, any>
+  coordinates?: Record<string, any>
   country?: string
   id?: number
-  is_analysi?: boolean
-  is_mobile?: boolean
+  isAnalysis?: boolean
+  isMobile?: boolean
   location?: string
-  parameter?: any[]
-  source?: any[]
+  parameters?: any[]
+  sources?: any[]
 }
 
 export interface LocationListMatch {
   city?: string
-  coordinate?: Record<string, any>
+  coordinates?: Record<string, any>
   country?: string
   id?: number
-  is_analysi?: boolean
-  is_mobile?: boolean
+  isAnalysis?: boolean
+  isMobile?: boolean
   location?: string
-  parameter?: any[]
-  source?: any[]
+  parameters?: any[]
+  sources?: any[]
 }
 
 export interface Measurement {
   city?: string
-  coordinate?: Record<string, any>
+  coordinates?: Record<string, any>
   country?: string
   date?: Record<string, any>
   entity?: string
-  is_analysi?: boolean
-  is_mobile?: boolean
+  isAnalysis?: boolean
+  isMobile?: boolean
   location?: string
-  location_id?: number
+  locationId?: number
   parameter?: string
-  sensor_type?: string
+  sensorType?: string
   unit?: string
   value?: number
 }
 
 export interface MeasurementListMatch {
   city?: string
-  coordinate?: Record<string, any>
+  coordinates?: Record<string, any>
   country?: string
   date?: Record<string, any>
   entity?: string
-  is_analysi?: boolean
-  is_mobile?: boolean
+  isAnalysis?: boolean
+  isMobile?: boolean
   location?: string
-  location_id?: number
+  locationId?: number
   parameter?: string
-  sensor_type?: string
+  sensorType?: string
   unit?: string
   value?: number
 }

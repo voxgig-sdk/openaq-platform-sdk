@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# OpenaqPlatform SDK exists test
 
 import pytest
 from openaqplatform_sdk import OpenaqPlatformSDK

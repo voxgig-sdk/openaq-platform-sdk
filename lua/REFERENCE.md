@@ -95,14 +95,14 @@ local location = client:Location(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `city` | `string` | No |  |
-| `coordinate` | `table` | No |  |
+| `coordinates` | `table` | No |  |
 | `country` | `string` | No |  |
 | `id` | `number` | No |  |
-| `is_analysi` | `boolean` | No |  |
-| `is_mobile` | `boolean` | No |  |
+| `isAnalysis` | `boolean` | No |  |
+| `isMobile` | `boolean` | No |  |
 | `location` | `string` | No |  |
-| `parameter` | `table` | No |  |
-| `source` | `table` | No |  |
+| `parameters` | `table` | No |  |
+| `sources` | `table` | No |  |
 
 ### Operations
 
@@ -155,16 +155,16 @@ local measurement = client:Measurement(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `city` | `string` | No |  |
-| `coordinate` | `table` | No |  |
+| `coordinates` | `table` | No |  |
 | `country` | `string` | No |  |
 | `date` | `table` | No |  |
 | `entity` | `string` | No |  |
-| `is_analysi` | `boolean` | No |  |
-| `is_mobile` | `boolean` | No |  |
+| `isAnalysis` | `boolean` | No |  |
+| `isMobile` | `boolean` | No |  |
 | `location` | `string` | No |  |
-| `location_id` | `number` | No |  |
+| `locationId` | `number` | No |  |
 | `parameter` | `string` | No |  |
-| `sensor_type` | `string` | No |  |
+| `sensorType` | `string` | No |  |
 | `unit` | `string` | No |  |
 | `value` | `number` | No |  |
 

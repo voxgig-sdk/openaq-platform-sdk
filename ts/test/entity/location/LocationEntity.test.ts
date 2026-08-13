@@ -26,8 +26,8 @@ import {
 describe('LocationEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when OPENAQPLATFORM_TEST_LIVE=TRUE.
-  afterEach(liveDelay('OPENAQPLATFORM_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when OPENAQ_PLATFORM_TEST_LIVE=TRUE.
+  afterEach(liveDelay('OPENAQ_PLATFORM_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = OpenaqPlatformSDK.test()
@@ -63,7 +63,7 @@ describe('LocationEntity', async () => {
     const location_ref01_ent = client.Location()
     const location_ref01_match: any = {}
 
-    const location_ref01_list = await location_ref01_ent.list(location_ref01_match)
+    const location_ref01_list = (await location_ref01_ent.list(location_ref01_match)).map((e: any) => e.data())
 
 
   })

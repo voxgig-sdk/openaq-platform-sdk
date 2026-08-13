@@ -23,8 +23,8 @@ module OpenaqPlatformTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("OPENAQPLATFORM_TEST_LIVE")
-    override = getenv("OPENAQPLATFORM_TEST_OVERRIDE")
+    live = getenv("OPENAQ_PLATFORM_TEST_LIVE")
+    override = getenv("OPENAQ_PLATFORM_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module OpenaqPlatformTestRunner
       end
     end
 
-    explain = getenv("OPENAQPLATFORM_TEST_EXPLAIN")
-    m["OPENAQPLATFORM_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("OPENAQ_PLATFORM_TEST_EXPLAIN")
+    m["OPENAQ_PLATFORM_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

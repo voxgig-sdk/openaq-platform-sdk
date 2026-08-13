@@ -11,7 +11,7 @@ main: kit: entity: location: {
       type: "`$STRING`"
     }
     {
-      name: "coordinate"
+      name: "coordinates"
       req: false
       type: "`$OBJECT`"
     }
@@ -26,12 +26,12 @@ main: kit: entity: location: {
       type: "`$INTEGER`"
     }
     {
-      name: "is_analysi"
+      name: "isAnalysis"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "is_mobile"
+      name: "isMobile"
       req: false
       type: "`$BOOLEAN`"
     }
@@ -41,12 +41,12 @@ main: kit: entity: location: {
       type: "`$STRING`"
     }
     {
-      name: "parameter"
+      name: "parameters"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "source"
+      name: "sources"
       req: false
       type: "`$ARRAY`"
     }

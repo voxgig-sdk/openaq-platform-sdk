@@ -43,8 +43,8 @@ class OpenaqPlatformTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('OPENAQPLATFORM_TEST_LIVE');
-        $override = self::getenv('OPENAQPLATFORM_TEST_OVERRIDE');
+        $live = self::getenv('OPENAQ_PLATFORM_TEST_LIVE');
+        $override = self::getenv('OPENAQ_PLATFORM_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class OpenaqPlatformTestRunner
             }
         }
 
-        $explain = self::getenv('OPENAQPLATFORM_TEST_EXPLAIN');
+        $explain = self::getenv('OPENAQ_PLATFORM_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['OPENAQPLATFORM_TEST_EXPLAIN'] = $explain;
+            $m['OPENAQ_PLATFORM_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

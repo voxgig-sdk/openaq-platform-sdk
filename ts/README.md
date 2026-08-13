@@ -35,7 +35,9 @@ const client = new OpenaqPlatformSDK()
 
 ### 2. List location records
 
-`list()` resolves to an array of Location objects — iterate it directly:
+`list()` resolves to an array of Location ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const locations = await client.Location().list()
@@ -120,7 +122,8 @@ Create a mock client for unit testing — no server required:
 const client = OpenaqPlatformSDK.test()
 
 const location = await client.Location().list()
-// location is a bare entity populated with mock response data
+// location is the entity, populated with mock response data
+// — call location.data() for the record itself
 console.log(location)
 ```
 
@@ -286,14 +289,14 @@ The `prepare()` method returns:
 | Field | Description |
 | --- | --- |
 | `city` |  |
-| `coordinate` |  |
+| `coordinates` |  |
 | `country` |  |
 | `id` |  |
-| `is_analysi` |  |
-| `is_mobile` |  |
+| `isAnalysis` |  |
+| `isMobile` |  |
 | `location` |  |
-| `parameter` |  |
-| `source` |  |
+| `parameters` |  |
+| `sources` |  |
 
 Operations: list.
 
@@ -304,16 +307,16 @@ API path: `/locations`
 | Field | Description |
 | --- | --- |
 | `city` |  |
-| `coordinate` |  |
+| `coordinates` |  |
 | `country` |  |
 | `date` |  |
 | `entity` |  |
-| `is_analysi` |  |
-| `is_mobile` |  |
+| `isAnalysis` |  |
+| `isMobile` |  |
 | `location` |  |
-| `location_id` |  |
+| `locationId` |  |
 | `parameter` |  |
-| `sensor_type` |  |
+| `sensorType` |  |
 | `unit` |  |
 | `value` |  |
 
@@ -341,14 +344,14 @@ Create an instance: `const location = client.Location()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `city` | `string` |  |
-| `coordinate` | `Record<string, any>` |  |
+| `coordinates` | `Record<string, any>` |  |
 | `country` | `string` |  |
 | `id` | `number` |  |
-| `is_analysi` | `boolean` |  |
-| `is_mobile` | `boolean` |  |
+| `isAnalysis` | `boolean` |  |
+| `isMobile` | `boolean` |  |
 | `location` | `string` |  |
-| `parameter` | `any[]` |  |
-| `source` | `any[]` |  |
+| `parameters` | `any[]` |  |
+| `sources` | `any[]` |  |
 
 #### Example: List
 
@@ -372,16 +375,16 @@ Create an instance: `const measurement = client.Measurement()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `city` | `string` |  |
-| `coordinate` | `Record<string, any>` |  |
+| `coordinates` | `Record<string, any>` |  |
 | `country` | `string` |  |
 | `date` | `Record<string, any>` |  |
 | `entity` | `string` |  |
-| `is_analysi` | `boolean` |  |
-| `is_mobile` | `boolean` |  |
+| `isAnalysis` | `boolean` |  |
+| `isMobile` | `boolean` |  |
 | `location` | `string` |  |
-| `location_id` | `number` |  |
+| `locationId` | `number` |  |
 | `parameter` | `string` |  |
-| `sensor_type` | `string` |  |
+| `sensorType` | `string` |  |
 | `unit` | `string` |  |
 | `value` | `number` |  |
 

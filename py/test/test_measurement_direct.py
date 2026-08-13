@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from openaqplatform_sdk.utility.voxgig_struct import voxgig_struct as vs
 from openaqplatform_sdk import OpenaqPlatformSDK
-from core import helpers
+from openaqplatform_sdk.core import helpers
 from test import runner
 
 
@@ -58,11 +58,11 @@ def _measurement_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "OPENAQPLATFORM_TEST_MEASUREMENT_ENTID": {},
-        "OPENAQPLATFORM_TEST_LIVE": "FALSE",
+        "OPENAQ_PLATFORM_TEST_MEASUREMENT_ENTID": {},
+        "OPENAQ_PLATFORM_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("OPENAQPLATFORM_TEST_LIVE") == "TRUE"
+    live = env.get("OPENAQ_PLATFORM_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

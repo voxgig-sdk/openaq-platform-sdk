@@ -34,7 +34,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "coordinate",
+            ["name"] = "coordinates",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 1,
@@ -55,14 +55,14 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "is_analysi",
+            ["name"] = "isAnalysis",
             ["req"] = false,
             ["type"] = "`$BOOLEAN`",
             ["index$"] = 4,
           },
           {
             ["active"] = true,
-            ["name"] = "is_mobile",
+            ["name"] = "isMobile",
             ["req"] = false,
             ["type"] = "`$BOOLEAN`",
             ["index$"] = 5,
@@ -76,14 +76,14 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "parameter",
+            ["name"] = "parameters",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 7,
           },
           {
             ["active"] = true,
-            ["name"] = "source",
+            ["name"] = "sources",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 8,
@@ -184,6 +184,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/locations",
                 ["parts"] = {
@@ -228,7 +229,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "coordinate",
+            ["name"] = "coordinates",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 1,
@@ -256,14 +257,14 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "is_analysi",
+            ["name"] = "isAnalysis",
             ["req"] = false,
             ["type"] = "`$BOOLEAN`",
             ["index$"] = 5,
           },
           {
             ["active"] = true,
-            ["name"] = "is_mobile",
+            ["name"] = "isMobile",
             ["req"] = false,
             ["type"] = "`$BOOLEAN`",
             ["index$"] = 6,
@@ -277,7 +278,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "location_id",
+            ["name"] = "locationId",
             ["req"] = false,
             ["type"] = "`$INTEGER`",
             ["index$"] = 8,
@@ -291,7 +292,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "sensor_type",
+            ["name"] = "sensorType",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 10,
@@ -449,6 +450,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/measurements",
                 ["parts"] = {

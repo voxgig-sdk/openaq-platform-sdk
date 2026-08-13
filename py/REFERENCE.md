@@ -92,14 +92,14 @@ location = client.Location()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `city` | `str` | No |  |
-| `coordinate` | `dict` | No |  |
+| `coordinates` | `dict` | No |  |
 | `country` | `str` | No |  |
 | `id` | `int` | No |  |
-| `is_analysi` | `bool` | No |  |
-| `is_mobile` | `bool` | No |  |
+| `isAnalysis` | `bool` | No |  |
+| `isMobile` | `bool` | No |  |
 | `location` | `str` | No |  |
-| `parameter` | `list` | No |  |
-| `source` | `list` | No |  |
+| `parameters` | `list` | No |  |
+| `sources` | `list` | No |  |
 
 ### Operations
 
@@ -153,16 +153,16 @@ measurement = client.Measurement()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `city` | `str` | No |  |
-| `coordinate` | `dict` | No |  |
+| `coordinates` | `dict` | No |  |
 | `country` | `str` | No |  |
 | `date` | `dict` | No |  |
 | `entity` | `str` | No |  |
-| `is_analysi` | `bool` | No |  |
-| `is_mobile` | `bool` | No |  |
+| `isAnalysis` | `bool` | No |  |
+| `isMobile` | `bool` | No |  |
 | `location` | `str` | No |  |
-| `location_id` | `int` | No |  |
+| `locationId` | `int` | No |  |
 | `parameter` | `str` | No |  |
-| `sensor_type` | `str` | No |  |
+| `sensorType` | `str` | No |  |
 | `unit` | `str` | No |  |
 | `value` | `float` | No |  |
 

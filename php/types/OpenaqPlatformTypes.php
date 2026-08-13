@@ -16,44 +16,44 @@ declare(strict_types=1);
 class Location
 {
     public ?string $city = null;
-    public ?array $coordinate = null;
+    public ?array $coordinates = null;
     public ?string $country = null;
     public ?int $id = null;
-    public ?bool $is_analysi = null;
-    public ?bool $is_mobile = null;
+    public ?bool $isAnalysis = null;
+    public ?bool $isMobile = null;
     public ?string $location = null;
-    public ?array $parameter = null;
-    public ?array $source = null;
+    public ?array $parameters = null;
+    public ?array $sources = null;
 }
 
 /** Request payload for Location#list. */
 class LocationListMatch
 {
     public ?string $city = null;
-    public ?array $coordinate = null;
+    public ?array $coordinates = null;
     public ?string $country = null;
     public ?int $id = null;
-    public ?bool $is_analysi = null;
-    public ?bool $is_mobile = null;
+    public ?bool $isAnalysis = null;
+    public ?bool $isMobile = null;
     public ?string $location = null;
-    public ?array $parameter = null;
-    public ?array $source = null;
+    public ?array $parameters = null;
+    public ?array $sources = null;
 }
 
 /** Measurement entity data model. */
 class Measurement
 {
     public ?string $city = null;
-    public ?array $coordinate = null;
+    public ?array $coordinates = null;
     public ?string $country = null;
     public ?array $date = null;
     public ?string $entity = null;
-    public ?bool $is_analysi = null;
-    public ?bool $is_mobile = null;
+    public ?bool $isAnalysis = null;
+    public ?bool $isMobile = null;
     public ?string $location = null;
-    public ?int $location_id = null;
+    public ?int $locationId = null;
     public ?string $parameter = null;
-    public ?string $sensor_type = null;
+    public ?string $sensorType = null;
     public ?string $unit = null;
     public ?float $value = null;
 }
@@ -62,16 +62,16 @@ class Measurement
 class MeasurementListMatch
 {
     public ?string $city = null;
-    public ?array $coordinate = null;
+    public ?array $coordinates = null;
     public ?string $country = null;
     public ?array $date = null;
     public ?string $entity = null;
-    public ?bool $is_analysi = null;
-    public ?bool $is_mobile = null;
+    public ?bool $isAnalysis = null;
+    public ?bool $isMobile = null;
     public ?string $location = null;
-    public ?int $location_id = null;
+    public ?int $locationId = null;
     public ?string $parameter = null;
-    public ?string $sensor_type = null;
+    public ?string $sensorType = null;
     public ?string $unit = null;
     public ?float $value = null;
 }

@@ -262,14 +262,14 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | Field | Description |
 | --- | --- |
 | `"city"` |  |
-| `"coordinate"` |  |
+| `"coordinates"` |  |
 | `"country"` |  |
 | `"id"` |  |
-| `"is_analysi"` |  |
-| `"is_mobile"` |  |
+| `"isAnalysis"` |  |
+| `"isMobile"` |  |
 | `"location"` |  |
-| `"parameter"` |  |
-| `"source"` |  |
+| `"parameters"` |  |
+| `"sources"` |  |
 
 Operations: List.
 
@@ -280,16 +280,16 @@ API path: `/locations`
 | Field | Description |
 | --- | --- |
 | `"city"` |  |
-| `"coordinate"` |  |
+| `"coordinates"` |  |
 | `"country"` |  |
 | `"date"` |  |
 | `"entity"` |  |
-| `"is_analysi"` |  |
-| `"is_mobile"` |  |
+| `"isAnalysis"` |  |
+| `"isMobile"` |  |
 | `"location"` |  |
-| `"location_id"` |  |
+| `"locationId"` |  |
 | `"parameter"` |  |
-| `"sensor_type"` |  |
+| `"sensorType"` |  |
 | `"unit"` |  |
 | `"value"` |  |
 
@@ -317,14 +317,14 @@ Create an instance: `location := client.Location(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `city` | `string` |  |
-| `coordinate` | `map[string]any` |  |
+| `coordinates` | `map[string]any` |  |
 | `country` | `string` |  |
 | `id` | `int` |  |
-| `is_analysi` | `bool` |  |
-| `is_mobile` | `bool` |  |
+| `isAnalysis` | `bool` |  |
+| `isMobile` | `bool` |  |
 | `location` | `string` |  |
-| `parameter` | `[]any` |  |
-| `source` | `[]any` |  |
+| `parameters` | `[]any` |  |
+| `sources` | `[]any` |  |
 
 #### Example: List
 
@@ -352,16 +352,16 @@ Create an instance: `measurement := client.Measurement(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `city` | `string` |  |
-| `coordinate` | `map[string]any` |  |
+| `coordinates` | `map[string]any` |  |
 | `country` | `string` |  |
 | `date` | `map[string]any` |  |
 | `entity` | `string` |  |
-| `is_analysi` | `bool` |  |
-| `is_mobile` | `bool` |  |
+| `isAnalysis` | `bool` |  |
+| `isMobile` | `bool` |  |
 | `location` | `string` |  |
-| `location_id` | `int` |  |
+| `locationId` | `int` |  |
 | `parameter` | `string` |  |
-| `sensor_type` | `string` |  |
+| `sensorType` | `string` |  |
 | `unit` | `string` |  |
 | `value` | `float64` |  |
 

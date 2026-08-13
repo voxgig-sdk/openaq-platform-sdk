@@ -34,7 +34,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "coordinate",
+						"name": "coordinates",
 						"req": false,
 						"type": "`$OBJECT`",
 						"index$": 1,
@@ -55,14 +55,14 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "is_analysi",
+						"name": "isAnalysis",
 						"req": false,
 						"type": "`$BOOLEAN`",
 						"index$": 4,
 					},
 					map[string]any{
 						"active": true,
-						"name": "is_mobile",
+						"name": "isMobile",
 						"req": false,
 						"type": "`$BOOLEAN`",
 						"index$": 5,
@@ -76,14 +76,14 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "parameter",
+						"name": "parameters",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 7,
 					},
 					map[string]any{
 						"active": true,
-						"name": "source",
+						"name": "sources",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 8,
@@ -184,6 +184,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/locations",
 								"parts": []any{
@@ -210,7 +211,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{
@@ -228,7 +228,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "coordinate",
+						"name": "coordinates",
 						"req": false,
 						"type": "`$OBJECT`",
 						"index$": 1,
@@ -256,14 +256,14 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "is_analysi",
+						"name": "isAnalysis",
 						"req": false,
 						"type": "`$BOOLEAN`",
 						"index$": 5,
 					},
 					map[string]any{
 						"active": true,
-						"name": "is_mobile",
+						"name": "isMobile",
 						"req": false,
 						"type": "`$BOOLEAN`",
 						"index$": 6,
@@ -277,7 +277,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "location_id",
+						"name": "locationId",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 8,
@@ -291,7 +291,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "sensor_type",
+						"name": "sensorType",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 10,
@@ -449,6 +449,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/measurements",
 								"parts": []any{
@@ -480,7 +481,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{

@@ -129,14 +129,14 @@ const location = client.Location()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `city` | `string` | No |  |
-| `coordinate` | `Record<string, any>` | No |  |
+| `coordinates` | `Record<string, any>` | No |  |
 | `country` | `string` | No |  |
 | `id` | `number` | No |  |
-| `is_analysi` | `boolean` | No |  |
-| `is_mobile` | `boolean` | No |  |
+| `isAnalysis` | `boolean` | No |  |
+| `isMobile` | `boolean` | No |  |
 | `location` | `string` | No |  |
-| `parameter` | `any[]` | No |  |
-| `source` | `any[]` | No |  |
+| `parameters` | `any[]` | No |  |
+| `sources` | `any[]` | No |  |
 
 ### Operations
 
@@ -187,16 +187,16 @@ const measurement = client.Measurement()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `city` | `string` | No |  |
-| `coordinate` | `Record<string, any>` | No |  |
+| `coordinates` | `Record<string, any>` | No |  |
 | `country` | `string` | No |  |
 | `date` | `Record<string, any>` | No |  |
 | `entity` | `string` | No |  |
-| `is_analysi` | `boolean` | No |  |
-| `is_mobile` | `boolean` | No |  |
+| `isAnalysis` | `boolean` | No |  |
+| `isMobile` | `boolean` | No |  |
 | `location` | `string` | No |  |
-| `location_id` | `number` | No |  |
+| `locationId` | `number` | No |  |
 | `parameter` | `string` | No |  |
-| `sensor_type` | `string` | No |  |
+| `sensorType` | `string` | No |  |
 | `unit` | `string` | No |  |
 | `value` | `number` | No |  |
 

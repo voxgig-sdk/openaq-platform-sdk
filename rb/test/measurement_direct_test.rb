@@ -60,11 +60,11 @@ def measurement_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "OPENAQPLATFORM_TEST_MEASUREMENT_ENTID" => {},
-    "OPENAQPLATFORM_TEST_LIVE" => "FALSE",
+    "OPENAQ_PLATFORM_TEST_MEASUREMENT_ENTID" => {},
+    "OPENAQ_PLATFORM_TEST_LIVE" => "FALSE",
   })
 
-  live = env["OPENAQPLATFORM_TEST_LIVE"] == "TRUE"
+  live = env["OPENAQ_PLATFORM_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {

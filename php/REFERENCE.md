@@ -97,14 +97,14 @@ $location = $client->Location();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `city` | `string` | No |  |
-| `coordinate` | `array` | No |  |
+| `coordinates` | `array` | No |  |
 | `country` | `string` | No |  |
 | `id` | `int` | No |  |
-| `is_analysi` | `bool` | No |  |
-| `is_mobile` | `bool` | No |  |
+| `isAnalysis` | `bool` | No |  |
+| `isMobile` | `bool` | No |  |
 | `location` | `string` | No |  |
-| `parameter` | `array` | No |  |
-| `source` | `array` | No |  |
+| `parameters` | `array` | No |  |
+| `sources` | `array` | No |  |
 
 ### Operations
 
@@ -157,16 +157,16 @@ $measurement = $client->Measurement();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `city` | `string` | No |  |
-| `coordinate` | `array` | No |  |
+| `coordinates` | `array` | No |  |
 | `country` | `string` | No |  |
 | `date` | `array` | No |  |
 | `entity` | `string` | No |  |
-| `is_analysi` | `bool` | No |  |
-| `is_mobile` | `bool` | No |  |
+| `isAnalysis` | `bool` | No |  |
+| `isMobile` | `bool` | No |  |
 | `location` | `string` | No |  |
-| `location_id` | `int` | No |  |
+| `locationId` | `int` | No |  |
 | `parameter` | `string` | No |  |
-| `sensor_type` | `string` | No |  |
+| `sensorType` | `string` | No |  |
 | `unit` | `string` | No |  |
 | `value` | `float` | No |  |
 

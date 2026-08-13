@@ -219,9 +219,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local location, err = client:Location():load()
+    local location, err = client:Location():list()
     if err then error(err) end
-    -- location is the loaded record
+    -- location is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -233,14 +233,14 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | Field | Description |
 | --- | --- |
 | `city` |  |
-| `coordinate` |  |
+| `coordinates` |  |
 | `country` |  |
 | `id` |  |
-| `is_analysi` |  |
-| `is_mobile` |  |
+| `isAnalysis` |  |
+| `isMobile` |  |
 | `location` |  |
-| `parameter` |  |
-| `source` |  |
+| `parameters` |  |
+| `sources` |  |
 
 Operations: List.
 
@@ -251,16 +251,16 @@ API path: `/locations`
 | Field | Description |
 | --- | --- |
 | `city` |  |
-| `coordinate` |  |
+| `coordinates` |  |
 | `country` |  |
 | `date` |  |
 | `entity` |  |
-| `is_analysi` |  |
-| `is_mobile` |  |
+| `isAnalysis` |  |
+| `isMobile` |  |
 | `location` |  |
-| `location_id` |  |
+| `locationId` |  |
 | `parameter` |  |
-| `sensor_type` |  |
+| `sensorType` |  |
 | `unit` |  |
 | `value` |  |
 
@@ -288,14 +288,14 @@ Create an instance: `local location = client:Location(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `city` | `string` |  |
-| `coordinate` | `table` |  |
+| `coordinates` | `table` |  |
 | `country` | `string` |  |
 | `id` | `number` |  |
-| `is_analysi` | `boolean` |  |
-| `is_mobile` | `boolean` |  |
+| `isAnalysis` | `boolean` |  |
+| `isMobile` | `boolean` |  |
 | `location` | `string` |  |
-| `parameter` | `table` |  |
-| `source` | `table` |  |
+| `parameters` | `table` |  |
+| `sources` | `table` |  |
 
 #### Example: List
 
@@ -319,16 +319,16 @@ Create an instance: `local measurement = client:Measurement(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `city` | `string` |  |
-| `coordinate` | `table` |  |
+| `coordinates` | `table` |  |
 | `country` | `string` |  |
 | `date` | `table` |  |
 | `entity` | `string` |  |
-| `is_analysi` | `boolean` |  |
-| `is_mobile` | `boolean` |  |
+| `isAnalysis` | `boolean` |  |
+| `isMobile` | `boolean` |  |
 | `location` | `string` |  |
-| `location_id` | `number` |  |
+| `locationId` | `number` |  |
 | `parameter` | `string` |  |
-| `sensor_type` | `string` |  |
+| `sensorType` | `string` |  |
 | `unit` | `string` |  |
 | `value` | `number` |  |
 

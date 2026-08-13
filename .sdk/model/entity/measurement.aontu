@@ -11,7 +11,7 @@ main: kit: entity: measurement: {
       type: "`$STRING`"
     }
     {
-      name: "coordinate"
+      name: "coordinates"
       req: false
       type: "`$OBJECT`"
     }
@@ -31,12 +31,12 @@ main: kit: entity: measurement: {
       type: "`$STRING`"
     }
     {
-      name: "is_analysi"
+      name: "isAnalysis"
       req: false
       type: "`$BOOLEAN`"
     }
     {
-      name: "is_mobile"
+      name: "isMobile"
       req: false
       type: "`$BOOLEAN`"
     }
@@ -46,7 +46,7 @@ main: kit: entity: measurement: {
       type: "`$STRING`"
     }
     {
-      name: "location_id"
+      name: "locationId"
       req: false
       type: "`$INTEGER`"
     }
@@ -56,7 +56,7 @@ main: kit: entity: measurement: {
       type: "`$STRING`"
     }
     {
-      name: "sensor_type"
+      name: "sensorType"
       req: false
       type: "`$STRING`"
     }

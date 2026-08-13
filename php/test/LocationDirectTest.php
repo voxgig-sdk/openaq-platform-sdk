@@ -66,11 +66,11 @@ function location_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "OPENAQPLATFORM_TEST_LOCATION_ENTID" => [],
-        "OPENAQPLATFORM_TEST_LIVE" => "FALSE",
+        "OPENAQ_PLATFORM_TEST_LOCATION_ENTID" => [],
+        "OPENAQ_PLATFORM_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["OPENAQPLATFORM_TEST_LIVE"] === "TRUE";
+    $live = $env["OPENAQ_PLATFORM_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

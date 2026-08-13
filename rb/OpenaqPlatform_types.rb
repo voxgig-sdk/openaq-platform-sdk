@@ -13,7 +13,7 @@
 # @!attribute [rw] city
 #   @return [String, nil]
 #
-# @!attribute [rw] coordinate
+# @!attribute [rw] coordinates
 #   @return [Hash, nil]
 #
 # @!attribute [rw] country
@@ -22,30 +22,30 @@
 # @!attribute [rw] id
 #   @return [Integer, nil]
 #
-# @!attribute [rw] is_analysi
+# @!attribute [rw] isAnalysis
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] is_mobile
+# @!attribute [rw] isMobile
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] location
 #   @return [String, nil]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Array, nil]
 #
-# @!attribute [rw] source
+# @!attribute [rw] sources
 #   @return [Array, nil]
 Location = Struct.new(
   :city,
-  :coordinate,
+  :coordinates,
   :country,
   :id,
-  :is_analysi,
-  :is_mobile,
+  :isAnalysis,
+  :isMobile,
   :location,
-  :parameter,
-  :source,
+  :parameters,
+  :sources,
   keyword_init: true
 )
 
@@ -54,7 +54,7 @@ Location = Struct.new(
 # @!attribute [rw] city
 #   @return [String, nil]
 #
-# @!attribute [rw] coordinate
+# @!attribute [rw] coordinates
 #   @return [Hash, nil]
 #
 # @!attribute [rw] country
@@ -63,30 +63,30 @@ Location = Struct.new(
 # @!attribute [rw] id
 #   @return [Integer, nil]
 #
-# @!attribute [rw] is_analysi
+# @!attribute [rw] isAnalysis
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] is_mobile
+# @!attribute [rw] isMobile
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] location
 #   @return [String, nil]
 #
-# @!attribute [rw] parameter
+# @!attribute [rw] parameters
 #   @return [Array, nil]
 #
-# @!attribute [rw] source
+# @!attribute [rw] sources
 #   @return [Array, nil]
 LocationListMatch = Struct.new(
   :city,
-  :coordinate,
+  :coordinates,
   :country,
   :id,
-  :is_analysi,
-  :is_mobile,
+  :isAnalysis,
+  :isMobile,
   :location,
-  :parameter,
-  :source,
+  :parameters,
+  :sources,
   keyword_init: true
 )
 
@@ -95,7 +95,7 @@ LocationListMatch = Struct.new(
 # @!attribute [rw] city
 #   @return [String, nil]
 #
-# @!attribute [rw] coordinate
+# @!attribute [rw] coordinates
 #   @return [Hash, nil]
 #
 # @!attribute [rw] country
@@ -107,22 +107,22 @@ LocationListMatch = Struct.new(
 # @!attribute [rw] entity
 #   @return [String, nil]
 #
-# @!attribute [rw] is_analysi
+# @!attribute [rw] isAnalysis
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] is_mobile
+# @!attribute [rw] isMobile
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] location
 #   @return [String, nil]
 #
-# @!attribute [rw] location_id
+# @!attribute [rw] locationId
 #   @return [Integer, nil]
 #
 # @!attribute [rw] parameter
 #   @return [String, nil]
 #
-# @!attribute [rw] sensor_type
+# @!attribute [rw] sensorType
 #   @return [String, nil]
 #
 # @!attribute [rw] unit
@@ -132,16 +132,16 @@ LocationListMatch = Struct.new(
 #   @return [Float, nil]
 Measurement = Struct.new(
   :city,
-  :coordinate,
+  :coordinates,
   :country,
   :date,
   :entity,
-  :is_analysi,
-  :is_mobile,
+  :isAnalysis,
+  :isMobile,
   :location,
-  :location_id,
+  :locationId,
   :parameter,
-  :sensor_type,
+  :sensorType,
   :unit,
   :value,
   keyword_init: true
@@ -152,7 +152,7 @@ Measurement = Struct.new(
 # @!attribute [rw] city
 #   @return [String, nil]
 #
-# @!attribute [rw] coordinate
+# @!attribute [rw] coordinates
 #   @return [Hash, nil]
 #
 # @!attribute [rw] country
@@ -164,22 +164,22 @@ Measurement = Struct.new(
 # @!attribute [rw] entity
 #   @return [String, nil]
 #
-# @!attribute [rw] is_analysi
+# @!attribute [rw] isAnalysis
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] is_mobile
+# @!attribute [rw] isMobile
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] location
 #   @return [String, nil]
 #
-# @!attribute [rw] location_id
+# @!attribute [rw] locationId
 #   @return [Integer, nil]
 #
 # @!attribute [rw] parameter
 #   @return [String, nil]
 #
-# @!attribute [rw] sensor_type
+# @!attribute [rw] sensorType
 #   @return [String, nil]
 #
 # @!attribute [rw] unit
@@ -189,16 +189,16 @@ Measurement = Struct.new(
 #   @return [Float, nil]
 MeasurementListMatch = Struct.new(
   :city,
-  :coordinate,
+  :coordinates,
   :country,
   :date,
   :entity,
-  :is_analysi,
-  :is_mobile,
+  :isAnalysis,
+  :isMobile,
   :location,
-  :location_id,
+  :locationId,
   :parameter,
-  :sensor_type,
+  :sensorType,
   :unit,
   :value,
   keyword_init: true

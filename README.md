@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = OpenaqPlatformSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = OpenaqPlatformSDK.test({
+  entity: {
+    location: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const locations = await client.Location().list()
-// locations is an array of bare Location records populated with mock data
+// locations is an array of Location entities, populated with mock data
+// — call locations[0].data() for the record itself
 console.log(locations)
 ```
 
@@ -110,7 +119,7 @@ import { OpenaqPlatformSDK } from '@voxgig-sdk/openaq-platform'
 
 const client = new OpenaqPlatformSDK()
 
-// List all locations (returns Location[])
+// List all locations (returns LocationEntity[] — .data() for the record)
 const locations = await client.Location().list()
 for (const location of locations) {
   console.log(location)
@@ -344,6 +353,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://docs.openaq.org](https://docs.openaq.org)
 

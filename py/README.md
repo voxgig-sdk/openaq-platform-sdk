@@ -124,7 +124,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = OpenaqPlatformSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 location = client.Location().list()
 # location contains the mock response record
 ```
@@ -221,7 +222,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -244,14 +245,14 @@ On error, `ok` is `False` and `err` contains the error value.
 | Field | Description |
 | --- | --- |
 | `city` |  |
-| `coordinate` |  |
+| `coordinates` |  |
 | `country` |  |
 | `id` |  |
-| `is_analysi` |  |
-| `is_mobile` |  |
+| `isAnalysis` |  |
+| `isMobile` |  |
 | `location` |  |
-| `parameter` |  |
-| `source` |  |
+| `parameters` |  |
+| `sources` |  |
 
 Operations: List.
 
@@ -262,16 +263,16 @@ API path: `/locations`
 | Field | Description |
 | --- | --- |
 | `city` |  |
-| `coordinate` |  |
+| `coordinates` |  |
 | `country` |  |
 | `date` |  |
 | `entity` |  |
-| `is_analysi` |  |
-| `is_mobile` |  |
+| `isAnalysis` |  |
+| `isMobile` |  |
 | `location` |  |
-| `location_id` |  |
+| `locationId` |  |
 | `parameter` |  |
-| `sensor_type` |  |
+| `sensorType` |  |
 | `unit` |  |
 | `value` |  |
 
@@ -299,14 +300,14 @@ Create an instance: `location = client.Location()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `city` | `str` |  |
-| `coordinate` | `dict` |  |
+| `coordinates` | `dict` |  |
 | `country` | `str` |  |
 | `id` | `int` |  |
-| `is_analysi` | `bool` |  |
-| `is_mobile` | `bool` |  |
+| `isAnalysis` | `bool` |  |
+| `isMobile` | `bool` |  |
 | `location` | `str` |  |
-| `parameter` | `list` |  |
-| `source` | `list` |  |
+| `parameters` | `list` |  |
+| `sources` | `list` |  |
 
 #### Example: List
 
@@ -330,16 +331,16 @@ Create an instance: `measurement = client.Measurement()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `city` | `str` |  |
-| `coordinate` | `dict` |  |
+| `coordinates` | `dict` |  |
 | `country` | `str` |  |
 | `date` | `dict` |  |
 | `entity` | `str` |  |
-| `is_analysi` | `bool` |  |
-| `is_mobile` | `bool` |  |
+| `isAnalysis` | `bool` |  |
+| `isMobile` | `bool` |  |
 | `location` | `str` |  |
-| `location_id` | `int` |  |
+| `locationId` | `int` |  |
 | `parameter` | `str` |  |
-| `sensor_type` | `str` |  |
+| `sensorType` | `str` |  |
 | `unit` | `str` |  |
 | `value` | `float` |  |
 

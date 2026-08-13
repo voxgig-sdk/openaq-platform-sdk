@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import OpenaqPlatformControl
-from core.error import OpenaqPlatformError
-from core.result import OpenaqPlatformResult
-from core.spec import OpenaqPlatformSpec
+from openaqplatform_sdk.config import make_config
+from openaqplatform_sdk.features import _make_feature
+from openaqplatform_sdk.core.control import OpenaqPlatformControl
+from openaqplatform_sdk.core.error import OpenaqPlatformError
+from openaqplatform_sdk.core.result import OpenaqPlatformResult
+from openaqplatform_sdk.core.spec import OpenaqPlatformSpec
 
 
 # True when this SDK was generated with the named feature.

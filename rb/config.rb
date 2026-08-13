@@ -35,7 +35,7 @@ module OpenaqPlatformConfig
             },
             {
               "active" => true,
-              "name" => "coordinate",
+              "name" => "coordinates",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 1,
@@ -56,14 +56,14 @@ module OpenaqPlatformConfig
             },
             {
               "active" => true,
-              "name" => "is_analysi",
+              "name" => "isAnalysis",
               "req" => false,
               "type" => "`$BOOLEAN`",
               "index$" => 4,
             },
             {
               "active" => true,
-              "name" => "is_mobile",
+              "name" => "isMobile",
               "req" => false,
               "type" => "`$BOOLEAN`",
               "index$" => 5,
@@ -77,14 +77,14 @@ module OpenaqPlatformConfig
             },
             {
               "active" => true,
-              "name" => "parameter",
+              "name" => "parameters",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 7,
             },
             {
               "active" => true,
-              "name" => "source",
+              "name" => "sources",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 8,
@@ -185,6 +185,7 @@ module OpenaqPlatformConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/locations",
                   "parts" => [
@@ -229,7 +230,7 @@ module OpenaqPlatformConfig
             },
             {
               "active" => true,
-              "name" => "coordinate",
+              "name" => "coordinates",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 1,
@@ -257,14 +258,14 @@ module OpenaqPlatformConfig
             },
             {
               "active" => true,
-              "name" => "is_analysi",
+              "name" => "isAnalysis",
               "req" => false,
               "type" => "`$BOOLEAN`",
               "index$" => 5,
             },
             {
               "active" => true,
-              "name" => "is_mobile",
+              "name" => "isMobile",
               "req" => false,
               "type" => "`$BOOLEAN`",
               "index$" => 6,
@@ -278,7 +279,7 @@ module OpenaqPlatformConfig
             },
             {
               "active" => true,
-              "name" => "location_id",
+              "name" => "locationId",
               "req" => false,
               "type" => "`$INTEGER`",
               "index$" => 8,
@@ -292,7 +293,7 @@ module OpenaqPlatformConfig
             },
             {
               "active" => true,
-              "name" => "sensor_type",
+              "name" => "sensorType",
               "req" => false,
               "type" => "`$STRING`",
               "index$" => 10,
@@ -450,6 +451,7 @@ module OpenaqPlatformConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/measurements",
                   "parts" => [

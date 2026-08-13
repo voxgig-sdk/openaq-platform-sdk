@@ -103,14 +103,14 @@ fmt.Println(location.GetName()) // "location"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `city` | `string` | No |  |
-| `coordinate` | `map[string]any` | No |  |
+| `coordinates` | `map[string]any` | No |  |
 | `country` | `string` | No |  |
 | `id` | `int` | No |  |
-| `is_analysi` | `bool` | No |  |
-| `is_mobile` | `bool` | No |  |
+| `isAnalysis` | `bool` | No |  |
+| `isMobile` | `bool` | No |  |
 | `location` | `string` | No |  |
-| `parameter` | `[]any` | No |  |
-| `source` | `[]any` | No |  |
+| `parameters` | `[]any` | No |  |
+| `sources` | `[]any` | No |  |
 
 ### Operations
 
@@ -162,16 +162,16 @@ fmt.Println(measurement.GetName()) // "measurement"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `city` | `string` | No |  |
-| `coordinate` | `map[string]any` | No |  |
+| `coordinates` | `map[string]any` | No |  |
 | `country` | `string` | No |  |
 | `date` | `map[string]any` | No |  |
 | `entity` | `string` | No |  |
-| `is_analysi` | `bool` | No |  |
-| `is_mobile` | `bool` | No |  |
+| `isAnalysis` | `bool` | No |  |
+| `isMobile` | `bool` | No |  |
 | `location` | `string` | No |  |
-| `location_id` | `int` | No |  |
+| `locationId` | `int` | No |  |
 | `parameter` | `string` | No |  |
-| `sensor_type` | `string` | No |  |
+| `sensorType` | `string` | No |  |
 | `unit` | `string` | No |  |
 | `value` | `float64` | No |  |
 
