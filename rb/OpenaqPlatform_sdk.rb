@@ -28,7 +28,7 @@ class OpenaqPlatformSDK
     utility = OpenaqPlatformUtility.new
     @_utility = utility
 
-    config = OpenaqPlatformConfig.make_config
+    config = OpenaqPlatformConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

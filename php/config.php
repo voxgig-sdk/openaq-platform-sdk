@@ -5,6 +5,29 @@ declare(strict_types=1);
 
 class OpenaqPlatformConfig
 {
+    /** @var array<string,mixed>|null */
+    private static ?array $shared_config = null;
+
+    /**
+     * Return the process-wide config, built once on first use. The SDK reads
+     * the config on every request and never writes to it, so one instance is
+     * shared by every client rather than rebuilt per client.
+     *
+     * PHP arrays are copy-on-write, so callers that do mutate the result get
+     * their own copy and cannot disturb the shared one.
+     */
+    public static function shared_config(): array
+    {
+        if (self::$shared_config === null) {
+            self::$shared_config = self::make_config();
+        }
+        return self::$shared_config;
+    }
+
+    /**
+     * Build a fresh, fully materialised config array. Every call rebuilds the
+     * whole structure, so prefer shared_config unless you need a private copy.
+     */
     public static function make_config(): array
     {
         return [
@@ -32,67 +55,40 @@ class OpenaqPlatformConfig
         'location' => [
           'fields' => [
             [
-              'active' => true,
               'name' => 'city',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 0,
             ],
             [
-              'active' => true,
               'name' => 'coordinates',
-              'req' => false,
               'type' => '`$OBJECT`',
-              'index$' => 1,
             ],
             [
-              'active' => true,
               'name' => 'country',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 2,
             ],
             [
-              'active' => true,
               'name' => 'id',
-              'req' => false,
               'type' => '`$INTEGER`',
-              'index$' => 3,
             ],
             [
-              'active' => true,
               'name' => 'isAnalysis',
-              'req' => false,
               'type' => '`$BOOLEAN`',
-              'index$' => 4,
             ],
             [
-              'active' => true,
               'name' => 'isMobile',
-              'req' => false,
               'type' => '`$BOOLEAN`',
-              'index$' => 5,
             ],
             [
-              'active' => true,
               'name' => 'location',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 6,
             ],
             [
-              'active' => true,
               'name' => 'parameters',
-              'req' => false,
               'type' => '`$ARRAY`',
-              'index$' => 7,
             ],
             [
-              'active' => true,
               'name' => 'sources',
-              'req' => false,
               'type' => '`$ARRAY`',
-              'index$' => 8,
             ],
           ],
           'name' => 'location',
@@ -102,90 +98,69 @@ class OpenaqPlatformConfig
               'name' => 'list',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [
                     'query' => [
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'city',
                         'orig' => 'city',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'coordinate',
                         'orig' => 'coordinate',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'country',
                         'orig' => 'country',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'example' => 100,
                         'kind' => 'query',
                         'name' => 'limit',
                         'orig' => 'limit',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'location',
                         'orig' => 'location',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'order_by',
                         'orig' => 'order_by',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'example' => 1,
                         'kind' => 'query',
                         'name' => 'page',
                         'orig' => 'page',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'parameter',
                         'orig' => 'parameter',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'radius',
                         'orig' => 'radius',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'example' => 'asc',
                         'kind' => 'query',
                         'name' => 'sort',
                         'orig' => 'sort',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                     ],
@@ -214,10 +189,8 @@ class OpenaqPlatformConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 0,
                 ],
               ],
-              'key$' => 'list',
             ],
           ],
           'relations' => [
@@ -227,95 +200,56 @@ class OpenaqPlatformConfig
         'measurement' => [
           'fields' => [
             [
-              'active' => true,
               'name' => 'city',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 0,
             ],
             [
-              'active' => true,
               'name' => 'coordinates',
-              'req' => false,
               'type' => '`$OBJECT`',
-              'index$' => 1,
             ],
             [
-              'active' => true,
               'name' => 'country',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 2,
             ],
             [
-              'active' => true,
               'name' => 'date',
-              'req' => false,
               'type' => '`$OBJECT`',
-              'index$' => 3,
             ],
             [
-              'active' => true,
               'name' => 'entity',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 4,
             ],
             [
-              'active' => true,
               'name' => 'isAnalysis',
-              'req' => false,
               'type' => '`$BOOLEAN`',
-              'index$' => 5,
             ],
             [
-              'active' => true,
               'name' => 'isMobile',
-              'req' => false,
               'type' => '`$BOOLEAN`',
-              'index$' => 6,
             ],
             [
-              'active' => true,
               'name' => 'location',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 7,
             ],
             [
-              'active' => true,
               'name' => 'locationId',
-              'req' => false,
               'type' => '`$INTEGER`',
-              'index$' => 8,
             ],
             [
-              'active' => true,
               'name' => 'parameter',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 9,
             ],
             [
-              'active' => true,
               'name' => 'sensorType',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 10,
             ],
             [
-              'active' => true,
               'name' => 'unit',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 11,
             ],
             [
-              'active' => true,
               'name' => 'value',
-              'req' => false,
               'type' => '`$NUMBER`',
-              'index$' => 12,
             ],
           ],
           'name' => 'measurement',
@@ -325,133 +259,102 @@ class OpenaqPlatformConfig
               'name' => 'list',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [
                     'query' => [
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'city',
                         'orig' => 'city',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'coordinate',
                         'orig' => 'coordinate',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'country',
                         'orig' => 'country',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'example' => '2024-01-01T00:00:00Z',
                         'kind' => 'query',
                         'name' => 'date_from',
                         'orig' => 'date_from',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'example' => '2024-01-31T23:59:59Z',
                         'kind' => 'query',
                         'name' => 'date_to',
                         'orig' => 'date_to',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'example' => 100,
                         'kind' => 'query',
                         'name' => 'limit',
                         'orig' => 'limit',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'location',
                         'orig' => 'location',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'location_id',
                         'orig' => 'location_id',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'example' => 'datetime',
                         'kind' => 'query',
                         'name' => 'order_by',
                         'orig' => 'order_by',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'example' => 1,
                         'kind' => 'query',
                         'name' => 'page',
                         'orig' => 'page',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'parameter',
                         'orig' => 'parameter',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'radius',
                         'orig' => 'radius',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'example' => 'desc',
                         'kind' => 'query',
                         'name' => 'sort',
                         'orig' => 'sort',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'value_from',
                         'orig' => 'value_from',
-                        'reqd' => false,
                         'type' => '`$NUMBER`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'value_to',
                         'orig' => 'value_to',
-                        'reqd' => false,
                         'type' => '`$NUMBER`',
                       ],
                     ],
@@ -485,10 +388,8 @@ class OpenaqPlatformConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 0,
                 ],
               ],
-              'key$' => 'list',
             ],
           ],
           'relations' => [

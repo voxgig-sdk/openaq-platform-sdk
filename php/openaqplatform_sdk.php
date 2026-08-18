@@ -40,7 +40,7 @@ class OpenaqPlatformSDK
         $utility = new OpenaqPlatformUtility();
         $this->_utility = $utility;
 
-        $config = OpenaqPlatformConfig::make_config();
+        $config = OpenaqPlatformConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

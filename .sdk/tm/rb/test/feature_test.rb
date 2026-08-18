@@ -15,7 +15,7 @@ require_relative "../OpenaqPlatform_sdk"
 module OpenaqPlatformFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = OpenaqPlatformConfig.make_config["feature"]
+    f = OpenaqPlatformConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 
