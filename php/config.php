@@ -33,6 +33,9 @@ class OpenaqPlatformConfig
         return [
             "main" => [
                 "name" => "OpenaqPlatform",
+                "slug" => "openaq-platform",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
