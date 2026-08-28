@@ -28,14 +28,15 @@ type Location struct {
 // LocationListMatch is the typed request payload for Location.ListTyped.
 type LocationListMatch struct {
 	City *string `json:"city,omitempty"`
-	Coordinates *map[string]any `json:"coordinates,omitempty"`
+	Coordinate *string `json:"coordinate,omitempty"`
 	Country *string `json:"country,omitempty"`
-	Id *int `json:"id,omitempty"`
-	IsAnalysis *bool `json:"isAnalysis,omitempty"`
-	IsMobile *bool `json:"isMobile,omitempty"`
+	Limit *int `json:"limit,omitempty"`
 	Location *string `json:"location,omitempty"`
-	Parameters *[]any `json:"parameters,omitempty"`
-	Sources *[]any `json:"sources,omitempty"`
+	OrderBy *string `json:"order_by,omitempty"`
+	Page *int `json:"page,omitempty"`
+	Parameter *string `json:"parameter,omitempty"`
+	Radius *int `json:"radius,omitempty"`
+	Sort *string `json:"sort,omitempty"`
 }
 
 // Measurement is the typed data model for the measurement entity.
@@ -58,18 +59,20 @@ type Measurement struct {
 // MeasurementListMatch is the typed request payload for Measurement.ListTyped.
 type MeasurementListMatch struct {
 	City *string `json:"city,omitempty"`
-	Coordinates *map[string]any `json:"coordinates,omitempty"`
+	Coordinate *string `json:"coordinate,omitempty"`
 	Country *string `json:"country,omitempty"`
-	Date *map[string]any `json:"date,omitempty"`
-	Entity *string `json:"entity,omitempty"`
-	IsAnalysis *bool `json:"isAnalysis,omitempty"`
-	IsMobile *bool `json:"isMobile,omitempty"`
+	DateFrom *string `json:"date_from,omitempty"`
+	DateTo *string `json:"date_to,omitempty"`
+	Limit *int `json:"limit,omitempty"`
 	Location *string `json:"location,omitempty"`
-	LocationId *int `json:"locationId,omitempty"`
+	LocationId *int `json:"location_id,omitempty"`
+	OrderBy *string `json:"order_by,omitempty"`
+	Page *int `json:"page,omitempty"`
 	Parameter *string `json:"parameter,omitempty"`
-	SensorType *string `json:"sensorType,omitempty"`
-	Unit *string `json:"unit,omitempty"`
-	Value *float64 `json:"value,omitempty"`
+	Radius *int `json:"radius,omitempty"`
+	Sort *string `json:"sort,omitempty"`
+	ValueFrom *float64 `json:"value_from,omitempty"`
+	ValueTo *float64 `json:"value_to,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

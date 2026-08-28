@@ -30,14 +30,15 @@ class Location
 class LocationListMatch
 {
     public ?string $city = null;
-    public ?array $coordinates = null;
+    public ?string $coordinate = null;
     public ?string $country = null;
-    public ?int $id = null;
-    public ?bool $isAnalysis = null;
-    public ?bool $isMobile = null;
+    public ?int $limit = null;
     public ?string $location = null;
-    public ?array $parameters = null;
-    public ?array $sources = null;
+    public ?string $order_by = null;
+    public ?int $page = null;
+    public ?string $parameter = null;
+    public ?int $radius = null;
+    public ?string $sort = null;
 }
 
 /** Measurement entity data model. */
@@ -62,17 +63,19 @@ class Measurement
 class MeasurementListMatch
 {
     public ?string $city = null;
-    public ?array $coordinates = null;
+    public ?string $coordinate = null;
     public ?string $country = null;
-    public ?array $date = null;
-    public ?string $entity = null;
-    public ?bool $isAnalysis = null;
-    public ?bool $isMobile = null;
+    public ?string $date_from = null;
+    public ?string $date_to = null;
+    public ?int $limit = null;
     public ?string $location = null;
-    public ?int $locationId = null;
+    public ?int $location_id = null;
+    public ?string $order_by = null;
+    public ?int $page = null;
     public ?string $parameter = null;
-    public ?string $sensorType = null;
-    public ?string $unit = null;
-    public ?float $value = null;
+    public ?int $radius = null;
+    public ?string $sort = null;
+    public ?float $value_from = null;
+    public ?float $value_to = null;
 }
 

@@ -54,39 +54,43 @@ Location = Struct.new(
 # @!attribute [rw] city
 #   @return [String, nil]
 #
-# @!attribute [rw] coordinates
-#   @return [Hash, nil]
+# @!attribute [rw] coordinate
+#   @return [String, nil]
 #
 # @!attribute [rw] country
 #   @return [String, nil]
 #
-# @!attribute [rw] id
+# @!attribute [rw] limit
 #   @return [Integer, nil]
-#
-# @!attribute [rw] isAnalysis
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] isMobile
-#   @return [Boolean, nil]
 #
 # @!attribute [rw] location
 #   @return [String, nil]
 #
-# @!attribute [rw] parameters
-#   @return [Array, nil]
+# @!attribute [rw] order_by
+#   @return [String, nil]
 #
-# @!attribute [rw] sources
-#   @return [Array, nil]
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] parameter
+#   @return [String, nil]
+#
+# @!attribute [rw] radius
+#   @return [Integer, nil]
+#
+# @!attribute [rw] sort
+#   @return [String, nil]
 LocationListMatch = Struct.new(
   :city,
-  :coordinates,
+  :coordinate,
   :country,
-  :id,
-  :isAnalysis,
-  :isMobile,
+  :limit,
   :location,
-  :parameters,
-  :sources,
+  :order_by,
+  :page,
+  :parameter,
+  :radius,
+  :sort,
   keyword_init: true
 )
 
@@ -152,55 +156,63 @@ Measurement = Struct.new(
 # @!attribute [rw] city
 #   @return [String, nil]
 #
-# @!attribute [rw] coordinates
-#   @return [Hash, nil]
+# @!attribute [rw] coordinate
+#   @return [String, nil]
 #
 # @!attribute [rw] country
 #   @return [String, nil]
 #
-# @!attribute [rw] date
-#   @return [Hash, nil]
-#
-# @!attribute [rw] entity
+# @!attribute [rw] date_from
 #   @return [String, nil]
 #
-# @!attribute [rw] isAnalysis
-#   @return [Boolean, nil]
+# @!attribute [rw] date_to
+#   @return [String, nil]
 #
-# @!attribute [rw] isMobile
-#   @return [Boolean, nil]
+# @!attribute [rw] limit
+#   @return [Integer, nil]
 #
 # @!attribute [rw] location
 #   @return [String, nil]
 #
-# @!attribute [rw] locationId
+# @!attribute [rw] location_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] order_by
+#   @return [String, nil]
+#
+# @!attribute [rw] page
 #   @return [Integer, nil]
 #
 # @!attribute [rw] parameter
 #   @return [String, nil]
 #
-# @!attribute [rw] sensorType
+# @!attribute [rw] radius
+#   @return [Integer, nil]
+#
+# @!attribute [rw] sort
 #   @return [String, nil]
 #
-# @!attribute [rw] unit
-#   @return [String, nil]
+# @!attribute [rw] value_from
+#   @return [Float, nil]
 #
-# @!attribute [rw] value
+# @!attribute [rw] value_to
 #   @return [Float, nil]
 MeasurementListMatch = Struct.new(
   :city,
-  :coordinates,
+  :coordinate,
   :country,
-  :date,
-  :entity,
-  :isAnalysis,
-  :isMobile,
+  :date_from,
+  :date_to,
+  :limit,
   :location,
-  :locationId,
+  :location_id,
+  :order_by,
+  :page,
   :parameter,
-  :sensorType,
-  :unit,
-  :value,
+  :radius,
+  :sort,
+  :value_from,
+  :value_to,
   keyword_init: true
 )
 

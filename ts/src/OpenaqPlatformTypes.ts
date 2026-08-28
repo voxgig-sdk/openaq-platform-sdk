@@ -19,14 +19,15 @@ export interface Location {
 
 export interface LocationListMatch {
   city?: string
-  coordinates?: Record<string, any>
+  coordinate?: string
   country?: string
-  id?: number
-  isAnalysis?: boolean
-  isMobile?: boolean
+  limit?: number
   location?: string
-  parameters?: any[]
-  sources?: any[]
+  order_by?: string
+  page?: number
+  parameter?: string
+  radius?: number
+  sort?: string
 }
 
 export interface Measurement {
@@ -47,17 +48,19 @@ export interface Measurement {
 
 export interface MeasurementListMatch {
   city?: string
-  coordinates?: Record<string, any>
+  coordinate?: string
   country?: string
-  date?: Record<string, any>
-  entity?: string
-  isAnalysis?: boolean
-  isMobile?: boolean
+  date_from?: string
+  date_to?: string
+  limit?: number
   location?: string
-  locationId?: number
+  location_id?: number
+  order_by?: string
+  page?: number
   parameter?: string
-  sensorType?: string
-  unit?: string
-  value?: number
+  radius?: number
+  sort?: string
+  value_from?: number
+  value_to?: number
 }
 

@@ -19,14 +19,15 @@
 
 ---@class LocationListMatch
 ---@field city? string
----@field coordinates? table
+---@field coordinate? string
 ---@field country? string
----@field id? number
----@field isAnalysis? boolean
----@field isMobile? boolean
+---@field limit? number
 ---@field location? string
----@field parameters? table
----@field sources? table
+---@field order_by? string
+---@field page? number
+---@field parameter? string
+---@field radius? number
+---@field sort? string
 
 ---@class Measurement
 ---@field city? string
@@ -45,18 +46,20 @@
 
 ---@class MeasurementListMatch
 ---@field city? string
----@field coordinates? table
+---@field coordinate? string
 ---@field country? string
----@field date? table
----@field entity? string
----@field isAnalysis? boolean
----@field isMobile? boolean
+---@field date_from? string
+---@field date_to? string
+---@field limit? number
 ---@field location? string
----@field locationId? number
+---@field location_id? number
+---@field order_by? string
+---@field page? number
 ---@field parameter? string
----@field sensorType? string
----@field unit? string
----@field value? number
+---@field radius? number
+---@field sort? string
+---@field value_from? number
+---@field value_to? number
 
 local M = {}
 

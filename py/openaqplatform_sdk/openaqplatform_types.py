@@ -30,14 +30,15 @@ class Location(TypedDict, total=False):
 
 class LocationListMatch(TypedDict, total=False):
     city: str
-    coordinates: dict
+    coordinate: str
     country: str
-    id: int
-    isAnalysis: bool
-    isMobile: bool
+    limit: int
     location: str
-    parameters: list
-    sources: list
+    order_by: str
+    page: int
+    parameter: str
+    radius: int
+    sort: str
 
 
 class Measurement(TypedDict, total=False):
@@ -58,15 +59,17 @@ class Measurement(TypedDict, total=False):
 
 class MeasurementListMatch(TypedDict, total=False):
     city: str
-    coordinates: dict
+    coordinate: str
     country: str
-    date: dict
-    entity: str
-    isAnalysis: bool
-    isMobile: bool
+    date_from: str
+    date_to: str
+    limit: int
     location: str
-    locationId: int
+    location_id: int
+    order_by: str
+    page: int
     parameter: str
-    sensorType: str
-    unit: str
-    value: float
+    radius: int
+    sort: str
+    value_from: float
+    value_to: float
