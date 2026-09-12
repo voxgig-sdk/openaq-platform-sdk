@@ -81,6 +81,10 @@ module OpenaqPlatformConfig
               "type" => "`$ARRAY`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "location",
           "op" => {
             "list" => {
@@ -158,8 +162,10 @@ module OpenaqPlatformConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/locations",
-                  "parts" => [
-                    "locations",
+                  "segments" => [
+                    {
+                      "lit" => "locations",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -179,6 +185,9 @@ module OpenaqPlatformConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "locations",
+                  ],
                 },
               ],
             },
@@ -352,8 +361,10 @@ module OpenaqPlatformConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/measurements",
-                  "parts" => [
-                    "measurements",
+                  "segments" => [
+                    {
+                      "lit" => "measurements",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -378,6 +389,9 @@ module OpenaqPlatformConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "measurements",
+                  ],
                 },
               ],
             },

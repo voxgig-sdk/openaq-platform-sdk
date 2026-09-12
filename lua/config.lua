@@ -69,6 +69,10 @@ local function make_config()
             ["type"] = "`$ARRAY`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "location",
         ["op"] = {
           ["list"] = {
@@ -146,8 +150,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/locations",
-                ["parts"] = {
-                  "locations",
+                ["segments"] = {
+                  {
+                    ["lit"] = "locations",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -166,6 +172,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "locations",
                 },
               },
             },
@@ -340,8 +349,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/measurements",
-                ["parts"] = {
-                  "measurements",
+                ["segments"] = {
+                  {
+                    ["lit"] = "measurements",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -365,6 +376,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "measurements",
                 },
               },
             },
