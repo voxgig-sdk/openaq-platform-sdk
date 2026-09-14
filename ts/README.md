@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { OpenaqPlatformSDK } from '@voxgig-sdk/openaq-platform'
+import { OpenaqPlatformSDK } from '@voxgig-sdk/openaq-platform-sdk'
 
 const client = new OpenaqPlatformSDK()
 ```
@@ -477,7 +477,7 @@ openaq-platform/
 Import the SDK from the package root:
 
 ```ts
-import { OpenaqPlatformSDK } from '@voxgig-sdk/openaq-platform'
+import { OpenaqPlatformSDK } from '@voxgig-sdk/openaq-platform-sdk'
 ```
 
 ### Entity state

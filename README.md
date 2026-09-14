@@ -105,7 +105,7 @@ local results, err = client:Location():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/openaq-platform` | publish pending — [install from git tag](https://github.com/voxgig-sdk/openaq-platform-sdk/releases) |
+| TypeScript | `@voxgig-sdk/openaq-platform-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/openaq-platform-sdk/releases) |
 | Python | `voxgig-sdk-openaq-platform` | publish pending — [install from git tag](https://github.com/voxgig-sdk/openaq-platform-sdk/releases) |
 | PHP | `voxgig-sdk/openaq-platform` | publish pending — [install from git tag](https://github.com/voxgig-sdk/openaq-platform-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/openaq-platform-sdk/go` | `go get github.com/voxgig-sdk/openaq-platform-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Location():list()
 ### TypeScript
 
 ```ts
-import { OpenaqPlatformSDK } from '@voxgig-sdk/openaq-platform'
+import { OpenaqPlatformSDK } from '@voxgig-sdk/openaq-platform-sdk'
 
 const client = new OpenaqPlatformSDK()
 
