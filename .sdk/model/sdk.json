@@ -24,7 +24,71 @@
         "repr": "auto"
       },
       "contributor": {},
-      "docs": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "location": {
           "active": true,
@@ -185,6 +249,12 @@
                         "type": "`$STRING`"
                       }
                     ]
+                  },
+                  "contract": {
+                    "id": "GET /locations",
+                    "json": "{\"operationId\":\"getLocations\",\"parameters\":[{\"description\":\"Number of results to return (max 1000)\",\"in\":\"query\",\"name\":\"limit\",\"schema\":{\"default\":100,\"maximum\":1000,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Page number for pagination\",\"in\":\"query\",\"name\":\"page\",\"schema\":{\"default\":1,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Filter by country code (ISO 3166-1 alpha-2)\",\"in\":\"query\",\"name\":\"country\",\"schema\":{\"pattern\":\"^[A-Z]{2}$\",\"type\":\"string\"}},{\"description\":\"Filter by city name\",\"in\":\"query\",\"name\":\"city\",\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by location name or ID\",\"in\":\"query\",\"name\":\"location\",\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by parameter (e.g., pm25, pm10, o3, no2, so2, co)\",\"in\":\"query\",\"name\":\"parameter\",\"schema\":{\"enum\":[\"pm25\",\"pm10\",\"o3\",\"no2\",\"so2\",\"co\",\"bc\"],\"type\":\"string\"}},{\"description\":\"Center point for radius search (latitude,longitude)\",\"in\":\"query\",\"name\":\"coordinates\",\"schema\":{\"pattern\":\"^-?\\\\d+\\\\.\\\\d+,-?\\\\d+\\\\.\\\\d+$\",\"type\":\"string\"}},{\"description\":\"Radius in meters for coordinate-based search (used with coordinates parameter)\",\"in\":\"query\",\"name\":\"radius\",\"schema\":{\"maximum\":100000,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Field to order results by\",\"in\":\"query\",\"name\":\"order_by\",\"schema\":{\"enum\":[\"city\",\"country\",\"location\",\"firstUpdated\",\"lastUpdated\"],\"type\":\"string\"}},{\"description\":\"Sort order\",\"in\":\"query\",\"name\":\"sort\",\"schema\":{\"default\":\"asc\",\"enum\":[\"asc\",\"desc\"],\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"meta\":{\"properties\":{\"found\":{\"example\":50000,\"type\":\"integer\"},\"license\":{\"example\":\"CC BY 4.0\",\"type\":\"string\"},\"limit\":{\"example\":100,\"type\":\"integer\"},\"name\":{\"example\":\"openaq-api\",\"type\":\"string\"},\"page\":{\"example\":1,\"type\":\"integer\"},\"website\":{\"example\":\"https://docs.openaq.org/\",\"type\":\"string\"}},\"type\":\"object\"},\"results\":{\"items\":{\"properties\":{\"city\":{\"example\":\"Los Angeles\",\"type\":\"string\"},\"coordinates\":{\"properties\":{\"latitude\":{\"example\":34.0522,\"type\":\"number\"},\"longitude\":{\"example\":-118.2437,\"type\":\"number\"}},\"type\":\"object\"},\"country\":{\"example\":\"US\",\"type\":\"string\"},\"id\":{\"example\":12345,\"type\":\"integer\"},\"isAnalysis\":{\"example\":false,\"type\":\"boolean\"},\"isMobile\":{\"example\":false,\"type\":\"boolean\"},\"location\":{\"example\":\"Downtown LA\",\"type\":\"string\"},\"parameters\":{\"items\":{\"properties\":{\"count\":{\"example\":50000,\"type\":\"integer\"},\"displayName\":{\"example\":\"PM2.5\",\"type\":\"string\"},\"firstUpdated\":{\"example\":\"2020-01-01T00:00:00Z\",\"format\":\"date-time\",\"type\":\"string\"},\"id\":{\"type\":\"integer\"},\"lastUpdated\":{\"example\":\"2024-01-01T12:00:00Z\",\"format\":\"date-time\",\"type\":\"string\"},\"lastValue\":{\"example\":12.5,\"type\":\"number\"},\"parameter\":{\"example\":\"pm25\",\"type\":\"string\"},\"unit\":{\"example\":\"µg/m³\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"sources\":{\"items\":{\"properties\":{\"id\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"url\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response with list of locations\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"example\":\"Bad Request\",\"type\":\"string\"},\"message\":{\"example\":\"Invalid parameter value\",\"type\":\"string\"},\"statusCode\":{\"example\":400,\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Bad request - invalid parameters\"},\"429\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"example\":\"Bad Request\",\"type\":\"string\"},\"message\":{\"example\":\"Invalid parameter value\",\"type\":\"string\"},\"statusCode\":{\"example\":400,\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Rate limit exceeded\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"example\":\"Bad Request\",\"type\":\"string\"},\"message\":{\"example\":\"Invalid parameter value\",\"type\":\"string\"},\"statusCode\":{\"example\":400,\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
                   },
                   "kind": "http",
                   "method": "GET",
@@ -443,6 +513,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /measurements",
+                    "json": "{\"operationId\":\"getMeasurements\",\"parameters\":[{\"description\":\"Number of results to return (max 1000)\",\"in\":\"query\",\"name\":\"limit\",\"schema\":{\"default\":100,\"maximum\":10000,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Page number for pagination\",\"in\":\"query\",\"name\":\"page\",\"schema\":{\"default\":1,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Filter by country code (ISO 3166-1 alpha-2)\",\"in\":\"query\",\"name\":\"country\",\"schema\":{\"pattern\":\"^[A-Z]{2}$\",\"type\":\"string\"}},{\"description\":\"Filter by city name\",\"in\":\"query\",\"name\":\"city\",\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by location name or ID\",\"in\":\"query\",\"name\":\"location\",\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by location ID\",\"in\":\"query\",\"name\":\"location_id\",\"schema\":{\"type\":\"integer\"}},{\"description\":\"Filter by parameter (e.g., pm25, pm10, o3, no2, so2, co)\",\"in\":\"query\",\"name\":\"parameter\",\"schema\":{\"enum\":[\"pm25\",\"pm10\",\"o3\",\"no2\",\"so2\",\"co\",\"bc\"],\"type\":\"string\"}},{\"description\":\"Start date for measurements (ISO 8601 format)\",\"in\":\"query\",\"name\":\"date_from\",\"schema\":{\"example\":\"2024-01-01T00:00:00Z\",\"format\":\"date-time\",\"type\":\"string\"}},{\"description\":\"End date for measurements (ISO 8601 format)\",\"in\":\"query\",\"name\":\"date_to\",\"schema\":{\"example\":\"2024-01-31T23:59:59Z\",\"format\":\"date-time\",\"type\":\"string\"}},{\"description\":\"Center point for radius search (latitude,longitude)\",\"in\":\"query\",\"name\":\"coordinates\",\"schema\":{\"pattern\":\"^-?\\\\d+\\\\.\\\\d+,-?\\\\d+\\\\.\\\\d+$\",\"type\":\"string\"}},{\"description\":\"Radius in meters for coordinate-based search\",\"in\":\"query\",\"name\":\"radius\",\"schema\":{\"maximum\":100000,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Minimum measurement value\",\"in\":\"query\",\"name\":\"value_from\",\"schema\":{\"type\":\"number\"}},{\"description\":\"Maximum measurement value\",\"in\":\"query\",\"name\":\"value_to\",\"schema\":{\"type\":\"number\"}},{\"description\":\"Field to order results by\",\"in\":\"query\",\"name\":\"order_by\",\"schema\":{\"default\":\"datetime\",\"enum\":[\"city\",\"country\",\"location\",\"datetime\"],\"type\":\"string\"}},{\"description\":\"Sort order\",\"in\":\"query\",\"name\":\"sort\",\"schema\":{\"default\":\"desc\",\"enum\":[\"asc\",\"desc\"],\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"meta\":{\"properties\":{\"found\":{\"example\":5000000,\"type\":\"integer\"},\"license\":{\"example\":\"CC BY 4.0\",\"type\":\"string\"},\"limit\":{\"example\":100,\"type\":\"integer\"},\"name\":{\"example\":\"openaq-api\",\"type\":\"string\"},\"page\":{\"example\":1,\"type\":\"integer\"},\"website\":{\"example\":\"https://docs.openaq.org/\",\"type\":\"string\"}},\"type\":\"object\"},\"results\":{\"items\":{\"properties\":{\"city\":{\"example\":\"Los Angeles\",\"type\":\"string\"},\"coordinates\":{\"properties\":{\"latitude\":{\"example\":34.0522,\"type\":\"number\"},\"longitude\":{\"example\":-118.2437,\"type\":\"number\"}},\"type\":\"object\"},\"country\":{\"example\":\"US\",\"type\":\"string\"},\"date\":{\"properties\":{\"local\":{\"example\":\"2024-01-01T04:00:00-08:00\",\"format\":\"date-time\",\"type\":\"string\"},\"utc\":{\"example\":\"2024-01-01T12:00:00Z\",\"format\":\"date-time\",\"type\":\"string\"}},\"type\":\"object\"},\"entity\":{\"example\":\"governmental\",\"type\":\"string\"},\"isAnalysis\":{\"example\":false,\"type\":\"boolean\"},\"isMobile\":{\"example\":false,\"type\":\"boolean\"},\"location\":{\"example\":\"Downtown LA\",\"type\":\"string\"},\"locationId\":{\"example\":12345,\"type\":\"integer\"},\"parameter\":{\"example\":\"pm25\",\"type\":\"string\"},\"sensorType\":{\"example\":\"reference grade\",\"type\":\"string\"},\"unit\":{\"example\":\"µg/m³\",\"type\":\"string\"},\"value\":{\"example\":12.5,\"type\":\"number\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response with measurement data\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"example\":\"Bad Request\",\"type\":\"string\"},\"message\":{\"example\":\"Invalid parameter value\",\"type\":\"string\"},\"statusCode\":{\"example\":400,\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Bad request - invalid parameters\"},\"429\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"example\":\"Bad Request\",\"type\":\"string\"},\"message\":{\"example\":\"Invalid parameter value\",\"type\":\"string\"},\"statusCode\":{\"example\":400,\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Rate limit exceeded\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"example\":\"Bad Request\",\"type\":\"string\"},\"message\":{\"example\":\"Invalid parameter value\",\"type\":\"string\"},\"statusCode\":{\"example\":400,\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/measurements",
@@ -484,13 +560,223 @@
         }
       },
       "feature": {
+        "ratelimit": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "burst": 5,
+              "rate": 5
+            },
+            "optspec": {
+              "now": "`$FUNCTION`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "ratelimit",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Client-side rate limiting via a token bucket",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
+        "retry": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "factor": 2,
+              "maxDelay": 2000,
+              "minDelay": 50,
+              "retries": 2,
+              "statuses": [
+                408,
+                425,
+                429,
+                500,
+                502,
+                503,
+                504
+              ]
+            },
+            "optspec": {
+              "jitter": "`$BOOLEAN`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "retry",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Automatic retry of transient failures with exponential backoff",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
         "test": {
           "active": true,
           "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "config": {
             "options": {
               "active": false
-            }
+            },
+            "optspec": {
+              "entity": "`$MAP`",
+              "net": "`$MAP`"
+            },
+            "strict": false
           },
           "hook": {
             "GetData": {
@@ -581,6 +867,102 @@
           "title": "In-memory mock transport for testing without a live server",
           "transport": "base",
           "version": "0.0.1"
+        },
+        "timeout": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "ms": 30000
+            },
+            "optspec": {
+              "clearTimer": "`$FUNCTION`",
+              "setTimer": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "timeout",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Per-request timeout with transport abort",
+          "transport": "wrap",
+          "version": "0.0.1"
         }
       },
       "flow": {
@@ -662,6 +1044,48 @@
         "website": "https://docs.openaq.org/docs/introduction"
       },
       "option": {},
+      "optspec": {
+        "allow": {
+          "method": "GET,PUT,POST,PATCH,DELETE,OPTIONS",
+          "op": "create,update,load,list,remove,command,direct,graphql"
+        },
+        "apikey": "",
+        "auth": {
+          "basic": false,
+          "prefix": ""
+        },
+        "base": "http://localhost:8000",
+        "clean": {
+          "keys": "key,token,id"
+        },
+        "entity": {
+          "`$CHILD`": {
+            "`$OPEN`": true,
+            "active": false,
+            "alias": {}
+          }
+        },
+        "extend": "`$ANY`",
+        "headers": {
+          "`$CHILD`": "`$STRING`"
+        },
+        "prefix": "",
+        "secret": "",
+        "server": {
+          "`$CHILD`": ""
+        },
+        "suffix": "",
+        "system": {
+          "fetch": "`$ANY`"
+        },
+        "test": {
+          "active": false,
+          "entity": {
+            "`$OPEN`": true
+          }
+        },
+        "utility": {}
+      },
       "repo": {
         "host": "github.com",
         "path": ""
@@ -1216,6 +1640,7 @@
           },
           "package": "@voxgig/sdkgen",
           "provides": {
+            "schema": true,
             "sekreto": true
           },
           "publish": {
@@ -1257,7 +1682,7 @@
         "live": {
           "app": false,
           "base": "",
-          "strict": false
+          "strict": true
         }
       }
     }

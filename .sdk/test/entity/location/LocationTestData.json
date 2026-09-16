@@ -49,5 +49,345 @@
         "sources": []
       }
     }
+  },
+  "requests": {
+    "GET /locations": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getLocations",
+        "parameters": [
+          {
+            "description": "Number of results to return (max 1000)",
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "default": 100,
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Page number for pagination",
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "default": 1,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter by country code (ISO 3166-1 alpha-2)",
+            "in": "query",
+            "name": "country",
+            "schema": {
+              "pattern": "^[A-Z]{2}$",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter by city name",
+            "in": "query",
+            "name": "city",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter by location name or ID",
+            "in": "query",
+            "name": "location",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter by parameter (e.g., pm25, pm10, o3, no2, so2, co)",
+            "in": "query",
+            "name": "parameter",
+            "schema": {
+              "enum": [
+                "pm25",
+                "pm10",
+                "o3",
+                "no2",
+                "so2",
+                "co",
+                "bc"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Center point for radius search (latitude,longitude)",
+            "in": "query",
+            "name": "coordinates",
+            "schema": {
+              "pattern": "^-?\\d+\\.\\d+,-?\\d+\\.\\d+$",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Radius in meters for coordinate-based search (used with coordinates parameter)",
+            "in": "query",
+            "name": "radius",
+            "schema": {
+              "maximum": 100000,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Field to order results by",
+            "in": "query",
+            "name": "order_by",
+            "schema": {
+              "enum": [
+                "city",
+                "country",
+                "location",
+                "firstUpdated",
+                "lastUpdated"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Sort order",
+            "in": "query",
+            "name": "sort",
+            "schema": {
+              "default": "asc",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "meta": {
+                      "properties": {
+                        "found": {
+                          "example": 50000,
+                          "type": "integer"
+                        },
+                        "license": {
+                          "example": "CC BY 4.0",
+                          "type": "string"
+                        },
+                        "limit": {
+                          "example": 100,
+                          "type": "integer"
+                        },
+                        "name": {
+                          "example": "openaq-api",
+                          "type": "string"
+                        },
+                        "page": {
+                          "example": 1,
+                          "type": "integer"
+                        },
+                        "website": {
+                          "example": "https://docs.openaq.org/",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "results": {
+                      "items": {
+                        "properties": {
+                          "city": {
+                            "example": "Los Angeles",
+                            "type": "string"
+                          },
+                          "coordinates": {
+                            "properties": {
+                              "latitude": {
+                                "example": 34.0522,
+                                "type": "number"
+                              },
+                              "longitude": {
+                                "example": -118.2437,
+                                "type": "number"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "country": {
+                            "example": "US",
+                            "type": "string"
+                          },
+                          "id": {
+                            "example": 12345,
+                            "type": "integer"
+                          },
+                          "isAnalysis": {
+                            "example": false,
+                            "type": "boolean"
+                          },
+                          "isMobile": {
+                            "example": false,
+                            "type": "boolean"
+                          },
+                          "location": {
+                            "example": "Downtown LA",
+                            "type": "string"
+                          },
+                          "parameters": {
+                            "items": {
+                              "properties": {
+                                "count": {
+                                  "example": 50000,
+                                  "type": "integer"
+                                },
+                                "displayName": {
+                                  "example": "PM2.5",
+                                  "type": "string"
+                                },
+                                "firstUpdated": {
+                                  "example": "2020-01-01T00:00:00Z",
+                                  "format": "date-time",
+                                  "type": "string"
+                                },
+                                "id": {
+                                  "type": "integer"
+                                },
+                                "lastUpdated": {
+                                  "example": "2024-01-01T12:00:00Z",
+                                  "format": "date-time",
+                                  "type": "string"
+                                },
+                                "lastValue": {
+                                  "example": 12.5,
+                                  "type": "number"
+                                },
+                                "parameter": {
+                                  "example": "pm25",
+                                  "type": "string"
+                                },
+                                "unit": {
+                                  "example": "µg/m³",
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "sources": {
+                            "items": {
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "type": "string"
+                                },
+                                "url": {
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with list of locations"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "example": "Bad Request",
+                      "type": "string"
+                    },
+                    "message": {
+                      "example": "Invalid parameter value",
+                      "type": "string"
+                    },
+                    "statusCode": {
+                      "example": 400,
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bad request - invalid parameters"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "example": "Bad Request",
+                      "type": "string"
+                    },
+                    "message": {
+                      "example": "Invalid parameter value",
+                      "type": "string"
+                    },
+                    "statusCode": {
+                      "example": 400,
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Rate limit exceeded"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "example": "Bad Request",
+                      "type": "string"
+                    },
+                    "message": {
+                      "example": "Invalid parameter value",
+                      "type": "string"
+                    },
+                    "statusCode": {
+                      "example": 400,
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }
