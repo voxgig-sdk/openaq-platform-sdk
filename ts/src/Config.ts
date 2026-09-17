@@ -127,12 +127,12 @@ class Config {
 
     entity: {
       
-      location: {
-      },
-
-      measurement: {
-      },
-
+        location: {
+        },
+  
+        measurement: {
+        },
+  
     }
   }
 

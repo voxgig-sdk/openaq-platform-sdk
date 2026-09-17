@@ -1,4 +1,4 @@
 # Flows
 
-@"BasicLocationFlow.aon"
-@"BasicMeasurementFlow.aon"
+@"./BasicLocationFlow.aon"
+@"./BasicMeasurementFlow.aon"
