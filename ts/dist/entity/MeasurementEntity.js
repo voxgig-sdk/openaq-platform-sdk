@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MeasurementEntity = void 0;
 const OpenaqPlatformEntityBase_1 = require("../OpenaqPlatformEntityBase");
-// TODO: needs Entity superclass
 class MeasurementEntity extends OpenaqPlatformEntityBase_1.OpenaqPlatformEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

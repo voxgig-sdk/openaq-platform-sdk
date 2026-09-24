@@ -1,0 +1,189 @@
+# Entity: location
+
+main: kit: entity: location: {
+
+  alias: field: {}
+
+  fields: {
+    city: {
+      h: "City"
+      n: "city"
+      r: false
+      t: "`$STRING`"
+    }
+    coordinates: {
+      h: "Coordinates"
+      n: "coordinates"
+      r: false
+      t: "`$OBJECT`"
+    }
+    country: {
+      h: "Country"
+      n: "country"
+      r: false
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    isAnalysis: {
+      h: "Is Analysis"
+      n: "isAnalysis"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    isMobile: {
+      h: "Is Mobile"
+      n: "isMobile"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    location: {
+      h: "Location"
+      n: "location"
+      r: false
+      t: "`$STRING`"
+    }
+    parameters: {
+      h: "Parameters"
+      n: "parameters"
+      r: false
+      t: "`$ARRAY`"
+    }
+    sources: {
+      h: "Sources"
+      n: "sources"
+      r: false
+      t: "`$ARRAY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "location"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /locations"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "city"
+                or: "city"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "coordinate"
+                or: "coordinate"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "country"
+                or: "country"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 100
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "location"
+                or: "location"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "order_by"
+                or: "order_by"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "parameter"
+                or: "parameter"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "radius"
+                or: "radius"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "asc"
+                k: "query"
+                n: "sort"
+                or: "sort"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/locations"
+          q: {
+            exist: [
+              "city"
+              "coordinate"
+              "country"
+              "limit"
+              "location"
+              "order_by"
+              "page"
+              "parameter"
+              "radius"
+              "sort"
+            ]
+          }
+          s: [
+            {
+              lit: "locations"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

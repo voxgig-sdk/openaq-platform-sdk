@@ -1,0 +1,251 @@
+# Entity: measurement
+
+main: kit: entity: measurement: {
+
+  alias: field: {}
+
+  fields: {
+    city: {
+      h: "City"
+      n: "city"
+      r: false
+      t: "`$STRING`"
+    }
+    coordinates: {
+      h: "Coordinates"
+      n: "coordinates"
+      r: false
+      t: "`$OBJECT`"
+    }
+    country: {
+      h: "Country"
+      n: "country"
+      r: false
+      t: "`$STRING`"
+    }
+    date: {
+      h: "Date"
+      n: "date"
+      r: false
+      t: "`$OBJECT`"
+    }
+    entity: {
+      h: "Entity"
+      n: "entity"
+      r: false
+      t: "`$STRING`"
+    }
+    isAnalysis: {
+      h: "Is Analysis"
+      n: "isAnalysis"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    isMobile: {
+      h: "Is Mobile"
+      n: "isMobile"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    location: {
+      h: "Location"
+      n: "location"
+      r: false
+      t: "`$STRING`"
+    }
+    locationId: {
+      h: "Location Id"
+      n: "locationId"
+      r: false
+      t: "`$INTEGER`"
+    }
+    parameter: {
+      h: "Parameter"
+      n: "parameter"
+      r: false
+      t: "`$STRING`"
+    }
+    sensorType: {
+      h: "Sensor Type"
+      n: "sensorType"
+      r: false
+      t: "`$STRING`"
+    }
+    unit: {
+      h: "Unit"
+      n: "unit"
+      r: false
+      t: "`$STRING`"
+    }
+    value: {
+      h: "Value"
+      n: "value"
+      r: false
+      t: "`$NUMBER`"
+    }
+  }
+
+  name: "measurement"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /measurements"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "city"
+                or: "city"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "coordinate"
+                or: "coordinate"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "country"
+                or: "country"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "2024-01-01T00:00:00Z"
+                k: "query"
+                n: "date_from"
+                or: "date_from"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "2024-01-31T23:59:59Z"
+                k: "query"
+                n: "date_to"
+                or: "date_to"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 100
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "location"
+                or: "location"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "location_id"
+                or: "location_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "datetime"
+                k: "query"
+                n: "order_by"
+                or: "order_by"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "parameter"
+                or: "parameter"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "radius"
+                or: "radius"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "desc"
+                k: "query"
+                n: "sort"
+                or: "sort"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "value_from"
+                or: "value_from"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "value_to"
+                or: "value_to"
+                r: false
+                t: "`$NUMBER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/measurements"
+          q: {
+            exist: [
+              "city"
+              "coordinate"
+              "country"
+              "date_from"
+              "date_to"
+              "limit"
+              "location"
+              "location_id"
+              "order_by"
+              "page"
+              "parameter"
+              "radius"
+              "sort"
+              "value_from"
+              "value_to"
+            ]
+          }
+          s: [
+            {
+              lit: "measurements"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

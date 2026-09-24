@@ -43,7 +43,7 @@ local locations, err = client:Location():list()
 if err then error(err) end
 
 for _, item in ipairs(locations) do
-  print(item["id"], item["city"])
+  print(item["id"])
 end
 ```
 

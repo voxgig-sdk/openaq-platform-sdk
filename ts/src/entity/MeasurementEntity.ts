@@ -19,7 +19,6 @@ import type {
   MeasurementListMatch,
 } from '../OpenaqPlatformTypes'
 
-// TODO: needs Entity superclass
 class MeasurementEntity extends OpenaqPlatformEntityBase<Measurement> {
 
   constructor(client: OpenaqPlatformSDK, entopts: any) {

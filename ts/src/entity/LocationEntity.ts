@@ -19,7 +19,6 @@ import type {
   LocationListMatch,
 } from '../OpenaqPlatformTypes'
 
-// TODO: needs Entity superclass
 class LocationEntity extends OpenaqPlatformEntityBase<Location> {
 
   constructor(client: OpenaqPlatformSDK, entopts: any) {

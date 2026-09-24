@@ -1,7 +1,7 @@
 // Typed models for the OpenaqPlatform SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,15 +14,6 @@ import (
 
 // Location is the typed data model for the location entity.
 type Location struct {
-	City *string `json:"city,omitempty"`
-	Coordinates *map[string]any `json:"coordinates,omitempty"`
-	Country *string `json:"country,omitempty"`
-	Id *int `json:"id,omitempty"`
-	IsAnalysis *bool `json:"isAnalysis,omitempty"`
-	IsMobile *bool `json:"isMobile,omitempty"`
-	Location *string `json:"location,omitempty"`
-	Parameters *[]any `json:"parameters,omitempty"`
-	Sources *[]any `json:"sources,omitempty"`
 }
 
 // LocationListMatch is the typed request payload for Location.ListTyped.
@@ -41,19 +32,6 @@ type LocationListMatch struct {
 
 // Measurement is the typed data model for the measurement entity.
 type Measurement struct {
-	City *string `json:"city,omitempty"`
-	Coordinates *map[string]any `json:"coordinates,omitempty"`
-	Country *string `json:"country,omitempty"`
-	Date *map[string]any `json:"date,omitempty"`
-	Entity *string `json:"entity,omitempty"`
-	IsAnalysis *bool `json:"isAnalysis,omitempty"`
-	IsMobile *bool `json:"isMobile,omitempty"`
-	Location *string `json:"location,omitempty"`
-	LocationId *int `json:"locationId,omitempty"`
-	Parameter *string `json:"parameter,omitempty"`
-	SensorType *string `json:"sensorType,omitempty"`
-	Unit *string `json:"unit,omitempty"`
-	Value *float64 `json:"value,omitempty"`
 }
 
 // MeasurementListMatch is the typed request payload for Measurement.ListTyped.

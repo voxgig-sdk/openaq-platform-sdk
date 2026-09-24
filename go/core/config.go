@@ -92,38 +92,47 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "city",
+						"title": "City",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "coordinates",
+						"title": "Coordinates",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "country",
+						"title": "Country",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"title": "Id",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "isAnalysis",
+						"title": "Is Analysis",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "isMobile",
+						"title": "Is Mobile",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "location",
+						"title": "Location",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "parameters",
+						"title": "Parameters",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "sources",
+						"title": "Sources",
 						"type": "`$ARRAY`",
 					},
 				},
@@ -138,79 +147,87 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "city",
-											"orig": "city",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "coordinate",
-											"orig": "coordinate",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "country",
-											"orig": "country",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": 100,
-											"kind": "query",
-											"name": "limit",
-											"orig": "limit",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "location",
-											"orig": "location",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "order_by",
-											"orig": "order_by",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": 1,
-											"kind": "query",
-											"name": "page",
-											"orig": "page",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "parameter",
-											"orig": "parameter",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "radius",
-											"orig": "radius",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": "asc",
-											"kind": "query",
-											"name": "sort",
-											"orig": "sort",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/locations",
 								"segments": []any{
 									map[string]any{
 										"lit": "locations",
+									},
+								},
+								"parts": []any{
+									"locations",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "city",
+											"orig": "city",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "coordinate",
+											"orig": "coordinate",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "country",
+											"orig": "country",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "limit",
+											"orig": "limit",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 100,
+										},
+										map[string]any{
+											"name": "location",
+											"orig": "location",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "order_by",
+											"orig": "order_by",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "page",
+											"orig": "page",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 1,
+										},
+										map[string]any{
+											"name": "parameter",
+											"orig": "parameter",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "radius",
+											"orig": "radius",
+											"type": "`$INTEGER`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "sort",
+											"orig": "sort",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "asc",
+										},
 									},
 								},
 								"select": map[string]any{
@@ -227,13 +244,6 @@ func MakeConfig() map[string]any {
 										"sort",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"locations",
-								},
 							},
 						},
 					},
@@ -246,54 +256,67 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "city",
+						"title": "City",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "coordinates",
+						"title": "Coordinates",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "country",
+						"title": "Country",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "date",
+						"title": "Date",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "entity",
+						"title": "Entity",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "isAnalysis",
+						"title": "Is Analysis",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "isMobile",
+						"title": "Is Mobile",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "location",
+						"title": "Location",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "locationId",
+						"title": "Location Id",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "parameter",
+						"title": "Parameter",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "sensorType",
+						"title": "Sensor Type",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "unit",
+						"title": "Unit",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "value",
+						"title": "Value",
 						"type": "`$NUMBER`",
 					},
 				},
@@ -304,112 +327,120 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "city",
-											"orig": "city",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "coordinate",
-											"orig": "coordinate",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "country",
-											"orig": "country",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": "2024-01-01T00:00:00Z",
-											"kind": "query",
-											"name": "date_from",
-											"orig": "date_from",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": "2024-01-31T23:59:59Z",
-											"kind": "query",
-											"name": "date_to",
-											"orig": "date_to",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": 100,
-											"kind": "query",
-											"name": "limit",
-											"orig": "limit",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "location",
-											"orig": "location",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "location_id",
-											"orig": "location_id",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": "datetime",
-											"kind": "query",
-											"name": "order_by",
-											"orig": "order_by",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": 1,
-											"kind": "query",
-											"name": "page",
-											"orig": "page",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "parameter",
-											"orig": "parameter",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "radius",
-											"orig": "radius",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": "desc",
-											"kind": "query",
-											"name": "sort",
-											"orig": "sort",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "value_from",
-											"orig": "value_from",
-											"type": "`$NUMBER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "value_to",
-											"orig": "value_to",
-											"type": "`$NUMBER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/measurements",
 								"segments": []any{
 									map[string]any{
 										"lit": "measurements",
+									},
+								},
+								"parts": []any{
+									"measurements",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "city",
+											"orig": "city",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "coordinate",
+											"orig": "coordinate",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "country",
+											"orig": "country",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "date_from",
+											"orig": "date_from",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "2024-01-01T00:00:00Z",
+										},
+										map[string]any{
+											"name": "date_to",
+											"orig": "date_to",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "2024-01-31T23:59:59Z",
+										},
+										map[string]any{
+											"name": "limit",
+											"orig": "limit",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 100,
+										},
+										map[string]any{
+											"name": "location",
+											"orig": "location",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "location_id",
+											"orig": "location_id",
+											"type": "`$INTEGER`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "order_by",
+											"orig": "order_by",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "datetime",
+										},
+										map[string]any{
+											"name": "page",
+											"orig": "page",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 1,
+										},
+										map[string]any{
+											"name": "parameter",
+											"orig": "parameter",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "radius",
+											"orig": "radius",
+											"type": "`$INTEGER`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "sort",
+											"orig": "sort",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "desc",
+										},
+										map[string]any{
+											"name": "value_from",
+											"orig": "value_from",
+											"type": "`$NUMBER`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "value_to",
+											"orig": "value_to",
+											"type": "`$NUMBER`",
+											"kind": "query",
+										},
 									},
 								},
 								"select": map[string]any{
@@ -430,13 +461,6 @@ func MakeConfig() map[string]any {
 										"value_from",
 										"value_to",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"measurements",
 								},
 							},
 						},
