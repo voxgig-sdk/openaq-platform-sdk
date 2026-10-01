@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 OpenaqPlatformUtility::setRegistrar(function (OpenaqPlatformUtility $u): void {
     $u->clean = [OpenaqPlatformClean::class, 'call'];
+    $u->clean_add = [OpenaqPlatformClean::class, 'add'];
+    $u->clean_explain = [OpenaqPlatformDone::class, 'clean_explain'];
     $u->done = [OpenaqPlatformDone::class, 'call'];
     $u->make_error = [OpenaqPlatformMakeError::class, 'call'];
     $u->feature_add = [OpenaqPlatformFeatureAdd::class, 'call'];

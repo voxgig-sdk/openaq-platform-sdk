@@ -157,7 +157,7 @@ local function make_config()
                 ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.results`",
                 },
                 ["args"] = {
                   ["query"] = {
@@ -169,7 +169,7 @@ local function make_config()
                     },
                     {
                       ["name"] = "coordinate",
-                      ["orig"] = "coordinate",
+                      ["orig"] = "coordinates",
                       ["type"] = "`$STRING`",
                       ["kind"] = "query",
                     },
@@ -337,7 +337,7 @@ local function make_config()
                 ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.results`",
                 },
                 ["args"] = {
                   ["query"] = {
@@ -349,7 +349,7 @@ local function make_config()
                     },
                     {
                       ["name"] = "coordinate",
-                      ["orig"] = "coordinate",
+                      ["orig"] = "coordinates",
                       ["type"] = "`$STRING`",
                       ["kind"] = "query",
                     },

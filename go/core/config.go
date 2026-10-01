@@ -161,7 +161,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.results`",
 								},
 								"args": map[string]any{
 									"query": []any{
@@ -173,7 +173,7 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "coordinate",
-											"orig": "coordinate",
+											"orig": "coordinates",
 											"type": "`$STRING`",
 											"kind": "query",
 										},
@@ -341,7 +341,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.results`",
 								},
 								"args": map[string]any{
 									"query": []any{
@@ -353,7 +353,7 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "coordinate",
-											"orig": "coordinate",
+											"orig": "coordinates",
 											"type": "`$STRING`",
 											"kind": "query",
 										},

@@ -183,7 +183,7 @@ class OpenaqPlatformConfig
                   'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
-                    'res' => '`body`',
+                    'res' => '`body.results`',
                   ],
                   'args' => [
                     'query' => [
@@ -195,7 +195,7 @@ class OpenaqPlatformConfig
                       ],
                       [
                         'name' => 'coordinate',
-                        'orig' => 'coordinate',
+                        'orig' => 'coordinates',
                         'type' => '`$STRING`',
                         'kind' => 'query',
                       ],
@@ -363,7 +363,7 @@ class OpenaqPlatformConfig
                   'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
-                    'res' => '`body`',
+                    'res' => '`body.results`',
                   ],
                   'args' => [
                     'query' => [
@@ -375,7 +375,7 @@ class OpenaqPlatformConfig
                       ],
                       [
                         'name' => 'coordinate',
-                        'orig' => 'coordinate',
+                        'orig' => 'coordinates',
                         'type' => '`$STRING`',
                         'kind' => 'query',
                       ],

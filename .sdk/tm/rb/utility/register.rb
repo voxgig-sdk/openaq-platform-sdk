@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 OpenaqPlatformUtility.registrar = ->(u) {
   u.clean = OpenaqPlatformUtilities::Clean
+  u.clean_add = OpenaqPlatformUtilities::CleanAdd
+  u.clean_explain = OpenaqPlatformUtilities::CleanExplain
   u.done = OpenaqPlatformUtilities::Done
   u.make_error = OpenaqPlatformUtilities::MakeError
   u.feature_add = OpenaqPlatformUtilities::FeatureAdd

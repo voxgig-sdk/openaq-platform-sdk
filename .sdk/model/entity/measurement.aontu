@@ -108,7 +108,7 @@ main: kit: entity: measurement: {
               {
                 k: "query"
                 n: "coordinate"
-                or: "coordinate"
+                or: "coordinates"
                 r: false
                 t: "`$STRING`"
               }
@@ -239,7 +239,7 @@ main: kit: entity: measurement: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.results`"
           }
         }
       ]

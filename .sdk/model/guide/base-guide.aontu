@@ -11,12 +11,14 @@ guide: {
   entity: location: {
     path: "/locations": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
     }
   }
 
   entity: measurement: {
     path: "/measurements": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
     }
   }
 
