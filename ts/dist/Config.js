@@ -87,6 +87,7 @@ class Config {
             },
             "optspec": {
                 "clearTimer": "`$FUNCTION`",
+                "now": "`$FUNCTION`",
                 "setTimer": "`$FUNCTION`"
             },
             "strict": false,
@@ -185,7 +186,8 @@ class Config {
                                         "name": "city",
                                         "orig": "city",
                                         "type": "`$STRING`",
-                                        "kind": "query"
+                                        "kind": "query",
+                                        "field": true
                                     },
                                     {
                                         "name": "coordinate",
@@ -197,7 +199,8 @@ class Config {
                                         "name": "country",
                                         "orig": "country",
                                         "type": "`$STRING`",
-                                        "kind": "query"
+                                        "kind": "query",
+                                        "field": true
                                     },
                                     {
                                         "name": "limit",
@@ -210,7 +213,8 @@ class Config {
                                         "name": "location",
                                         "orig": "location",
                                         "type": "`$STRING`",
-                                        "kind": "query"
+                                        "kind": "query",
+                                        "field": true
                                     },
                                     {
                                         "name": "order_by",
@@ -246,19 +250,10 @@ class Config {
                                     }
                                 ]
                             },
-                            "select": {
-                                "exist": [
-                                    "city",
-                                    "coordinate",
-                                    "country",
-                                    "limit",
-                                    "location",
-                                    "order_by",
-                                    "page",
-                                    "parameter",
-                                    "radius",
-                                    "sort"
-                                ]
+                            "select": {},
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
                             }
                         }
                     ]
@@ -365,7 +360,8 @@ class Config {
                                         "name": "city",
                                         "orig": "city",
                                         "type": "`$STRING`",
-                                        "kind": "query"
+                                        "kind": "query",
+                                        "field": true
                                     },
                                     {
                                         "name": "coordinate",
@@ -377,7 +373,8 @@ class Config {
                                         "name": "country",
                                         "orig": "country",
                                         "type": "`$STRING`",
-                                        "kind": "query"
+                                        "kind": "query",
+                                        "field": true
                                     },
                                     {
                                         "name": "date_from",
@@ -404,7 +401,8 @@ class Config {
                                         "name": "location",
                                         "orig": "location",
                                         "type": "`$STRING`",
-                                        "kind": "query"
+                                        "kind": "query",
+                                        "field": true
                                     },
                                     {
                                         "name": "location_id",
@@ -430,7 +428,8 @@ class Config {
                                         "name": "parameter",
                                         "orig": "parameter",
                                         "type": "`$STRING`",
-                                        "kind": "query"
+                                        "kind": "query",
+                                        "field": true
                                     },
                                     {
                                         "name": "radius",
@@ -459,24 +458,10 @@ class Config {
                                     }
                                 ]
                             },
-                            "select": {
-                                "exist": [
-                                    "city",
-                                    "coordinate",
-                                    "country",
-                                    "date_from",
-                                    "date_to",
-                                    "limit",
-                                    "location",
-                                    "location_id",
-                                    "order_by",
-                                    "page",
-                                    "parameter",
-                                    "radius",
-                                    "sort",
-                                    "value_from",
-                                    "value_to"
-                                ]
+                            "select": {},
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
                             }
                         }
                     ]

@@ -96,6 +96,7 @@ def make_config():
         },
         "optspec": {
           "clearTimer": "`$FUNCTION`",
+          "now": "`$FUNCTION`",
           "setTimer": "`$FUNCTION`",
         },
         "strict": False,
@@ -195,6 +196,7 @@ def make_config():
                       "orig": "city",
                       "type": "`$STRING`",
                       "kind": "query",
+                      "field": True,
                     },
                     {
                       "name": "coordinate",
@@ -207,6 +209,7 @@ def make_config():
                       "orig": "country",
                       "type": "`$STRING`",
                       "kind": "query",
+                      "field": True,
                     },
                     {
                       "name": "limit",
@@ -220,6 +223,7 @@ def make_config():
                       "orig": "location",
                       "type": "`$STRING`",
                       "kind": "query",
+                      "field": True,
                     },
                     {
                       "name": "order_by",
@@ -255,19 +259,10 @@ def make_config():
                     },
                   ],
                 },
-                "select": {
-                  "exist": [
-                    "city",
-                    "coordinate",
-                    "country",
-                    "limit",
-                    "location",
-                    "order_by",
-                    "page",
-                    "parameter",
-                    "radius",
-                    "sort",
-                  ],
+                "select": {},
+                "response": {
+                  "kind": "json",
+                  "media": "application/json",
                 },
               },
             ],
@@ -375,6 +370,7 @@ def make_config():
                       "orig": "city",
                       "type": "`$STRING`",
                       "kind": "query",
+                      "field": True,
                     },
                     {
                       "name": "coordinate",
@@ -387,6 +383,7 @@ def make_config():
                       "orig": "country",
                       "type": "`$STRING`",
                       "kind": "query",
+                      "field": True,
                     },
                     {
                       "name": "date_from",
@@ -414,6 +411,7 @@ def make_config():
                       "orig": "location",
                       "type": "`$STRING`",
                       "kind": "query",
+                      "field": True,
                     },
                     {
                       "name": "location_id",
@@ -440,6 +438,7 @@ def make_config():
                       "orig": "parameter",
                       "type": "`$STRING`",
                       "kind": "query",
+                      "field": True,
                     },
                     {
                       "name": "radius",
@@ -468,24 +467,10 @@ def make_config():
                     },
                   ],
                 },
-                "select": {
-                  "exist": [
-                    "city",
-                    "coordinate",
-                    "country",
-                    "date_from",
-                    "date_to",
-                    "limit",
-                    "location",
-                    "location_id",
-                    "order_by",
-                    "page",
-                    "parameter",
-                    "radius",
-                    "sort",
-                    "value_from",
-                    "value_to",
-                  ],
+                "select": {},
+                "response": {
+                  "kind": "json",
+                  "media": "application/json",
                 },
               },
             ],

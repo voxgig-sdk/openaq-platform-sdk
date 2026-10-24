@@ -9,7 +9,7 @@ import { createLiveTransport } from '../../live-runner'
 import { runLiveEntity } from '../../live-entity'
 
 
-import { OpenaqPlatformSDK, BaseFeature, stdutil } from '../../..'
+import { OpenaqPlatformSDK, BaseFeature, config, stdutil } from '../../..'
 
 import {
   envOverride,
@@ -41,6 +41,64 @@ describe('LocationEntity', async () => {
   })
 
 
+  class FailHook extends BaseFeature {
+    name = 'failhook'
+    version = '0.0.1'
+    active = true
+    unexpected = 0
+    init() { }
+    PreSpec() { throw new Error('location hook failed') }
+    PreUnexpected() { this.unexpected++ }
+  }
+
+  test('stream-error', async () => {
+    const offline = { net: { offline: true } }
+    await assert.rejects(async () => {
+      for await (const _item of OpenaqPlatformSDK.test(offline).Location().stream('list')) { }
+    }, /offline/)
+
+    for await (const _item of OpenaqPlatformSDK.test(offline).Location()
+      .stream('list', undefined, { ctrl: { throw: false } })) { }
+
+    if (null != (config as any).feature?.rbac) {
+      const denied = OpenaqPlatformSDK.test(undefined, { feature: { rbac: { active: true, deny: true } } })
+      await assert.rejects(async () => {
+        for await (const _item of denied.Location().stream('list')) { }
+      }, (err: any) => 'rbac_denied' === err.code)
+    }
+  })
+
+  test('stream-ctrl', async () => {
+    const explain: any = {}
+    const ctrl: any = { explain }
+    for await (const _item of OpenaqPlatformSDK.test().Location().stream('list', undefined, { ctrl })) { }
+    assert.deepStrictEqual(Object.keys(ctrl), ['explain'])
+    assert(explain === ctrl.explain && 0 < Object.keys(explain).length)
+  })
+
+  test('unexpected', async () => {
+    const hook = new FailHook()
+    const client = new OpenaqPlatformSDK({ feature: { test: { active: true } }, extend: [hook] })
+    await assert.rejects(client.Location().list(), /hook failed/)
+    assert(0 < hook.unexpected)
+
+    const fired = hook.unexpected
+    assert.strictEqual(await client.Location().list(undefined, { throw: false }), undefined)
+    assert(fired < hook.unexpected)
+  })
+
+  test('validate', async (t) => {
+    if (null == (config as any).feature?.validate) {
+      t.skip('feature not present in this SDK: validate')
+      return
+    }
+    const client = OpenaqPlatformSDK.test(undefined, { feature: { validate: { active: true } } })
+    await assert.rejects(client.Location().list({"city":1} as any),
+      (err: any) => 'validate_failed' === err.code)
+  })
+
+
+
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.OPENAQ_PLATFORM_TEST_LIVE
@@ -51,7 +109,7 @@ describe('LocationEntity', async () => {
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"city":{"a":true,"h":"City","n":"city","r":false,"t":"`$STRING`","key$":"city","index$":0},"coordinates":{"a":true,"h":"Coordinates","n":"coordinates","r":false,"t":"`$OBJECT`","key$":"coordinates","index$":1},"country":{"a":true,"h":"Country","n":"country","r":false,"t":"`$STRING`","key$":"country","index$":2},"id":{"a":true,"h":"Id","n":"id","r":false,"t":"`$INTEGER`","key$":"id","index$":3},"isAnalysis":{"a":true,"h":"Is Analysis","n":"isAnalysis","r":false,"t":"`$BOOLEAN`","key$":"isAnalysis","index$":4},"isMobile":{"a":true,"h":"Is Mobile","n":"isMobile","r":false,"t":"`$BOOLEAN`","key$":"isMobile","index$":5},"location":{"a":true,"h":"Location","n":"location","r":false,"t":"`$STRING`","key$":"location","index$":6},"parameters":{"a":true,"h":"Parameters","n":"parameters","r":false,"t":"`$ARRAY`","key$":"parameters","index$":7},"sources":{"a":true,"h":"Sources","n":"sources","r":false,"t":"`$ARRAY`","key$":"sources","index$":8}},"id":{"field":"id","name":"id"},"name":"location","op":{"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /locations","source":"openapi3","version":2},"g":{"query":[{"a":true,"k":"query","n":"city","or":"city","r":false,"t":"`$STRING`","index$":0},{"a":true,"k":"query","n":"coordinate","or":"coordinates","r":false,"t":"`$STRING`","index$":1},{"a":true,"k":"query","n":"country","or":"country","r":false,"t":"`$STRING`","index$":2},{"a":true,"ex":100,"k":"query","n":"limit","or":"limit","r":false,"t":"`$INTEGER`","index$":3},{"a":true,"k":"query","n":"location","or":"location","r":false,"t":"`$STRING`","index$":4},{"a":true,"k":"query","n":"order_by","or":"order_by","r":false,"t":"`$STRING`","index$":5},{"a":true,"ex":1,"k":"query","n":"page","or":"page","r":false,"t":"`$INTEGER`","index$":6},{"a":true,"k":"query","n":"parameter","or":"parameter","r":false,"t":"`$STRING`","index$":7},{"a":true,"k":"query","n":"radius","or":"radius","r":false,"t":"`$INTEGER`","index$":8},{"a":true,"ex":"asc","k":"query","n":"sort","or":"sort","r":false,"t":"`$STRING`","index$":9}]},"k":"http","m":"GET","o":"/locations","q":{"exist":["city","coordinate","country","limit","location","order_by","page","parameter","radius","sort"]},"r":{},"s":[{"lit":"locations"}],"t":{"req":"`reqdata`","res":"`body.results`"},"index$":0}],"key$":"list"}},"relations":{"ancestors":[]},"key$":"location","name__orig":"location","Name":"Location","name_":"location","name-":"location","NAME":"LOCATION","index$":0}, {"active":true,"entity":"location","key$":"BasicLocationFlow","kind":"basic","name":"BasicLocationFlow","param":{},"step":[{"a":true,"d":{},"i":{},"m":{},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"location_ref01"}}],"index$":0}]}, 'Location', {"GET /locations":{"protocol":"http","parameters":[{"name":"limit","in":"query","description":"Number of results to return (max 1000)","schema":{"type":"integer","default":100,"minimum":1,"maximum":1000},"index$":0},{"name":"page","in":"query","description":"Page number for pagination","schema":{"type":"integer","default":1,"minimum":1},"index$":1},{"name":"country","in":"query","description":"Filter by country code (ISO 3166-1 alpha-2)","schema":{"type":"string","pattern":"^[A-Z]{2}$"},"index$":2},{"name":"city","in":"query","description":"Filter by city name","schema":{"type":"string"},"index$":3},{"name":"location","in":"query","description":"Filter by location name or ID","schema":{"type":"string"},"index$":4},{"name":"parameter","in":"query","description":"Filter by parameter (e.g., pm25, pm10, o3, no2, so2, co)","schema":{"type":"string","enum":["pm25","pm10","o3","no2","so2","co","bc"]},"index$":5},{"name":"coordinates","in":"query","description":"Center point for radius search (latitude,longitude)","schema":{"type":"string","pattern":"^-?\\d+\\.\\d+,-?\\d+\\.\\d+$"},"index$":6},{"name":"radius","in":"query","description":"Radius in meters for coordinate-based search (used with coordinates parameter)","schema":{"type":"integer","minimum":1,"maximum":100000},"index$":7},{"name":"order_by","in":"query","description":"Field to order results by","schema":{"type":"string","enum":["city","country","location","firstUpdated","lastUpdated"]},"index$":8},{"name":"sort","in":"query","description":"Sort order","schema":{"type":"string","enum":["asc","desc"],"default":"asc"},"index$":9}]}})
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"city":{"a":true,"h":"City","n":"city","r":false,"t":"`$STRING`","key$":"city","index$":0},"coordinates":{"a":true,"h":"Coordinates","n":"coordinates","r":false,"t":"`$OBJECT`","key$":"coordinates","index$":1},"country":{"a":true,"h":"Country","n":"country","r":false,"t":"`$STRING`","key$":"country","index$":2},"id":{"a":true,"h":"Id","n":"id","r":false,"t":"`$INTEGER`","key$":"id","index$":3},"isAnalysis":{"a":true,"h":"Is Analysis","n":"isAnalysis","r":false,"t":"`$BOOLEAN`","key$":"isAnalysis","index$":4},"isMobile":{"a":true,"h":"Is Mobile","n":"isMobile","r":false,"t":"`$BOOLEAN`","key$":"isMobile","index$":5},"location":{"a":true,"h":"Location","n":"location","r":false,"t":"`$STRING`","key$":"location","index$":6},"parameters":{"a":true,"h":"Parameters","n":"parameters","r":false,"t":"`$ARRAY`","key$":"parameters","index$":7},"sources":{"a":true,"h":"Sources","n":"sources","r":false,"t":"`$ARRAY`","key$":"sources","index$":8}},"id":{"field":"id","name":"id"},"name":"location","op":{"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /locations","source":"openapi3","version":2},"g":{"query":[{"a":true,"k":"query","n":"city","or":"city","r":false,"t":"`$STRING`","index$":0},{"a":true,"k":"query","n":"coordinate","or":"coordinates","r":false,"t":"`$STRING`","index$":1},{"a":true,"k":"query","n":"country","or":"country","r":false,"t":"`$STRING`","index$":2},{"a":true,"ex":100,"k":"query","n":"limit","or":"limit","r":false,"t":"`$INTEGER`","index$":3},{"a":true,"k":"query","n":"location","or":"location","r":false,"t":"`$STRING`","index$":4},{"a":true,"k":"query","n":"order_by","or":"order_by","r":false,"t":"`$STRING`","index$":5},{"a":true,"ex":1,"k":"query","n":"page","or":"page","r":false,"t":"`$INTEGER`","index$":6},{"a":true,"k":"query","n":"parameter","or":"parameter","r":false,"t":"`$STRING`","index$":7},{"a":true,"k":"query","n":"radius","or":"radius","r":false,"t":"`$INTEGER`","index$":8},{"a":true,"ex":"asc","k":"query","n":"sort","or":"sort","r":false,"t":"`$STRING`","index$":9}]},"k":"http","m":"GET","o":"/locations","q":{},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"locations"}],"t":{"req":"`reqdata`","res":"`body.results`"},"index$":0}],"key$":"list"}},"relations":{"ancestors":[]},"key$":"location","name__orig":"location","Name":"Location","name_":"location","name-":"location","NAME":"LOCATION","index$":0}, {"active":true,"entity":"location","key$":"BasicLocationFlow","kind":"basic","name":"BasicLocationFlow","param":{},"step":[{"a":true,"d":{},"i":{},"m":{},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"location_ref01"}}],"index$":0}]}, 'Location', {"GET /locations":{"protocol":"http","parameters":[{"name":"limit","in":"query","description":"Number of results to return (max 1000)","schema":{"type":"integer","default":100,"minimum":1,"maximum":1000},"index$":0},{"name":"page","in":"query","description":"Page number for pagination","schema":{"type":"integer","default":1,"minimum":1},"index$":1},{"name":"country","in":"query","description":"Filter by country code (ISO 3166-1 alpha-2)","schema":{"type":"string","pattern":"^[A-Z]{2}$"},"index$":2},{"name":"city","in":"query","description":"Filter by city name","schema":{"type":"string"},"index$":3},{"name":"location","in":"query","description":"Filter by location name or ID","schema":{"type":"string"},"index$":4},{"name":"parameter","in":"query","description":"Filter by parameter (e.g., pm25, pm10, o3, no2, so2, co)","schema":{"type":"string","enum":["pm25","pm10","o3","no2","so2","co","bc"]},"index$":5},{"name":"coordinates","in":"query","description":"Center point for radius search (latitude,longitude)","schema":{"type":"string","pattern":"^-?\\d+\\.\\d+,-?\\d+\\.\\d+$"},"index$":6},{"name":"radius","in":"query","description":"Radius in meters for coordinate-based search (used with coordinates parameter)","schema":{"type":"integer","minimum":1,"maximum":100000},"index$":7},{"name":"order_by","in":"query","description":"Field to order results by","schema":{"type":"string","enum":["city","country","location","firstUpdated","lastUpdated"]},"index$":8},{"name":"sort","in":"query","description":"Sort order","schema":{"type":"string","enum":["asc","desc"],"default":"asc"},"index$":9}]}}, { strict: LIVE_STRICT, t })
     }
     const client = setup.client
     const struct = setup.struct
@@ -72,6 +130,12 @@ describe('LocationEntity', async () => {
 })
 
 
+
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true
 
 function basicSetup(extra?: any) {
   // TODO: fix test def options

@@ -12,6 +12,8 @@ type OpenaqPlatformError struct {
 	Ctx    *Context `json:"-"`
 	Result any
 	Spec   any
+	// The HTTP status, -1 when there was no response.
+	Status int
 }
 
 func NewOpenaqPlatformError(code string, msg string, ctx *Context) *OpenaqPlatformError {
@@ -21,7 +23,12 @@ func NewOpenaqPlatformError(code string, msg string, ctx *Context) *OpenaqPlatfo
 		Code:               code,
 		Msg:                msg,
 		Ctx:                ctx,
+		Status:             -1,
 	}
+}
+
+func (e *OpenaqPlatformError) NotFound() bool {
+	return 404 == e.Status
 }
 
 func (e *OpenaqPlatformError) Error() string {
@@ -35,6 +42,7 @@ func (e *OpenaqPlatformError) Record() map[string]any {
 		"sdk":     e.Sdk,
 		"code":    e.Code,
 		"message": e.Msg,
+		"status":  e.Status,
 		"result":  e.Result,
 		"spec":    e.Spec,
 	}

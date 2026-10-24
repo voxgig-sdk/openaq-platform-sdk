@@ -19,15 +19,19 @@ const PLAN: any[] = [
       "city": "v1",
       "coordinate": "v1",
       "country": "v1",
-      "limit": "v1",
+      "limit": 100,
       "location": "v1",
       "order_by": "v1",
-      "page": "v1",
+      "page": 1,
       "parameter": "v1",
       "radius": "v1",
-      "sort": "v1"
+      "sort": "asc"
     },
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [
       "limit",
       "page",
@@ -40,39 +44,81 @@ const PLAN: any[] = [
       "order_by",
       "sort"
     ],
+    "queryArgs": [
+      {
+        "name": "city",
+        "wire": "city"
+      },
+      {
+        "name": "coordinate",
+        "wire": "coordinates"
+      },
+      {
+        "name": "country",
+        "wire": "country"
+      },
+      {
+        "name": "limit",
+        "wire": "limit"
+      },
+      {
+        "name": "location",
+        "wire": "location"
+      },
+      {
+        "name": "order_by",
+        "wire": "order_by"
+      },
+      {
+        "name": "page",
+        "wire": "page"
+      },
+      {
+        "name": "parameter",
+        "wire": "parameter"
+      },
+      {
+        "name": "radius",
+        "wire": "radius"
+      },
+      {
+        "name": "sort",
+        "wire": "sort"
+      }
+    ],
     "auth": null,
     "status": 200,
     "sample": {
       "meta": {
-        "found": 50000,
-        "license": "CC BY 4.0",
-        "limit": 100,
         "name": "openaq-api",
+        "license": "CC BY 4.0",
+        "website": "https://docs.openaq.org/",
         "page": 1,
-        "website": "https://docs.openaq.org/"
+        "limit": 100,
+        "found": 50000
       },
       "results": [
         {
+          "id": 12345,
+          "country": "US",
           "city": "Los Angeles",
+          "location": "Downtown LA",
           "coordinates": {
             "latitude": 34.0522,
             "longitude": -118.2437
           },
-          "country": "US",
-          "id": 12345,
-          "isAnalysis": false,
           "isMobile": false,
-          "location": "Downtown LA",
+          "isAnalysis": false,
           "parameters": [
             {
-              "count": 50000,
-              "displayName": "PM2.5",
-              "firstUpdated": "2020-01-01T00:00:00Z",
               "id": 1,
-              "lastUpdated": "2024-01-01T12:00:00Z",
-              "lastValue": 12.5,
               "parameter": "pm25",
-              "unit": "µg/m³"
+              "displayName": "PM2.5",
+              "unit": "µg/m³",
+              "count": 50000,
+              "lastValue": 12.5,
+              "firstUpdated": "2020-01-01T00:00:00Z",
+              "lastUpdated": "2024-01-01T12:00:00Z"
             }
           ],
           "sources": [
@@ -100,18 +146,22 @@ const PLAN: any[] = [
       "country": "v1",
       "date_from": "2024-01-01T00:00:00Z",
       "date_to": "2024-01-31T23:59:59Z",
-      "limit": "v1",
+      "limit": 100,
       "location": "v1",
       "location_id": "v1",
-      "order_by": "v1",
-      "page": "v1",
+      "order_by": "datetime",
+      "page": 1,
       "parameter": "v1",
       "radius": "v1",
-      "sort": "v1",
+      "sort": "desc",
       "value_from": "v1",
       "value_to": "v1"
     },
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [
       "limit",
       "page",
@@ -129,38 +179,100 @@ const PLAN: any[] = [
       "order_by",
       "sort"
     ],
+    "queryArgs": [
+      {
+        "name": "city",
+        "wire": "city"
+      },
+      {
+        "name": "coordinate",
+        "wire": "coordinates"
+      },
+      {
+        "name": "country",
+        "wire": "country"
+      },
+      {
+        "name": "date_from",
+        "wire": "date_from"
+      },
+      {
+        "name": "date_to",
+        "wire": "date_to"
+      },
+      {
+        "name": "limit",
+        "wire": "limit"
+      },
+      {
+        "name": "location",
+        "wire": "location"
+      },
+      {
+        "name": "location_id",
+        "wire": "location_id"
+      },
+      {
+        "name": "order_by",
+        "wire": "order_by"
+      },
+      {
+        "name": "page",
+        "wire": "page"
+      },
+      {
+        "name": "parameter",
+        "wire": "parameter"
+      },
+      {
+        "name": "radius",
+        "wire": "radius"
+      },
+      {
+        "name": "sort",
+        "wire": "sort"
+      },
+      {
+        "name": "value_from",
+        "wire": "value_from"
+      },
+      {
+        "name": "value_to",
+        "wire": "value_to"
+      }
+    ],
     "auth": null,
     "status": 200,
     "sample": {
       "meta": {
-        "found": 5000000,
-        "license": "CC BY 4.0",
-        "limit": 100,
         "name": "openaq-api",
+        "license": "CC BY 4.0",
+        "website": "https://docs.openaq.org/",
         "page": 1,
-        "website": "https://docs.openaq.org/"
+        "limit": 100,
+        "found": 5000000
       },
       "results": [
         {
-          "city": "Los Angeles",
+          "locationId": 12345,
+          "location": "Downtown LA",
+          "parameter": "pm25",
+          "value": 12.5,
+          "date": {
+            "utc": "2024-01-01T12:00:00Z",
+            "local": "2024-01-01T04:00:00-08:00"
+          },
+          "unit": "µg/m³",
           "coordinates": {
             "latitude": 34.0522,
             "longitude": -118.2437
           },
           "country": "US",
-          "date": {
-            "local": "2024-01-01T04:00:00-08:00",
-            "utc": "2024-01-01T12:00:00Z"
-          },
-          "entity": "governmental",
-          "isAnalysis": false,
+          "city": "Los Angeles",
           "isMobile": false,
-          "location": "Downtown LA",
-          "locationId": 12345,
-          "parameter": "pm25",
-          "sensorType": "reference grade",
-          "unit": "µg/m³",
-          "value": 12.5
+          "isAnalysis": false,
+          "entity": "governmental",
+          "sensorType": "reference grade"
         }
       ]
     },

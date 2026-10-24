@@ -156,19 +156,9 @@ main: kit: entity: location: {
           }
           m: "GET"
           o: "/locations"
-          q: {
-            exist: [
-              "city"
-              "coordinate"
-              "country"
-              "limit"
-              "location"
-              "order_by"
-              "page"
-              "parameter"
-              "radius"
-              "sort"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

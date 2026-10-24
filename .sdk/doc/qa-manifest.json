@@ -3,5 +3,13 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Largest open-source air quality data platform aggregating historical and real-time air quality data globally. The OpenAQ API provides access to air quality measurements from monitoring stations worldwide.",
+      "Production API server",
+      "Successful response with list of locations",
+      "Successful response with measurement data"
+    ]
+  }
 }

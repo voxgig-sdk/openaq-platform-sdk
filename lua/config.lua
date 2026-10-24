@@ -67,6 +67,7 @@ local function make_config()
         },
         ["optspec"] = {
           ["clearTimer"] = "`$FUNCTION`",
+          ["now"] = "`$FUNCTION`",
           ["setTimer"] = "`$FUNCTION`",
         },
         ["strict"] = false,
@@ -166,6 +167,7 @@ local function make_config()
                       ["orig"] = "city",
                       ["type"] = "`$STRING`",
                       ["kind"] = "query",
+                      ["field"] = true,
                     },
                     {
                       ["name"] = "coordinate",
@@ -178,6 +180,7 @@ local function make_config()
                       ["orig"] = "country",
                       ["type"] = "`$STRING`",
                       ["kind"] = "query",
+                      ["field"] = true,
                     },
                     {
                       ["name"] = "limit",
@@ -191,6 +194,7 @@ local function make_config()
                       ["orig"] = "location",
                       ["type"] = "`$STRING`",
                       ["kind"] = "query",
+                      ["field"] = true,
                     },
                     {
                       ["name"] = "order_by",
@@ -226,19 +230,10 @@ local function make_config()
                     },
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "city",
-                    "coordinate",
-                    "country",
-                    "limit",
-                    "location",
-                    "order_by",
-                    "page",
-                    "parameter",
-                    "radius",
-                    "sort",
-                  },
+                ["select"] = {},
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
                 },
               },
             },
@@ -346,6 +341,7 @@ local function make_config()
                       ["orig"] = "city",
                       ["type"] = "`$STRING`",
                       ["kind"] = "query",
+                      ["field"] = true,
                     },
                     {
                       ["name"] = "coordinate",
@@ -358,6 +354,7 @@ local function make_config()
                       ["orig"] = "country",
                       ["type"] = "`$STRING`",
                       ["kind"] = "query",
+                      ["field"] = true,
                     },
                     {
                       ["name"] = "date_from",
@@ -385,6 +382,7 @@ local function make_config()
                       ["orig"] = "location",
                       ["type"] = "`$STRING`",
                       ["kind"] = "query",
+                      ["field"] = true,
                     },
                     {
                       ["name"] = "location_id",
@@ -411,6 +409,7 @@ local function make_config()
                       ["orig"] = "parameter",
                       ["type"] = "`$STRING`",
                       ["kind"] = "query",
+                      ["field"] = true,
                     },
                     {
                       ["name"] = "radius",
@@ -439,24 +438,10 @@ local function make_config()
                     },
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "city",
-                    "coordinate",
-                    "country",
-                    "date_from",
-                    "date_to",
-                    "limit",
-                    "location",
-                    "location_id",
-                    "order_by",
-                    "page",
-                    "parameter",
-                    "radius",
-                    "sort",
-                    "value_from",
-                    "value_to",
-                  },
+                ["select"] = {},
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
                 },
               },
             },

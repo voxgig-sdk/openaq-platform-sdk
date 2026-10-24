@@ -213,24 +213,9 @@ main: kit: entity: measurement: {
           }
           m: "GET"
           o: "/measurements"
-          q: {
-            exist: [
-              "city"
-              "coordinate"
-              "country"
-              "date_from"
-              "date_to"
-              "limit"
-              "location"
-              "location_id"
-              "order_by"
-              "page"
-              "parameter"
-              "radius"
-              "sort"
-              "value_from"
-              "value_to"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

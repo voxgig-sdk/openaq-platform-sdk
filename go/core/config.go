@@ -71,6 +71,7 @@ func MakeConfig() map[string]any {
 				},
 				"optspec": map[string]any{
 					"clearTimer": "`$FUNCTION`",
+					"now": "`$FUNCTION`",
 					"setTimer": "`$FUNCTION`",
 				},
 				"strict": false,
@@ -170,6 +171,7 @@ func MakeConfig() map[string]any {
 											"orig": "city",
 											"type": "`$STRING`",
 											"kind": "query",
+											"field": true,
 										},
 										map[string]any{
 											"name": "coordinate",
@@ -182,6 +184,7 @@ func MakeConfig() map[string]any {
 											"orig": "country",
 											"type": "`$STRING`",
 											"kind": "query",
+											"field": true,
 										},
 										map[string]any{
 											"name": "limit",
@@ -195,6 +198,7 @@ func MakeConfig() map[string]any {
 											"orig": "location",
 											"type": "`$STRING`",
 											"kind": "query",
+											"field": true,
 										},
 										map[string]any{
 											"name": "order_by",
@@ -230,19 +234,10 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"city",
-										"coordinate",
-										"country",
-										"limit",
-										"location",
-										"order_by",
-										"page",
-										"parameter",
-										"radius",
-										"sort",
-									},
+								"select": map[string]any{},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
 								},
 							},
 						},
@@ -350,6 +345,7 @@ func MakeConfig() map[string]any {
 											"orig": "city",
 											"type": "`$STRING`",
 											"kind": "query",
+											"field": true,
 										},
 										map[string]any{
 											"name": "coordinate",
@@ -362,6 +358,7 @@ func MakeConfig() map[string]any {
 											"orig": "country",
 											"type": "`$STRING`",
 											"kind": "query",
+											"field": true,
 										},
 										map[string]any{
 											"name": "date_from",
@@ -389,6 +386,7 @@ func MakeConfig() map[string]any {
 											"orig": "location",
 											"type": "`$STRING`",
 											"kind": "query",
+											"field": true,
 										},
 										map[string]any{
 											"name": "location_id",
@@ -415,6 +413,7 @@ func MakeConfig() map[string]any {
 											"orig": "parameter",
 											"type": "`$STRING`",
 											"kind": "query",
+											"field": true,
 										},
 										map[string]any{
 											"name": "radius",
@@ -443,24 +442,10 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"city",
-										"coordinate",
-										"country",
-										"date_from",
-										"date_to",
-										"limit",
-										"location",
-										"location_id",
-										"order_by",
-										"page",
-										"parameter",
-										"radius",
-										"sort",
-										"value_from",
-										"value_to",
-									},
+								"select": map[string]any{},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
 								},
 							},
 						},
